@@ -2,7 +2,13 @@
 
 MiniTL is a minimalisting toy model transformation language for [EMF](http://www.eclipse.org/modeling/emf/) models. It enables the definition of transformations, which consist of rules. A rule specifies how to (simply) transform each object of an input model into a new object.
 
+![Example of MiniTL transformation](screenshot.png)
+
 # Compilation and usage
+
+## Organization of the code
+
+
 
 ## Compilation
 
