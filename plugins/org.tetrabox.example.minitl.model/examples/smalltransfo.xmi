@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<minitl:Transformation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:minitl="minitl" name="AtoB">
+  <inputMetamodel href="input.ecore#/"/>
+  <outputMetamodel href="output.ecore#/"/>
+  <rules name="aToBSingleRule">
+    <objectTemplates name="a">
+      <type href="input.ecore#//A"/>
+    </objectTemplates>
+    <objectTemplates name="b">
+      <bindings>
+        <feature xsi:type="ecore:EAttribute" href="output.ecore#//B/b"/>
+        <value xsi:type="minitl:BinaryExpression">
+          <expressions xsi:type="minitl:FieldAccessValue">
+            <object xsi:type="minitl:ObjectTemplateValue" objecttemplate="//@rules.0/@objectTemplates.0"/>
+            <feature xsi:type="ecore:EAttribute" href="input.ecore#//A/a"/>
+          </expressions>
+          <expressions xsi:type="minitl:StringValue" value="_out"/>
+        </value>
+      </bindings>
+      <type href="output.ecore#//B"/>
+    </objectTemplates>
+  </rules>
+</minitl:Transformation>

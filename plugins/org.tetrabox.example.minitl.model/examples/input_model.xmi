@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<input:Root
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:input="input"
+    xsi:schemaLocation="input input.ecore">
+  <a a="1337"/>
+  <a a="42"/>
+  <a a="-10000"/>
+  <a/>
+</input:Root>

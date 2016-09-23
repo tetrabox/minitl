@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:output="output">
+  <output:B b="-10000_out"/>
+  <output:B b="1337_out"/>
+  <output:B b="0_out"/>
+  <output:B b="42_out"/>
+</xmi:XMI>
