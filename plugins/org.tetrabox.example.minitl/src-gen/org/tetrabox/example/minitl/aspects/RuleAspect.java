@@ -16,6 +16,9 @@ import org.tetrabox.example.minitl.aspects.TransformationAspect;
 @Aspect(className = Rule.class)
 @SuppressWarnings("all")
 public class RuleAspect {
+  /**
+   * Applies the rule to each possible match in the input model.
+   */
   @Step
   public static void apply(final Rule _self) {
     final org.tetrabox.example.minitl.aspects.RuleAspectRuleAspectProperties _self_ = org.tetrabox.example.minitl.aspects.RuleAspectRuleAspectContext.getSelf(_self);

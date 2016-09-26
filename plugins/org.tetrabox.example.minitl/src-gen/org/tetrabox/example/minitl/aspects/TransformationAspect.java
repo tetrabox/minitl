@@ -34,9 +34,22 @@ import org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAsp
 @SuppressWarnings("all")
 public class TransformationAspect {
   @InitializeModel
+  @Step
   public static void initialize(final Transformation _self, final List<String> args) {
     final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
-    _privk3_initialize(_self_, _self,args);;
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		_privk3_initialize(_self_, _self,args);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (manager != null) {
+    	manager.executeStep(_self,command,"Transformation","initialize");
+    } else {
+    	command.execute();
+    }
+    ;;
   }
   
   @Main

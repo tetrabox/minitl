@@ -15,10 +15,24 @@ import org.tetrabox.example.minitl.aspects.ValueAspect;
 @Aspect(className = Binding.class)
 @SuppressWarnings("all")
 public class BindingAspect {
+  @Step
   public static boolean check(final Binding _self, final EObject o) {
     final org.tetrabox.example.minitl.aspects.BindingAspectBindingAspectProperties _self_ = org.tetrabox.example.minitl.aspects.BindingAspectBindingAspectContext.getSelf(_self);
     Object result = null;
-    result = _privk3_check(_self_, _self,o);;
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		addToResult(_privk3_check(_self_, _self,o));
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (manager != null) {
+    	manager.executeStep(_self,command,"Binding","check");
+    } else {
+    	command.execute();
+    }
+    result = command.getResult();
+    ;;
     return (boolean)result;
   }
   

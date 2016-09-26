@@ -21,9 +21,22 @@ public class ObjectTemplateAspect {
     _privk3_reset(_self_, _self);;
   }
   
+  @Step
   public static void match(final ObjectTemplate _self, final EObject o) {
     final org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectContext.getSelf(_self);
-    _privk3_match(_self_, _self,o);;
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		_privk3_match(_self_, _self,o);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (manager != null) {
+    	manager.executeStep(_self,command,"ObjectTemplate","match");
+    } else {
+    	command.execute();
+    }
+    ;;
   }
   
   @Step

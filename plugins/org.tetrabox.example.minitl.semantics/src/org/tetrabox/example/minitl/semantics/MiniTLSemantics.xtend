@@ -38,6 +38,7 @@ class TransformationAspect {
 	public String outputFilePath
 
 	@InitializeModel
+	@Step
 	public def void initialize(List<String> args) {
 		_self.inputModelURI = args.get(0)
 		_self.outputFilePath = args.get(1)
