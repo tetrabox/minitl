@@ -3,7 +3,6 @@
 package org.tetrabox.example.minitl.minitl.impl;
 
 import java.util.Collection;
-import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -11,10 +10,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -34,6 +35,8 @@ import org.tetrabox.example.minitl.minitl.Transformation;
  *   <li>{@link org.tetrabox.example.minitl.minitl.impl.TransformationImpl#getInputMetamodel <em>Input Metamodel</em>}</li>
  *   <li>{@link org.tetrabox.example.minitl.minitl.impl.TransformationImpl#getRules <em>Rules</em>}</li>
  *   <li>{@link org.tetrabox.example.minitl.minitl.impl.TransformationImpl#getOutputMetamodel <em>Output Metamodel</em>}</li>
+ *   <li>{@link org.tetrabox.example.minitl.minitl.impl.TransformationImpl#getInputModel <em>Input Model</em>}</li>
+ *   <li>{@link org.tetrabox.example.minitl.minitl.impl.TransformationImpl#getOutputModel <em>Output Model</em>}</li>
  *   <li>{@link org.tetrabox.example.minitl.minitl.impl.TransformationImpl#getInputModelURI <em>Input Model URI</em>}</li>
  *   <li>{@link org.tetrabox.example.minitl.minitl.impl.TransformationImpl#getOutputFilePath <em>Output File Path</em>}</li>
  * </ul>
@@ -70,6 +73,26 @@ public class TransformationImpl extends NamedElementImpl implements Transformati
 	 * @ordered
 	 */
 	protected Metamodel outputMetamodel;
+
+	/**
+	 * The cached value of the '{@link #getInputModel() <em>Input Model</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EObject> inputModel;
+
+	/**
+	 * The cached value of the '{@link #getOutputModel() <em>Output Model</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EObject> outputModel;
 
 	/**
 	 * The default value of the '{@link #getInputModelURI() <em>Input Model URI</em>}' attribute.
@@ -233,6 +256,30 @@ public class TransformationImpl extends NamedElementImpl implements Transformati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<EObject> getInputModel() {
+		if (inputModel == null) {
+			inputModel = new EDataTypeUniqueEList<EObject>(EObject.class, this, MinitlPackage.TRANSFORMATION__INPUT_MODEL);
+		}
+		return inputModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EObject> getOutputModel() {
+		if (outputModel == null) {
+			outputModel = new EDataTypeUniqueEList<EObject>(EObject.class, this, MinitlPackage.TRANSFORMATION__OUTPUT_MODEL);
+		}
+		return outputModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getInputModelURI() {
 		return inputModelURI;
 	}
@@ -297,28 +344,6 @@ public class TransformationImpl extends NamedElementImpl implements Transformati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Set inputModel() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Set outputModel() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -361,6 +386,10 @@ public class TransformationImpl extends NamedElementImpl implements Transformati
 				return getRules();
 			case MinitlPackage.TRANSFORMATION__OUTPUT_METAMODEL:
 				return getOutputMetamodel();
+			case MinitlPackage.TRANSFORMATION__INPUT_MODEL:
+				return getInputModel();
+			case MinitlPackage.TRANSFORMATION__OUTPUT_MODEL:
+				return getOutputModel();
 			case MinitlPackage.TRANSFORMATION__INPUT_MODEL_URI:
 				return getInputModelURI();
 			case MinitlPackage.TRANSFORMATION__OUTPUT_FILE_PATH:
@@ -387,6 +416,14 @@ public class TransformationImpl extends NamedElementImpl implements Transformati
 				return;
 			case MinitlPackage.TRANSFORMATION__OUTPUT_METAMODEL:
 				setOutputMetamodel((Metamodel)newValue);
+				return;
+			case MinitlPackage.TRANSFORMATION__INPUT_MODEL:
+				getInputModel().clear();
+				getInputModel().addAll((Collection<? extends EObject>)newValue);
+				return;
+			case MinitlPackage.TRANSFORMATION__OUTPUT_MODEL:
+				getOutputModel().clear();
+				getOutputModel().addAll((Collection<? extends EObject>)newValue);
 				return;
 			case MinitlPackage.TRANSFORMATION__INPUT_MODEL_URI:
 				setInputModelURI((String)newValue);
@@ -415,6 +452,12 @@ public class TransformationImpl extends NamedElementImpl implements Transformati
 			case MinitlPackage.TRANSFORMATION__OUTPUT_METAMODEL:
 				setOutputMetamodel((Metamodel)null);
 				return;
+			case MinitlPackage.TRANSFORMATION__INPUT_MODEL:
+				getInputModel().clear();
+				return;
+			case MinitlPackage.TRANSFORMATION__OUTPUT_MODEL:
+				getOutputModel().clear();
+				return;
 			case MinitlPackage.TRANSFORMATION__INPUT_MODEL_URI:
 				setInputModelURI(INPUT_MODEL_URI_EDEFAULT);
 				return;
@@ -439,6 +482,10 @@ public class TransformationImpl extends NamedElementImpl implements Transformati
 				return rules != null && !rules.isEmpty();
 			case MinitlPackage.TRANSFORMATION__OUTPUT_METAMODEL:
 				return outputMetamodel != null;
+			case MinitlPackage.TRANSFORMATION__INPUT_MODEL:
+				return inputModel != null && !inputModel.isEmpty();
+			case MinitlPackage.TRANSFORMATION__OUTPUT_MODEL:
+				return outputModel != null && !outputModel.isEmpty();
 			case MinitlPackage.TRANSFORMATION__INPUT_MODEL_URI:
 				return INPUT_MODEL_URI_EDEFAULT == null ? inputModelURI != null : !INPUT_MODEL_URI_EDEFAULT.equals(inputModelURI);
 			case MinitlPackage.TRANSFORMATION__OUTPUT_FILE_PATH:
@@ -457,7 +504,11 @@ public class TransformationImpl extends NamedElementImpl implements Transformati
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (inputModelURI: ");
+		result.append(" (inputModel: ");
+		result.append(inputModel);
+		result.append(", outputModel: ");
+		result.append(outputModel);
+		result.append(", inputModelURI: ");
 		result.append(inputModelURI);
 		result.append(", outputFilePath: ");
 		result.append(outputFilePath);

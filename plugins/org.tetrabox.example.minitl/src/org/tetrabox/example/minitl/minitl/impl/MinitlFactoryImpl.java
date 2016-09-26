@@ -2,8 +2,6 @@
  */
 package org.tetrabox.example.minitl.minitl.impl;
 
-import java.util.Set;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -87,8 +85,6 @@ public class MinitlFactoryImpl extends EFactoryImpl implements MinitlFactory {
 				return createObjectFromString(eDataType, initialValue);
 			case MinitlPackage.EOBJECT:
 				return createEObjectFromString(eDataType, initialValue);
-			case MinitlPackage.SET:
-				return createSetFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -108,8 +104,6 @@ public class MinitlFactoryImpl extends EFactoryImpl implements MinitlFactory {
 				return convertObjectToString(eDataType, instanceValue);
 			case MinitlPackage.EOBJECT:
 				return convertEObjectToString(eDataType, instanceValue);
-			case MinitlPackage.SET:
-				return convertSetToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -258,24 +252,6 @@ public class MinitlFactoryImpl extends EFactoryImpl implements MinitlFactory {
 	 * @generated
 	 */
 	public String convertEObjectToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Set createSetFromString(EDataType eDataType, String initialValue) {
-		return (Set)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertSetToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

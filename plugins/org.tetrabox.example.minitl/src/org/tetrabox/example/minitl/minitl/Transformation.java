@@ -2,9 +2,9 @@
  */
 package org.tetrabox.example.minitl.minitl;
 
-import java.util.Set;
-
 import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +18,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.tetrabox.example.minitl.minitl.Transformation#getInputMetamodel <em>Input Metamodel</em>}</li>
  *   <li>{@link org.tetrabox.example.minitl.minitl.Transformation#getRules <em>Rules</em>}</li>
  *   <li>{@link org.tetrabox.example.minitl.minitl.Transformation#getOutputMetamodel <em>Output Metamodel</em>}</li>
+ *   <li>{@link org.tetrabox.example.minitl.minitl.Transformation#getInputModel <em>Input Model</em>}</li>
+ *   <li>{@link org.tetrabox.example.minitl.minitl.Transformation#getOutputModel <em>Output Model</em>}</li>
  *   <li>{@link org.tetrabox.example.minitl.minitl.Transformation#getInputModelURI <em>Input Model URI</em>}</li>
  *   <li>{@link org.tetrabox.example.minitl.minitl.Transformation#getOutputFilePath <em>Output File Path</em>}</li>
  * </ul>
@@ -98,6 +100,38 @@ public interface Transformation extends NamedElement {
 	void setOutputMetamodel(Metamodel value);
 
 	/**
+	 * Returns the value of the '<em><b>Input Model</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Input Model</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Input Model</em>' attribute list.
+	 * @see org.tetrabox.example.minitl.minitl.MinitlPackage#getTransformation_InputModel()
+	 * @model dataType="org.tetrabox.example.minitl.minitl.EObject"
+	 * @generated
+	 */
+	EList<EObject> getInputModel();
+
+	/**
+	 * Returns the value of the '<em><b>Output Model</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Model</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Model</em>' attribute list.
+	 * @see org.tetrabox.example.minitl.minitl.MinitlPackage#getTransformation_OutputModel()
+	 * @model dataType="org.tetrabox.example.minitl.minitl.EObject"
+	 * @generated
+	 */
+	EList<EObject> getOutputModel();
+
+	/**
 	 * Returns the value of the '<em><b>Input Model URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -164,21 +198,5 @@ public interface Transformation extends NamedElement {
 	 * @generated
 	 */
 	void execute();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model dataType="org.tetrabox.example.minitl.minitl.Set"
-	 * @generated
-	 */
-	Set inputModel();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model dataType="org.tetrabox.example.minitl.minitl.Set"
-	 * @generated
-	 */
-	Set outputModel();
 
 } // Transformation

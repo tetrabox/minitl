@@ -2,8 +2,6 @@
  */
 package org.tetrabox.example.minitl.minitl.impl;
 
-import java.util.Set;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -136,13 +134,6 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 	private EDataType eObjectEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType setEDataType = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -244,7 +235,7 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTransformation_InputModelURI() {
+	public EAttribute getTransformation_InputModel() {
 		return (EAttribute)transformationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -253,8 +244,26 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTransformation_OutputFilePath() {
+	public EAttribute getTransformation_OutputModel() {
 		return (EAttribute)transformationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTransformation_InputModelURI() {
+		return (EAttribute)transformationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTransformation_OutputFilePath() {
+		return (EAttribute)transformationEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -532,15 +541,6 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getSet() {
-		return setEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MinitlFactory getMinitlFactory() {
 		return (MinitlFactory)getEFactoryInstance();
 	}
@@ -568,6 +568,8 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 		createEReference(transformationEClass, TRANSFORMATION__INPUT_METAMODEL);
 		createEReference(transformationEClass, TRANSFORMATION__RULES);
 		createEReference(transformationEClass, TRANSFORMATION__OUTPUT_METAMODEL);
+		createEAttribute(transformationEClass, TRANSFORMATION__INPUT_MODEL);
+		createEAttribute(transformationEClass, TRANSFORMATION__OUTPUT_MODEL);
 		createEAttribute(transformationEClass, TRANSFORMATION__INPUT_MODEL_URI);
 		createEAttribute(transformationEClass, TRANSFORMATION__OUTPUT_FILE_PATH);
 
@@ -614,7 +616,6 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 		// Create data types
 		objectEDataType = createEDataType(OBJECT);
 		eObjectEDataType = createEDataType(EOBJECT);
-		setEDataType = createEDataType(SET);
 	}
 
 	/**
@@ -658,6 +659,8 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 		initEReference(getTransformation_InputMetamodel(), this.getMetamodel(), null, "inputMetamodel", null, 0, 1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransformation_Rules(), this.getRule(), this.getRule_Transformation(), "rules", null, 0, -1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransformation_OutputMetamodel(), this.getMetamodel(), null, "outputMetamodel", null, 0, 1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransformation_InputModel(), this.getEObject(), "inputModel", null, 0, -1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransformation_OutputModel(), this.getEObject(), "outputModel", null, 0, -1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransformation_InputModelURI(), ecorePackage.getEString(), "inputModelURI", null, 0, 1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransformation_OutputFilePath(), ecorePackage.getEString(), "outputFilePath", null, 0, 1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -665,10 +668,6 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 		addEParameter(op, ecorePackage.getEString(), "args", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(transformationEClass, null, "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(transformationEClass, this.getSet(), "inputModel", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(transformationEClass, this.getSet(), "outputModel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRule_ObjectTemplates(), this.getObjectTemplate(), this.getObjectTemplate_Rule(), "objectTemplates", null, 2, 2, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -739,7 +738,6 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 		// Initialize data types
 		initEDataType(objectEDataType, Object.class, "Object", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(eObjectEDataType, EObject.class, "EObject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(setEDataType, Set.class, "Set", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -768,12 +766,12 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 		   new String[] {
 		   });	
 		addAnnotation
-		  (transformationEClass.getEOperations().get(2), 
+		  (getTransformation_InputModel(), 
 		   source, 
 		   new String[] {
 		   });	
 		addAnnotation
-		  (transformationEClass.getEOperations().get(3), 
+		  (getTransformation_OutputModel(), 
 		   source, 
 		   new String[] {
 		   });	
@@ -854,11 +852,6 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 		   });	
 		addAnnotation
 		  (eObjectEDataType, 
-		   source, 
-		   new String[] {
-		   });	
-		addAnnotation
-		  (setEDataType, 
 		   source, 
 		   new String[] {
 		   });

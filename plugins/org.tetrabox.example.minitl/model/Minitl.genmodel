@@ -18,9 +18,6 @@
     <genDataTypes>
       <ecoreDataType href="Minitl.ecore#//EObject"/>
     </genDataTypes>
-    <genDataTypes>
-      <ecoreDataType href="Minitl.ecore#//Set"/>
-    </genDataTypes>
     <genClasses>
       <ecoreClass href="Minitl.ecore#//Transformation"/>
       <genFeatures property="None" children="true" createChild="true">
@@ -31,6 +28,12 @@
       </genFeatures>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="Minitl.ecore#//Transformation/outputMetamodel"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Minitl.ecore#//Transformation/inputModel"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="Minitl.ecore#//Transformation/outputModel"/>
       </genFeatures>
       <genFeatures createChild="false">
         <ecoreFeature xsi:type="ecore:EAttribute" href="Minitl.ecore#//Transformation/inputModelURI"/>
@@ -46,12 +49,6 @@
       </genOperations>
       <genOperations>
         <ecoreOperation href="Minitl.ecore#//Transformation/execute"/>
-      </genOperations>
-      <genOperations>
-        <ecoreOperation href="Minitl.ecore#//Transformation/inputModel"/>
-      </genOperations>
-      <genOperations>
-        <ecoreOperation href="Minitl.ecore#//Transformation/outputModel"/>
       </genOperations>
     </genClasses>
     <genClasses>

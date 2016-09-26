@@ -10,15 +10,15 @@
     <eOperations name="execute">
       <eAnnotations source="aspect"/>
     </eOperations>
-    <eOperations name="inputModel" eType="//Set">
-      <eAnnotations source="aspect"/>
-    </eOperations>
-    <eOperations name="outputModel" eType="//Set">
-      <eAnnotations source="aspect"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputMetamodel" eType="//Metamodel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1" eType="//Rule" containment="true" eOpposite="//Rule/transformation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputMetamodel" eType="//Metamodel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputModel" upperBound="-1" eType="//EObject">
+      <eAnnotations source="aspect"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputModel" upperBound="-1" eType="//EObject">
+      <eAnnotations source="aspect"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputModelURI">
       <eAnnotations source="aspect"/>
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -123,9 +123,6 @@
     <eAnnotations source="aspect"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EObject" instanceClassName="org.eclipse.emf.ecore.EObject">
-    <eAnnotations source="aspect"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Set" instanceClassName="java.util.Set">
     <eAnnotations source="aspect"/>
   </eClassifiers>
 </ecore:EPackage>

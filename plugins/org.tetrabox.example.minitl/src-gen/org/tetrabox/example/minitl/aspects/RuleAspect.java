@@ -3,7 +3,7 @@ package org.tetrabox.example.minitl.aspects;
 import com.google.common.base.Objects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
-import java.util.Set;
+import java.util.List;
 import org.tetrabox.example.minitl.minitl.ObjectTemplate;
 import org.tetrabox.example.minitl.minitl.Rule;
 import org.tetrabox.example.minitl.minitl.Transformation;
@@ -40,7 +40,7 @@ public class RuleAspect {
     EList<ObjectTemplate> _objectTemplates_1 = _self.getObjectTemplates();
     final ObjectTemplate outputObjectTemplate = _objectTemplates_1.get(1);
     Transformation _transformation = _self.getTransformation();
-    Set<EObject> _inputModel = TransformationAspect.inputModel(_transformation);
+    List<EObject> _inputModel = TransformationAspect.inputModel(_transformation);
     for (final EObject o : _inputModel) {
       {
         ObjectTemplateAspect.match(inputObjectTemplate, o);
@@ -49,7 +49,7 @@ public class RuleAspect {
         if (_notEquals) {
           ObjectTemplateAspect.construct(outputObjectTemplate);
           Transformation _transformation_1 = _self.getTransformation();
-          Set<EObject> _outputModel = TransformationAspect.outputModel(_transformation_1);
+          List<EObject> _outputModel = TransformationAspect.outputModel(_transformation_1);
           EObject _currentObject_1 = ObjectTemplateAspect.currentObject(outputObjectTemplate);
           _outputModel.add(_currentObject_1);
         }

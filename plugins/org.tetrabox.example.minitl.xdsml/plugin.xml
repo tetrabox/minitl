@@ -2,6 +2,14 @@
 <?eclipse version="3.4"?>
 <plugin>
   <extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
-    <XDSML_Definition modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.tetrabox.example.Minitl" xdsmlFilePath="/org.tetrabox.example.minitl.xdsml/bin/org/tetrabox/example/minitl.melange" />
+    <XDSML_Definition modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.tetrabox.example.Minitl" xdsmlFilePath="/org.tetrabox.example.minitl.xdsml/src/org/tetrabox/example/minitl.melange" />
+  </extension>
+  <extension point="fr.inria.diverse.melange.modeltype">
+    <modeltype id="org.tetrabox.example.MinitlMT" uri="http://minitlmt/" />
+  </extension>
+  <extension point="fr.inria.diverse.melange.language">
+    <language aspects="Binding:org.tetrabox.example.minitl.aspects.BindingAspect;Transformation:org.tetrabox.example.minitl.aspects.TransformationAspect;BinaryExpression:org.tetrabox.example.minitl.aspects.BinaryExpressionAspect;FieldAccessValue:org.tetrabox.example.minitl.aspects.FieldAccessValueAspect;Value:org.tetrabox.example.minitl.aspects.ValueAspect;ObjectTemplate:org.tetrabox.example.minitl.aspects.ObjectTemplateAspect;Rule:org.tetrabox.example.minitl.aspects.RuleAspect;StringValue:org.tetrabox.example.minitl.aspects.StringValueAspect;ObjectTemplateValue:org.tetrabox.example.minitl.aspects.ObjectTemplateValueAspect" entryPoints="org.tetrabox.example.minitl.aspects.TransformationAspect.execute(org.tetrabox.example.minitl.minitl.Transformation)" exactType="org.tetrabox.example.MinitlMT" id="org.tetrabox.example.Minitl" uri="http://minitl/minitl/">
+      <adapter class="org.tetrabox.example.minitl.adapters.minitlmt.MinitlAdapter" modeltypeId="org.tetrabox.example.MinitlMT" />
+    </language>
   </extension>
 </plugin>

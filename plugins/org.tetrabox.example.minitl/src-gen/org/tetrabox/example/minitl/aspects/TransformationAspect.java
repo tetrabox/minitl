@@ -58,18 +58,28 @@ public class TransformationAspect {
     ;;
   }
   
-  public static Set<EObject> inputModel(final Transformation _self) {
+  public static List<EObject> inputModel(final Transformation _self) {
     final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
     Object result = null;
     result = _privk3_inputModel(_self_, _self);;
-    return (java.util.Set<org.eclipse.emf.ecore.EObject>)result;
+    return (java.util.List<org.eclipse.emf.ecore.EObject>)result;
   }
   
-  public static Set<EObject> outputModel(final Transformation _self) {
+  public static void inputModel(final Transformation _self, final List<EObject> inputModel) {
+    final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
+    _privk3_inputModel(_self_, _self,inputModel);;
+  }
+  
+  public static List<EObject> outputModel(final Transformation _self) {
     final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
     Object result = null;
     result = _privk3_outputModel(_self_, _self);;
-    return (java.util.Set<org.eclipse.emf.ecore.EObject>)result;
+    return (java.util.List<org.eclipse.emf.ecore.EObject>)result;
+  }
+  
+  public static void outputModel(final Transformation _self, final List<EObject> outputModel) {
+    final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
+    _privk3_outputModel(_self_, _self,outputModel);;
   }
   
   public static String inputModelURI(final Transformation _self) {
@@ -119,11 +129,11 @@ public class TransformationAspect {
       List<Set<EClass>> _map = ListExtensions.<EPackage, Set<EClass>>map(_packages, _function);
       Iterable<EClass> _flatten = Iterables.<EClass>concat(_map);
       final Set<EClass> allInputMetamodelClasses = IterableExtensions.<EClass>toSet(_flatten);
-      Set<EObject> _inputModel = TransformationAspect.inputModel(_self);
+      List<EObject> _inputModel = TransformationAspect.inputModel(_self);
       TreeIterator<EObject> _allContents = inputModelResource.getAllContents();
       Set<EObject> _set = IteratorExtensions.<EObject>toSet(_allContents);
       _inputModel.addAll(_set);
-      Set<EObject> _inputModel_1 = TransformationAspect.inputModel(_self);
+      List<EObject> _inputModel_1 = TransformationAspect.inputModel(_self);
       for (final EObject o : _inputModel_1) {
         EClass _eClass = o.eClass();
         boolean _contains = allInputMetamodelClasses.contains(_eClass);
@@ -171,7 +181,7 @@ public class TransformationAspect {
         final URI outputModelURI = URI.createFileURI(_absolutePath);
         final Resource inputModelResource = rs.createResource(outputModelURI);
         EList<EObject> _contents = inputModelResource.getContents();
-        Set<EObject> _outputModel = TransformationAspect.outputModel(_self);
+        List<EObject> _outputModel = TransformationAspect.outputModel(_self);
         _contents.addAll(_outputModel);
         inputModelResource.save(null);
       }
@@ -180,14 +190,14 @@ public class TransformationAspect {
     }
   }
   
-  protected static Set<EObject> _privk3_inputModel(final TransformationAspectTransformationAspectProperties _self_, final Transformation _self) {
+  protected static List<EObject> _privk3_inputModel(final TransformationAspectTransformationAspectProperties _self_, final Transformation _self) {
     try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
     		if (m.getName().equals("getInputModel") &&
     			m.getParameterTypes().length == 0) {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
-    					return (java.util.Set) ret;
+    					return (java.util.List) ret;
     				}
     		}
     	}
@@ -197,14 +207,27 @@ public class TransformationAspect {
     return _self_.inputModel;
   }
   
-  protected static Set<EObject> _privk3_outputModel(final TransformationAspectTransformationAspectProperties _self_, final Transformation _self) {
+  protected static void _privk3_inputModel(final TransformationAspectTransformationAspectProperties _self_, final Transformation _self, final List<EObject> inputModel) {
+    _self_.inputModel = inputModel; try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setInputModel")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, inputModel);
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+  }
+  
+  protected static List<EObject> _privk3_outputModel(final TransformationAspectTransformationAspectProperties _self_, final Transformation _self) {
     try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
     		if (m.getName().equals("getOutputModel") &&
     			m.getParameterTypes().length == 0) {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
-    					return (java.util.Set) ret;
+    					return (java.util.List) ret;
     				}
     		}
     	}
@@ -212,6 +235,19 @@ public class TransformationAspect {
     	// Chut !
     }
     return _self_.outputModel;
+  }
+  
+  protected static void _privk3_outputModel(final TransformationAspectTransformationAspectProperties _self_, final Transformation _self, final List<EObject> outputModel) {
+    _self_.outputModel = outputModel; try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setOutputModel")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, outputModel);
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
   }
   
   protected static String _privk3_inputModelURI(final TransformationAspectTransformationAspectProperties _self_, final Transformation _self) {

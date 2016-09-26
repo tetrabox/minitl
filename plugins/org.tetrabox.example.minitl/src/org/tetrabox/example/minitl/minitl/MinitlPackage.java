@@ -132,13 +132,31 @@ public interface MinitlPackage extends EPackage {
 	int TRANSFORMATION__OUTPUT_METAMODEL = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Input Model</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION__INPUT_MODEL = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Output Model</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION__OUTPUT_MODEL = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Input Model URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION__INPUT_MODEL_URI = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int TRANSFORMATION__INPUT_MODEL_URI = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Output File Path</b></em>' attribute.
@@ -147,7 +165,7 @@ public interface MinitlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION__OUTPUT_FILE_PATH = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int TRANSFORMATION__OUTPUT_FILE_PATH = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Transformation</em>' class.
@@ -156,7 +174,7 @@ public interface MinitlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int TRANSFORMATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.tetrabox.example.minitl.minitl.impl.RuleImpl <em>Rule</em>}' class.
@@ -521,16 +539,6 @@ public interface MinitlPackage extends EPackage {
 	 */
 	int EOBJECT = 13;
 
-	/**
-	 * The meta object id for the '<em>Set</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.util.Set
-	 * @see org.tetrabox.example.minitl.minitl.impl.MinitlPackageImpl#getSet()
-	 * @generated
-	 */
-	int SET = 14;
-
 
 	/**
 	 * Returns the meta object for class '{@link org.tetrabox.example.minitl.minitl.Transformation <em>Transformation</em>}'.
@@ -574,6 +582,28 @@ public interface MinitlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTransformation_OutputMetamodel();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.tetrabox.example.minitl.minitl.Transformation#getInputModel <em>Input Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Input Model</em>'.
+	 * @see org.tetrabox.example.minitl.minitl.Transformation#getInputModel()
+	 * @see #getTransformation()
+	 * @generated
+	 */
+	EAttribute getTransformation_InputModel();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.tetrabox.example.minitl.minitl.Transformation#getOutputModel <em>Output Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Output Model</em>'.
+	 * @see org.tetrabox.example.minitl.minitl.Transformation#getOutputModel()
+	 * @see #getTransformation()
+	 * @generated
+	 */
+	EAttribute getTransformation_OutputModel();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.tetrabox.example.minitl.minitl.Transformation#getInputModelURI <em>Input Model URI</em>}'.
@@ -917,17 +947,6 @@ public interface MinitlPackage extends EPackage {
 	EDataType getEObject();
 
 	/**
-	 * Returns the meta object for data type '{@link java.util.Set <em>Set</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Set</em>'.
-	 * @see java.util.Set
-	 * @model instanceClass="java.util.Set"
-	 * @generated
-	 */
-	EDataType getSet();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -982,6 +1001,22 @@ public interface MinitlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRANSFORMATION__OUTPUT_METAMODEL = eINSTANCE.getTransformation_OutputMetamodel();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Model</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSFORMATION__INPUT_MODEL = eINSTANCE.getTransformation_InputModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Model</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSFORMATION__OUTPUT_MODEL = eINSTANCE.getTransformation_OutputModel();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Model URI</b></em>' attribute feature.
@@ -1264,16 +1299,6 @@ public interface MinitlPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType EOBJECT = eINSTANCE.getEObject();
-
-		/**
-		 * The meta object literal for the '<em>Set</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.util.Set
-		 * @see org.tetrabox.example.minitl.minitl.impl.MinitlPackageImpl#getSet()
-		 * @generated
-		 */
-		EDataType SET = eINSTANCE.getSet();
 
 	}
 
