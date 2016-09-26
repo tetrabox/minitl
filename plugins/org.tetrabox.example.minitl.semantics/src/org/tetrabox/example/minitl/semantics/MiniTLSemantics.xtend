@@ -5,36 +5,35 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
-import java.util.HashSet
-import java.util.Set
+import java.io.File
+import java.util.List
 import minitl.BinaryExpression
 import minitl.Binding
 import minitl.FieldAccessValue
 import minitl.ObjectTemplate
+import minitl.ObjectTemplateValue
 import minitl.Rule
 import minitl.StringValue
 import minitl.Transformation
 import minitl.Value
 import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.common.util.UniqueEList
+import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.util.EcoreUtil
 
+import static extension org.tetrabox.example.minitl.semantics.BindingAspect.*
 import static extension org.tetrabox.example.minitl.semantics.ObjectTemplateAspect.*
 import static extension org.tetrabox.example.minitl.semantics.RuleAspect.*
-import static extension org.tetrabox.example.minitl.semantics.BindingAspect.*
-import static extension org.tetrabox.example.minitl.semantics.ValueAspect.*
 import static extension org.tetrabox.example.minitl.semantics.TransformationAspect.*
-import org.eclipse.emf.ecore.EClass
-import minitl.ObjectTemplateValue
-import org.eclipse.emf.ecore.resource.Resource
-import java.io.File
-import java.util.List
+import static extension org.tetrabox.example.minitl.semantics.ValueAspect.*
 
 @Aspect(className=Transformation)
 class TransformationAspect {
 
-	public val Set<EObject> inputModel = new HashSet;
-	public val Set<EObject> outputModel = new HashSet;
+	public List<EObject> inputModel = new UniqueEList;
+	public List<EObject> outputModel = new UniqueEList;
 	public String inputModelURI
 	public String outputFilePath
 
@@ -44,7 +43,7 @@ class TransformationAspect {
 		_self.outputFilePath = args.get(1)
 		val rs = _self.eResource.resourceSet
 		val inputModelResource = rs.getResource(URI.createURI(_self.inputModelURI), true)
-		
+
 		// If an input metamodel was specified, we check conformity of the input model
 		if (_self.inputMetamodel != null) {
 			val allInputMetamodelClasses = _self.inputMetamodel.packages.map[p|p.eAllContents.filter(EClass).toSet].
@@ -88,10 +87,10 @@ class TransformationAspect {
 @Aspect(className=Rule)
 class RuleAspect {
 
-	@Step
 	/**
 	 * Applies the rule to each possible match in the input model.
 	 */
+	@Step
 	public def void apply() {
 		val inputObjectTemplate = _self.objectTemplates.get(0)
 		val outputObjectTemplate = _self.objectTemplates.get(1)
@@ -121,6 +120,7 @@ class ObjectTemplateAspect {
 		_self.currentObject = null
 	}
 
+	@Step
 	public def void match(EObject o) {
 		if (o.eClass.classifierID == _self.type.classifierID) {
 			if (_self.bindings.forall[b|b.check(o)]) {
@@ -143,6 +143,7 @@ class ObjectTemplateAspect {
 @Aspect(className=Binding)
 class BindingAspect {
 
+	@Step
 	public def boolean check(EObject o) {
 		val Object existingValue = o.eGet(_self.feature)
 		val Object patternValue = _self.value.evaluate
@@ -158,8 +159,6 @@ class BindingAspect {
 
 @Aspect(className=Value)
 abstract class ValueAspect {
-
-	@Step
 	abstract def Object evaluate();
 }
 
