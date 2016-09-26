@@ -12,4 +12,5 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.tetrabox.example.minitl.model;bundle-version="0.1.0",
  org.tetrabox.example.minitl.semantics;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: TU Wien
 

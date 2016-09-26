@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.tetrabox.example.minitl.dynamic.tcs
-Bundle-Vendor: My Company
+Bundle-Name: org.tetrabox.example.minitl.tcs
+Bundle-Vendor: TU Wien
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: org.tetrabox.example.minitl.dynamic.tcs; singleton:=true
+Bundle-SymbolicName: org.tetrabox.example.minitl.tcs;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,

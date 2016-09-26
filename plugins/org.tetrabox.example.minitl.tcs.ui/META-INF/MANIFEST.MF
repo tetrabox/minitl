@@ -1,12 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.tetrabox.example.minitl.dynamic.tcs.ui
-Bundle-Vendor: My Company
+Bundle-Name: org.tetrabox.example.minitl.tcs.ui
+Bundle-Vendor: TU Wien
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: org.tetrabox.example.minitl.dynamic.tcs.ui; singleton:=true
+Bundle-SymbolicName: org.tetrabox.example.minitl.tcs.ui;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.tetrabox.example.minitl.dynamic.tcs,
- org.tetrabox.example.minitl.dynamic.tcs.ide,
+Require-Bundle: org.tetrabox.example.minitl.tcs,
+ org.tetrabox.example.minitl.tcs.ide,
  org.tetrabox.example.minitl,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
