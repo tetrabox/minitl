@@ -4,11 +4,11 @@
 
 ## Editor + concrete syntax example
 
-![Example of MiniTL transformation](screenshot.png)
+![Example of MiniTL transformation](img/screenshot.png)
 
 ## Abstract syntax (Ecore model)
 
-![MiniTL abstract syntax (Ecore model)](as.png)
+![MiniTL abstract syntax (Ecore model)](img/as.png)
 
 
 
@@ -40,7 +40,8 @@ All the projects must be imported in a workspace of the [GEMOC Studio](http://ge
 - Create a file with the extension `.minitl`.
 - Open the file, and use the MiniTL textual editor to write a transformation that relies on the previously created input and output metamodels.
 
-Example of editing session: TODO
+Example of editing workspace and session:
+![Example of MiniTL transformation](img/editing.png)
 
 ### Configure a transformation run
 
@@ -49,18 +50,23 @@ Example of editing session: TODO
 	- Model to execute: the `.minitl` file
 	- Model initialization arguments: the first line should be a `platform:/resource` URI pointing to the input model conforming to the input metamodel; the second line shoud be an absolute filesystem path to the output model serialized by the MiniTL transformation.
 	- Melange languages: choose MiniTL from the list.
+	- Tick the box "*Break at start*" (so that the debugger has an automatic breakpoint at the beginning of the transformation).
 	- Main method: pick the only one in the list.
 	- Main model element path: pick the only *Transformation* element in the list.
 
-Example of run configuration: TODO
+Example of run configuration:
+![Example of MiniTL transformation](img/runconf.png)
 
 
-### Execute the transformation
+### Execute and debug the transformation
 
-- Then start the execution TODO
-- Examples of debugging session with a MiniTL stack trace:
+- To simply run the transformation, start the run configuration in *run* mode. After execution, the output model file should be produced at the specified location.
+- To debug the transformation:
+	- Start the run configuration in *debug* mode. When asked to switch to the debug viewpoint, accept.
+	- Now you can see dynamic information in the upper right corner, see at stack trace in the upper left part, and use all Eclipse debug buttons (step into, step out) to execute piece per piece your MiniTL transformation.
 
-Example of debugging session: TODO
+Examples of debugging session with a MiniTL stack trace:
+![Example of MiniTL transformation](img/debug.png)
 
 
 
