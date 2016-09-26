@@ -35,7 +35,7 @@ All the projects must be imported in a workspace of the [GEMOC Studio](http://ge
 - When everything is compiled in the GEMOC Studio, launch a new Eclipse instance.
 - Create an empty project.
 - Set the Xtext nature on the project: right click, *Configure*, *Add Xtext nature*.
-- Create input and output metamodels using Ecore, in one or two separate `ecore` files.
+- Create input and output metamodels using Ecore, in one or two separate `.ecore` files.
 - Create an input model conforming to the input metamodel, using right click *Create dynamic instance* in the Ecore editor.
 - Create a file with the extension `.minitl`.
 - Open the file, and use the MiniTL textual editor to write a transformation that relies on the previously created input and output metamodels.
