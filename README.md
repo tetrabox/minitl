@@ -34,6 +34,6 @@ Coming soon: the possibility to execute and debug MiniTL models using the GEMOC 
 
 # TODO
 
-- GEMOC execution engine integration (need Melange project)
 - Add static semantic (ie. a `Validator`)
 - Improve textual syntax
+- See how to feed the GEMOC Studio with a static xtext model, that should be translated into a dynamic version
