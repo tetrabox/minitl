@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
+    <XDSML_Definition modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.tetrabox.example.Minitl" xdsmlFilePath="/org.tetrabox.example.minitl.xdsml/bin/org/tetrabox/example/minitl.melange" />
+  </extension>
+</plugin>
