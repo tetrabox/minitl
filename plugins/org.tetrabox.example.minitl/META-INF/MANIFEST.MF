@@ -15,5 +15,5 @@ Export-Package: org.tetrabox.example.minitl.aspects,
  org.tetrabox.example.minitl.minitl,
  org.tetrabox.example.minitl.minitl.impl,
  org.tetrabox.example.minitl.minitl.util
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 
