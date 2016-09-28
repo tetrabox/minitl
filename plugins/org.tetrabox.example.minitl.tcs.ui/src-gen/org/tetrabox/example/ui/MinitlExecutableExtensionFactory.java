@@ -6,7 +6,7 @@ package org.tetrabox.example.ui;
 import com.google.inject.Injector;
 import org.eclipse.xtext.ui.guice.AbstractGuiceAwareExecutableExtensionFactory;
 import org.osgi.framework.Bundle;
-import org.tetrabox.example.minitl.dynamic.tcs.ui.internal.TcsActivator;
+import org.tetrabox.example.minitl.tcs.ui.internal.TcsActivator;
 
 /**
  * This class was generated. Customizations should only happen in a newly

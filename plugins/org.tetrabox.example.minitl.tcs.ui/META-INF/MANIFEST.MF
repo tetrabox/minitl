@@ -21,6 +21,6 @@ Require-Bundle: org.tetrabox.example.minitl.tcs,
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.tetrabox.example.ui.contentassist,
- org.tetrabox.example.minitl.dynamic.tcs.ui.internal,
- org.tetrabox.example.ui.quickfix
-Bundle-Activator: org.tetrabox.example.minitl.dynamic.tcs.ui.internal.TcsActivator
+ org.tetrabox.example.ui.quickfix,
+ org.tetrabox.example.minitl.tcs.ui.internal
+Bundle-Activator: org.tetrabox.example.minitl.tcs.ui.internal.TcsActivator

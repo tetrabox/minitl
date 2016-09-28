@@ -10,7 +10,7 @@ Workflow {
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
-				baseName = "org.tetrabox.example.minitl.dynamic.tcs"
+				baseName = "org.tetrabox.example.minitl.tcs"
 				rootPath = rootPath
 				eclipsePlugin = {
 					enabled = true
