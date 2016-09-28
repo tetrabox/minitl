@@ -12,7 +12,7 @@
 
 
 
-# Compilation and usage
+# Developper Documentation
 
 ## Organization of the code
 
@@ -28,9 +28,9 @@ Main eclipse plugins:
 
 All the projects must be imported in a workspace of the [GEMOC Studio](http://gemoc.org/studio). Then wait for the build to finish.
 
-## Usage
+# User Documentation
 
-### Write a transformation
+## Write a transformation
 
 - When everything is compiled in the GEMOC Studio, launch a new Eclipse instance.
 - Create an empty project.
@@ -43,7 +43,7 @@ All the projects must be imported in a workspace of the [GEMOC Studio](http://ge
 Example of editing workspace and session:
 ![Example of MiniTL transformation](img/editing.png)
 
-### Configure a transformation run
+## Configure a transformation run
 
 - Create a new Eclipse run configuration of type *Gemoc Sequential eXecutable Model*
 - Fill the fields in this way:
@@ -58,7 +58,7 @@ Example of run configuration:
 ![Example of MiniTL transformation](img/runconf.png)
 
 
-### Execute and debug the transformation
+## Execute and debug the transformation
 
 - To simply run the transformation, start the run configuration in *run* mode. After execution, the output model file should be produced at the specified location.
 - To debug the transformation:
