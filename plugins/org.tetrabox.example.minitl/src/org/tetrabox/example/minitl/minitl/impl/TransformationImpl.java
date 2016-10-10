@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -258,7 +258,7 @@ public class TransformationImpl extends NamedElementImpl implements Transformati
 	 */
 	public EList<EObject> getInputModel() {
 		if (inputModel == null) {
-			inputModel = new EDataTypeUniqueEList<EObject>(EObject.class, this, MinitlPackage.TRANSFORMATION__INPUT_MODEL);
+			inputModel = new EDataTypeEList<EObject>(EObject.class, this, MinitlPackage.TRANSFORMATION__INPUT_MODEL);
 		}
 		return inputModel;
 	}
@@ -270,7 +270,7 @@ public class TransformationImpl extends NamedElementImpl implements Transformati
 	 */
 	public EList<EObject> getOutputModel() {
 		if (outputModel == null) {
-			outputModel = new EDataTypeUniqueEList<EObject>(EObject.class, this, MinitlPackage.TRANSFORMATION__OUTPUT_MODEL);
+			outputModel = new EDataTypeEList<EObject>(EObject.class, this, MinitlPackage.TRANSFORMATION__OUTPUT_MODEL);
 		}
 		return outputModel;
 	}

@@ -13,7 +13,7 @@ public abstract class AbstractMinitlValidator extends AbstractDeclarativeValidat
 	@Override
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>();
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://minitl/minitl/"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://org.tetrabox.example.minitl/minitl/"));
 		return result;
 	}
 	

@@ -39,7 +39,7 @@ public interface MinitlPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://minitl/minitl/";
+	String eNS_URI = "http://org.tetrabox.example.minitl/minitl/";
 
 	/**
 	 * The package namespace name.

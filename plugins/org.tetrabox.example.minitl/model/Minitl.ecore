@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="minitl" nsURI="http://minitl/minitl/" nsPrefix="org.tetrabox.example.minitl.model">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="minitl" nsURI="http://org.tetrabox.example.minitl/minitl/" nsPrefix="org.tetrabox.example.minitl.model">
   <eClassifiers xsi:type="ecore:EClass" name="Transformation" eSuperTypes="//NamedElement">
     <eOperations name="initialize">
       <eAnnotations source="aspect"/>
@@ -13,17 +13,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputMetamodel" eType="//Metamodel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1" eType="//Rule" containment="true" eOpposite="//Rule/transformation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputMetamodel" eType="//Metamodel" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputModel" upperBound="-1" eType="//EObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputModel" unique="false" upperBound="-1" eType="//EObject">
       <eAnnotations source="aspect"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputModel" upperBound="-1" eType="//EObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputModel" unique="false" upperBound="-1" eType="//EObject">
       <eAnnotations source="aspect"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputModelURI">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputModelURI" unique="false">
       <eAnnotations source="aspect"/>
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputFilePath">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputFilePath" unique="false">
       <eAnnotations source="aspect"/>
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
@@ -87,7 +87,7 @@
       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="//Rule" eOpposite="//Rule/objectTemplates"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentObject" eType="//EObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentObject" unique="false" eType="//EObject">
       <eAnnotations source="aspect"/>
     </eStructuralFeatures>
   </eClassifiers>

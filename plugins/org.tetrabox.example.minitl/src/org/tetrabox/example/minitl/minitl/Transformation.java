@@ -110,7 +110,7 @@ public interface Transformation extends NamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Input Model</em>' attribute list.
 	 * @see org.tetrabox.example.minitl.minitl.MinitlPackage#getTransformation_InputModel()
-	 * @model dataType="org.tetrabox.example.minitl.minitl.EObject"
+	 * @model unique="false" dataType="org.tetrabox.example.minitl.minitl.EObject"
 	 * @generated
 	 */
 	EList<EObject> getInputModel();
@@ -126,7 +126,7 @@ public interface Transformation extends NamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Output Model</em>' attribute list.
 	 * @see org.tetrabox.example.minitl.minitl.MinitlPackage#getTransformation_OutputModel()
-	 * @model dataType="org.tetrabox.example.minitl.minitl.EObject"
+	 * @model unique="false" dataType="org.tetrabox.example.minitl.minitl.EObject"
 	 * @generated
 	 */
 	EList<EObject> getOutputModel();
@@ -142,7 +142,7 @@ public interface Transformation extends NamedElement {
 	 * @return the value of the '<em>Input Model URI</em>' attribute.
 	 * @see #setInputModelURI(String)
 	 * @see org.tetrabox.example.minitl.minitl.MinitlPackage#getTransformation_InputModelURI()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	String getInputModelURI();
@@ -168,7 +168,7 @@ public interface Transformation extends NamedElement {
 	 * @return the value of the '<em>Output File Path</em>' attribute.
 	 * @see #setOutputFilePath(String)
 	 * @see org.tetrabox.example.minitl.minitl.MinitlPackage#getTransformation_OutputFilePath()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	String getOutputFilePath();

@@ -110,7 +110,7 @@ public interface ObjectTemplate extends NamedElement {
 	 * @return the value of the '<em>Current Object</em>' attribute.
 	 * @see #setCurrentObject(EObject)
 	 * @see org.tetrabox.example.minitl.minitl.MinitlPackage#getObjectTemplate_CurrentObject()
-	 * @model dataType="org.tetrabox.example.minitl.minitl.EObject"
+	 * @model unique="false" dataType="org.tetrabox.example.minitl.minitl.EObject"
 	 * @generated
 	 */
 	EObject getCurrentObject();

@@ -7,7 +7,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated Minitl -->
       <package
-            uri="http://minitl/minitl/"
+            uri="http://org.tetrabox.example.minitl/minitl/"
             class="org.tetrabox.example.minitl.minitl.MinitlPackage"
             genModel="model/Minitl.genmodel"/>
    </extension>

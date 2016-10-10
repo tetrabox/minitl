@@ -9,11 +9,12 @@ Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  fr.inria.diverse.k3.al.annotationprocessor.plugin,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib
 Bundle-ActivationPolicy: lazy
 Export-Package: org.tetrabox.example.minitl.aspects,
  org.tetrabox.example.minitl.minitl,
  org.tetrabox.example.minitl.minitl.impl,
  org.tetrabox.example.minitl.minitl.util
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 
