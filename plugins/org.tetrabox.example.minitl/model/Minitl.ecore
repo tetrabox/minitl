@@ -1,123 +1,127 @@
 <?xml version="1.0" encoding="ASCII"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="minitl" nsURI="http://org.tetrabox.example.minitl/minitl/" nsPrefix="org.tetrabox.example.minitl.model">
-  <eClassifiers xsi:type="ecore:EClass" name="Transformation" eSuperTypes="//NamedElement">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="minitl" nsURI="http://org.tetrabox.example.minitl/minitl/" nsPrefix="org.tetrabox.example.minitl.model">
+  <eClassifiers xsi:type="ecore:EClass" name="Transformation" eSuperTypes="#//NamedElement">
     <eOperations name="initialize">
       <eAnnotations source="aspect"/>
-      <eParameters name="args" upperBound="-1">
-        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </eParameters>
+      <eParameters name="args" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="execute">
       <eAnnotations source="aspect"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inputMetamodel" eType="//Metamodel" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1" eType="//Rule" containment="true" eOpposite="//Rule/transformation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputMetamodel" eType="//Metamodel" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputModel" unique="false" upperBound="-1" eType="//EObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputMetamodel" eType="#//Metamodel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//Rule" containment="true" eOpposite="#//Rule/transformation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputMetamodel" eType="#//Metamodel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputModel" unique="false"
+        upperBound="-1" eType="#//EObject">
       <eAnnotations source="aspect"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputModel" unique="false" upperBound="-1" eType="//EObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputModel" unique="false"
+        upperBound="-1" eType="#//EObject">
       <eAnnotations source="aspect"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputModelURI" unique="false">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputModelURI" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="aspect"/>
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputFilePath" unique="false">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputFilePath" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="aspect"/>
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="#//NamedElement">
     <eOperations name="apply">
       <eAnnotations source="aspect"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="objectTemplates" lowerBound="2" upperBound="2" eType="//ObjectTemplate" containment="true" eOpposite="//ObjectTemplate/rule"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1" eType="//Transformation" eOpposite="//Transformation/rules"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objectTemplates" lowerBound="2"
+        upperBound="2" eType="#//ObjectTemplate" containment="true" eOpposite="#//ObjectTemplate/rule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1"
+        eType="#//Transformation" eOpposite="#//Transformation/rules"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Binding">
-    <eOperations name="check">
+    <eOperations name="check" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="aspect"/>
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eParameters name="o" eType="//EObject"/>
+      <eParameters name="o" eType="#//EObject"/>
     </eOperations>
     <eOperations name="assign">
       <eAnnotations source="aspect"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" lowerBound="1">
-      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="//Value" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="objectTemplate" lowerBound="1" eType="//ObjectTemplate" eOpposite="//ObjectTemplate/bindings"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Value"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objectTemplate" lowerBound="1"
+        eType="#//ObjectTemplate" eOpposite="#//ObjectTemplate/bindings"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true">
-    <eOperations name="evaluate" eType="//Object">
+    <eOperations name="evaluate" eType="#//Object">
       <eAnnotations source="aspect"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BinaryExpression" eSuperTypes="//Value">
-    <eOperations name="evaluate" eType="//Object">
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryExpression" eSuperTypes="#//Value">
+    <eOperations name="evaluate" eType="#//Object">
       <eAnnotations source="aspect"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" lowerBound="2" upperBound="2" eType="//Value" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1" eType="//Operator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" lowerBound="2"
+        upperBound="2" eType="#//Value" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//Operator"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FieldAccessValue" eSuperTypes="//Value">
-    <eOperations name="evaluate" eType="//Object">
+  <eClassifiers xsi:type="ecore:EClass" name="FieldAccessValue" eSuperTypes="#//Value">
+    <eOperations name="evaluate" eType="#//Object">
       <eAnnotations source="aspect"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="object" lowerBound="1" eType="//Value" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" lowerBound="1">
-      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" lowerBound="1"
+        eType="#//Value" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObjectTemplate" eSuperTypes="//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectTemplate" eSuperTypes="#//NamedElement">
     <eOperations name="reset">
       <eAnnotations source="aspect"/>
     </eOperations>
     <eOperations name="match">
       <eAnnotations source="aspect"/>
-      <eParameters name="o" eType="//EObject"/>
+      <eParameters name="o" eType="#//EObject"/>
     </eOperations>
     <eOperations name="construct">
       <eAnnotations source="aspect"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1" eType="//Binding" containment="true" eOpposite="//Binding/objectTemplate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1">
-      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="//Rule" eOpposite="//Rule/objectTemplates"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentObject" unique="false" eType="//EObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//Binding" containment="true" eOpposite="#//Binding/objectTemplate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="#//Rule"
+        eOpposite="#//Rule/objectTemplates"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentObject" unique="false"
+        eType="#//EObject">
       <eAnnotations source="aspect"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringValue" eSuperTypes="//Value">
-    <eOperations name="evaluate" eType="//Object">
+  <eClassifiers xsi:type="ecore:EClass" name="StringValue" eSuperTypes="#//Value">
+    <eOperations name="evaluate" eType="#//Object">
       <eAnnotations source="aspect"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Operator">
     <eLiterals name="ADD"/>
     <eLiterals name="SUB" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObjectTemplateValue" eSuperTypes="//Value">
-    <eOperations name="evaluate" eType="//Object">
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectTemplateValue" eSuperTypes="#//Value">
+    <eOperations name="evaluate" eType="#//Object">
       <eAnnotations source="aspect"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="objecttemplate" eType="//ObjectTemplate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objecttemplate" eType="#//ObjectTemplate"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Metamodel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="packages" lowerBound="1" upperBound="-1">
-      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packages" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Object" instanceClassName="java.lang.Object">
     <eAnnotations source="aspect"/>
