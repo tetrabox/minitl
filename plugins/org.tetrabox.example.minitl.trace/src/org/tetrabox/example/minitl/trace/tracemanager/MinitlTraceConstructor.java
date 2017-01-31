@@ -57,12 +57,12 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 	private boolean addNewObjectToState(org.tetrabox.example.minitl.minitl.NamedElement o_cast,
 			minitlTrace.States.State newState) {
 		boolean added = false;
-		if (o_cast instanceof org.tetrabox.example.minitl.minitl.Rule) {
-			added = addNewObjectToState((org.tetrabox.example.minitl.minitl.Rule) o_cast, newState);
+		if (o_cast instanceof org.tetrabox.example.minitl.minitl.Transformation) {
+			added = addNewObjectToState((org.tetrabox.example.minitl.minitl.Transformation) o_cast, newState);
 		} else if (o_cast instanceof org.tetrabox.example.minitl.minitl.ObjectTemplate) {
 			added = addNewObjectToState((org.tetrabox.example.minitl.minitl.ObjectTemplate) o_cast, newState);
-		} else if (o_cast instanceof org.tetrabox.example.minitl.minitl.Transformation) {
-			added = addNewObjectToState((org.tetrabox.example.minitl.minitl.Transformation) o_cast, newState);
+		} else if (o_cast instanceof org.tetrabox.example.minitl.minitl.Rule) {
+			added = addNewObjectToState((org.tetrabox.example.minitl.minitl.Rule) o_cast, newState);
 		}
 
 		return added;
@@ -192,32 +192,6 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 					org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.NonCollectionFieldModelChange modelChange_cast = (org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.NonCollectionFieldModelChange) modelChange;
 					org.eclipse.emf.ecore.EStructuralFeature p = modelChange_cast.getChangedField();
 
-					if (o instanceof org.tetrabox.example.minitl.minitl.ObjectTemplate) {
-						org.tetrabox.example.minitl.minitl.ObjectTemplate o_cast = (org.tetrabox.example.minitl.minitl.ObjectTemplate) o;
-
-						if (p.getFeatureID() == org.tetrabox.example.minitl.minitl.MinitlPackage.eINSTANCE
-								.getObjectTemplate_CurrentObject().getFeatureID()) {
-
-							// Rollback: we remove the last value of this field from the new state
-							minitlTrace.States.minitl.TracedObjectTemplate traced = (minitlTrace.States.minitl.TracedObjectTemplate) exeToTraced
-									.get(o);
-							minitlTrace.States.ObjectTemplate_currentObject_Value lastValue = traced
-									.getCurrentObjectSequence().get(traced.getCurrentObjectSequence().size() - 1);
-							newState.getObjectTemplate_currentObject_Values().remove(lastValue);
-
-							// And we create a proper new value
-							minitlTrace.States.ObjectTemplate_currentObject_Value newValue = minitlTrace.States.StatesFactory.eINSTANCE
-									.createObjectTemplate_currentObject_Value();
-
-							org.eclipse.emf.ecore.EObject value = o_cast.getCurrentObject();
-
-							newValue.setCurrentObject((org.eclipse.emf.ecore.EObject) value);
-
-							traced.getCurrentObjectSequence().add(newValue);
-							newState.getObjectTemplate_currentObject_Values().add(newValue);
-						}
-					}
-
 					if (o instanceof org.tetrabox.example.minitl.minitl.Transformation) {
 						org.tetrabox.example.minitl.minitl.Transformation o_cast = (org.tetrabox.example.minitl.minitl.Transformation) o;
 
@@ -265,6 +239,32 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 							newState.getTransformation_inputModelURI_Values().add(newValue);
 						}
 					}
+
+					if (o instanceof org.tetrabox.example.minitl.minitl.ObjectTemplate) {
+						org.tetrabox.example.minitl.minitl.ObjectTemplate o_cast = (org.tetrabox.example.minitl.minitl.ObjectTemplate) o;
+
+						if (p.getFeatureID() == org.tetrabox.example.minitl.minitl.MinitlPackage.eINSTANCE
+								.getObjectTemplate_CurrentObject().getFeatureID()) {
+
+							// Rollback: we remove the last value of this field from the new state
+							minitlTrace.States.minitl.TracedObjectTemplate traced = (minitlTrace.States.minitl.TracedObjectTemplate) exeToTraced
+									.get(o);
+							minitlTrace.States.ObjectTemplate_currentObject_Value lastValue = traced
+									.getCurrentObjectSequence().get(traced.getCurrentObjectSequence().size() - 1);
+							newState.getObjectTemplate_currentObject_Values().remove(lastValue);
+
+							// And we create a proper new value
+							minitlTrace.States.ObjectTemplate_currentObject_Value newValue = minitlTrace.States.StatesFactory.eINSTANCE
+									.createObjectTemplate_currentObject_Value();
+
+							org.eclipse.emf.ecore.EObject value = o_cast.getCurrentObject();
+
+							newValue.setCurrentObject((org.eclipse.emf.ecore.EObject) value);
+
+							traced.getCurrentObjectSequence().add(newValue);
+							newState.getObjectTemplate_currentObject_Values().add(newValue);
+						}
+					}
 				}
 				// Here we look at collection mutable fields
 				// We must first manually find out if the collection changed...
@@ -277,47 +277,6 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 						minitlTrace.States.minitl.TracedTransformation tracedObject = (minitlTrace.States.minitl.TracedTransformation) exeToTraced
 								.get(o_cast);
 						if (p.getFeatureID() == org.tetrabox.example.minitl.minitl.MinitlPackage.eINSTANCE
-								.getTransformation_InputModel().getFeatureID()) {
-							// We compare the last collection in the value sequence, and the current one in the potentially changed object
-							List<minitlTrace.States.Transformation_inputModel_Value> valueSequence = tracedObject
-									.getInputModelSequence();
-							minitlTrace.States.Transformation_inputModel_Value previousValue = null;
-							if (!valueSequence.isEmpty()) {
-								previousValue = valueSequence.get(valueSequence.size() - 1);
-							}
-							boolean change = false;
-							if (previousValue != null) {
-								if (previousValue.getInputModel().size() == o_cast.getInputModel().size()) {
-									java.util.Iterator<org.eclipse.emf.ecore.EObject> it = o_cast.getInputModel()
-											.iterator();
-									for (org.eclipse.emf.ecore.EObject aPreviousValue : previousValue.getInputModel()) {
-										org.eclipse.emf.ecore.EObject aCurrentValue = it.next();
-										if (!aPreviousValue.equals(aCurrentValue)) {
-											change = true;
-											break;
-										}
-									}
-								} else {
-									change = true;
-								}
-							} else {
-								change = true;
-							}
-							if (change) {
-								stateChanged = true;
-								// Rollback: we remove the last value of this field from the new state
-								minitlTrace.States.Transformation_inputModel_Value lastValue = tracedObject
-										.getInputModelSequence().get(tracedObject.getInputModelSequence().size() - 1);
-								newState.getTransformation_inputModel_Values().remove(lastValue);
-								// And we create a proper new value							
-								minitlTrace.States.Transformation_inputModel_Value newValue = minitlTrace.States.StatesFactory.eINSTANCE
-										.createTransformation_inputModel_Value();
-								newValue.getInputModel().addAll(
-										(Collection<? extends org.eclipse.emf.ecore.EObject>) o_cast.getInputModel());
-								tracedObject.getInputModelSequence().add(newValue);
-								newState.getTransformation_inputModel_Values().add(newValue);
-							}
-						} else if (p.getFeatureID() == org.tetrabox.example.minitl.minitl.MinitlPackage.eINSTANCE
 								.getTransformation_OutputModel().getFeatureID()) {
 							// We compare the last collection in the value sequence, and the current one in the potentially changed object
 							List<minitlTrace.States.Transformation_outputModel_Value> valueSequence = tracedObject
@@ -358,6 +317,47 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 										(Collection<? extends org.eclipse.emf.ecore.EObject>) o_cast.getOutputModel());
 								tracedObject.getOutputModelSequence().add(newValue);
 								newState.getTransformation_outputModel_Values().add(newValue);
+							}
+						} else if (p.getFeatureID() == org.tetrabox.example.minitl.minitl.MinitlPackage.eINSTANCE
+								.getTransformation_InputModel().getFeatureID()) {
+							// We compare the last collection in the value sequence, and the current one in the potentially changed object
+							List<minitlTrace.States.Transformation_inputModel_Value> valueSequence = tracedObject
+									.getInputModelSequence();
+							minitlTrace.States.Transformation_inputModel_Value previousValue = null;
+							if (!valueSequence.isEmpty()) {
+								previousValue = valueSequence.get(valueSequence.size() - 1);
+							}
+							boolean change = false;
+							if (previousValue != null) {
+								if (previousValue.getInputModel().size() == o_cast.getInputModel().size()) {
+									java.util.Iterator<org.eclipse.emf.ecore.EObject> it = o_cast.getInputModel()
+											.iterator();
+									for (org.eclipse.emf.ecore.EObject aPreviousValue : previousValue.getInputModel()) {
+										org.eclipse.emf.ecore.EObject aCurrentValue = it.next();
+										if (!aPreviousValue.equals(aCurrentValue)) {
+											change = true;
+											break;
+										}
+									}
+								} else {
+									change = true;
+								}
+							} else {
+								change = true;
+							}
+							if (change) {
+								stateChanged = true;
+								// Rollback: we remove the last value of this field from the new state
+								minitlTrace.States.Transformation_inputModel_Value lastValue = tracedObject
+										.getInputModelSequence().get(tracedObject.getInputModelSequence().size() - 1);
+								newState.getTransformation_inputModel_Values().remove(lastValue);
+								// And we create a proper new value							
+								minitlTrace.States.Transformation_inputModel_Value newValue = minitlTrace.States.StatesFactory.eINSTANCE
+										.createTransformation_inputModel_Value();
+								newValue.getInputModel().addAll(
+										(Collection<? extends org.eclipse.emf.ecore.EObject>) o_cast.getInputModel());
+								tracedObject.getInputModelSequence().add(newValue);
+								newState.getTransformation_inputModel_Values().add(newValue);
 							}
 						}
 					}

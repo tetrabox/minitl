@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
@@ -15,7 +16,6 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.compare.Comparison;
-import org.eclipse.emf.compare.Diff;
 import org.eclipse.emf.compare.EMFCompare;
 import org.eclipse.emf.compare.Match;
 import org.eclipse.emf.compare.diff.DefaultDiffEngine;
@@ -41,6 +41,7 @@ import fr.inria.diverse.trace.commons.model.trace.LaunchConfiguration;
 import fr.inria.diverse.trace.commons.model.trace.SequentialStep;
 import fr.inria.diverse.trace.commons.model.trace.Step;
 import fr.inria.diverse.trace.gemoc.api.ITraceExtractor;
+import fr.inria.diverse.trace.gemoc.api.ITraceViewListener;
 
 public class MinitlTraceExtractor implements ITraceExtractor {
 
@@ -58,7 +59,15 @@ public class MinitlTraceExtractor implements ITraceExtractor {
 
 	final private Map<Integer, Boolean> ignoredValueTraces = new HashMap<>();
 
+	private final Map<List<Integer>, List<EObject>> stateEquivalenceClasses = Collections
+			.synchronizedMap(new HashMap<>());
+	private final Map<List<Integer>, List<EObject>> cachedMaskedStateEquivalenceClasses = Collections
+			.synchronizedMap(new HashMap<>());
+
+	private final List<minitlTrace.States.Value> observedValues = new ArrayList<>();
+
 	public MinitlTraceExtractor() {
+		observedValues.add(null);
 		configureDiffEngine();
 	}
 
@@ -201,9 +210,13 @@ public class MinitlTraceExtractor implements ITraceExtractor {
 
 	private EMFCompare compare;
 
-	private List<Diff> compareEObjects(EObject e1, EObject e2) {
+	private boolean compareEObjects(EObject e1, EObject e2) {
 		if (e1 == e2) {
-			return Collections.emptyList();
+			return true;
+		}
+
+		if (e1 == null || e2 == null) {
+			return false;
 		}
 
 		if (!compareInitialized) {
@@ -216,105 +229,110 @@ public class MinitlTraceExtractor implements ITraceExtractor {
 
 		final IComparisonScope scope = new DefaultComparisonScope(e1, e2, null);
 		final Comparison comparison = compare.compare(scope);
-		return comparison.getDifferences();
+		return comparison.getDifferences().isEmpty();
 	}
 
-	private void computeStateComparisonValue(final minitlTrace.States.State state,
-			final List<minitlTrace.States.Value> values,
-			final Map<minitlTrace.States.State, Integer> stateToComparisonValue,
-			final List<minitlTrace.States.Value> observedValues, final int statesNb) {
-		Integer stateComparisonValue = stateToComparisonValue.get(state);
+	private List<Integer> computeStateComparisonList(List<minitlTrace.States.Value> values) {
+		final List<Integer> valueIndexes = new ArrayList<>();
 		for (int i = 0; i < values.size(); i++) {
 			final minitlTrace.States.Value value = values.get(i);
 			int idx = -1;
 			for (int j = 0; j < observedValues.size(); j++) {
-				final minitlTrace.States.Value v1 = observedValues.get(j);
-				final minitlTrace.States.Value v2 = value;
-				if (v1.eClass() == v2.eClass() && compareEObjects(v1, v2).isEmpty()) {
+				final EObject v1 = observedValues.get(j);
+				final EObject v2 = value;
+				if (compareEObjects(v1, v2)) {
 					idx = j;
 					break;
 				}
 			}
-			final int pow = (int) Math.pow(statesNb, i);
 			if (idx != -1) {
-				if (stateComparisonValue == null) {
-					stateComparisonValue = (idx + 1) * pow;
-				} else {
-					stateComparisonValue = stateComparisonValue + (idx + 1) * pow;
-				}
+				valueIndexes.add(idx);
 			} else {
+				valueIndexes.add(observedValues.size());
 				observedValues.add(value);
-				idx = observedValues.size();
-				if (stateComparisonValue == null) {
-					stateComparisonValue = idx * pow;
-				} else {
-					stateComparisonValue = stateComparisonValue + idx * pow;
-				}
 			}
-			stateToComparisonValue.put(state, stateComparisonValue);
+		}
+		return valueIndexes;
+	}
+
+	private void updateEquivalenceClasses(minitlTrace.States.State state) {
+		final List<minitlTrace.States.Value> values = getAllStateValues(state, true);
+		final List<Integer> valueIndexes = computeStateComparisonList(values);
+		List<EObject> equivalenceClass = stateEquivalenceClasses.get(valueIndexes);
+		if (equivalenceClass == null) {
+			equivalenceClass = new ArrayList<>();
+			stateEquivalenceClasses.put(valueIndexes, equivalenceClass);
+		}
+		equivalenceClass.add(state);
+		// If the cached masked equivalence classes have not been flushed, updated them.
+		final List<Integer> dimensionsToMask = computeDimensionMask();
+		if (!(dimensionsToMask.isEmpty() || cachedMaskedStateEquivalenceClasses.isEmpty())) {
+			final List<Integer> maskedIndexList = applyMask(valueIndexes, dimensionsToMask);
+			equivalenceClass = cachedMaskedStateEquivalenceClasses.get(maskedIndexList);
+			if (equivalenceClass == null) {
+				equivalenceClass = new ArrayList<>();
+				cachedMaskedStateEquivalenceClasses.put(maskedIndexList, equivalenceClass);
+			}
+			equivalenceClass.add(state);
 		}
 	}
 
-	@Override
-	public Collection<List<EObject>> computeStateEquivalenceClasses() {
-		return computeStateEquivalenceClasses(statesTrace);
+	private void updateEquivalenceClasses(List<minitlTrace.States.State> states) {
+		states.stream().distinct().forEach(s -> updateEquivalenceClasses(s));
+	}
+
+	/*
+	 * Return the list of indexes of value traces that are ignored.
+	 */
+	private List<Integer> computeDimensionMask() {
+		final List<Integer> result = new ArrayList<>();
+		for (int i = 0; i < valueTraces.size(); i++) {
+			if (isValueTraceIgnored(i)) {
+				result.add(i);
+			}
+		}
+		return result;
+	}
+
+	private List<Integer> applyMask(List<Integer> source, List<Integer> mask) {
+		final List<Integer> result = new ArrayList<>(source);
+		int j = 0;
+		for (Integer i : mask) {
+			result.remove(i - j);
+			j++;
+		}
+		return result;
+	}
+
+	private List<List<EObject>> getStateEquivalenceClasses() {
+		final List<Integer> dimensionsToMask = computeDimensionMask();
+		if (dimensionsToMask.isEmpty()) {
+			return new ArrayList<>(stateEquivalenceClasses.values());
+		}
+		if (cachedMaskedStateEquivalenceClasses.isEmpty()) {
+			stateEquivalenceClasses.forEach((indexList, stateList) -> {
+				final List<Integer> maskedIndexList = applyMask(indexList, dimensionsToMask);
+				List<EObject> equivalenceClass = cachedMaskedStateEquivalenceClasses.get(maskedIndexList);
+				if (equivalenceClass == null) {
+					equivalenceClass = new ArrayList<>();
+					cachedMaskedStateEquivalenceClasses.put(maskedIndexList, equivalenceClass);
+				}
+				equivalenceClass.addAll(stateList);
+			});
+		}
+		return new ArrayList<>(cachedMaskedStateEquivalenceClasses.values());
 	}
 
 	@Override
-	public Collection<List<EObject>> computeStateEquivalenceClasses(List<? extends EObject> states) {
-		final Map<Integer, List<minitlTrace.States.State>> statesMap = new HashMap<>();
-		final Map<minitlTrace.States.State, List<minitlTrace.States.Value>> stateToValues = new HashMap<>();
-		final Map<minitlTrace.States.State, Integer> stateToIndex = new HashMap<>();
-		// First we build the map of states, grouped by their number of dimensions
-		// and we associate to each state the list of its values
-		states.stream().distinct().map(e -> (minitlTrace.States.State) e).forEach(s -> {
-			stateToIndex.put(s, stateToIndex.size());
-			final List<minitlTrace.States.Value> values = getAllStateValues(s);
-			stateToValues.put(s, values);
-			final int size = values.size();
-			List<minitlTrace.States.State> tmp = statesMap.get(size);
-			if (tmp == null) {
-				tmp = new ArrayList<>();
-				statesMap.put(size, tmp);
-			}
-			tmp.add(s);
-		});
-		final int statesNb = stateToValues.keySet().size();
+	public List<List<EObject>> computeStateEquivalenceClasses() {
+		return getStateEquivalenceClasses().stream().map(l -> new ArrayList<>(l)).collect(Collectors.toList());
+	}
 
-		final List<minitlTrace.States.Value> observedValues = new ArrayList<>();
-		final Map<minitlTrace.States.State, Integer> stateToComparisonValue = new HashMap<>();
-
-		for (Entry<Integer, List<minitlTrace.States.State>> entry : statesMap.entrySet()) {
-			for (minitlTrace.States.State state : entry.getValue()) {
-				final List<minitlTrace.States.Value> values = stateToValues.get(state);
-				// Filling stateTocomparisonValue by side-effect
-				computeStateComparisonValue(state, values, stateToComparisonValue, observedValues, statesNb);
-			}
-		}
-
-		final Map<Integer, List<EObject>> accumulator = new HashMap<>();
-
-		stateToComparisonValue.entrySet().stream().forEach(e -> {
-			final minitlTrace.States.State state = e.getKey();
-			final Integer n = e.getValue();
-			if (n != null) {
-				List<EObject> equivalentStates = accumulator.get(n);
-				if (equivalentStates == null) {
-					equivalentStates = new ArrayList<>();
-					accumulator.put(n, equivalentStates);
-				}
-				if (equivalentStates.isEmpty()) {
-					equivalentStates.add(state);
-				} else {
-					if (stateToIndex.get(state) < stateToIndex.get(equivalentStates.get(0))) {
-						equivalentStates.add(0, state);
-					} else {
-						equivalentStates.add(state);
-					}
-				}
-			}
-		});
-		return accumulator.values();
+	@Override
+	public List<List<EObject>> computeStateEquivalenceClasses(List<? extends EObject> states) {
+		return getStateEquivalenceClasses().stream()
+				.map(l -> l.stream().filter(s -> states.contains(s)).collect(Collectors.toList()))
+				.collect(Collectors.toList());
 	}
 
 	@Override
@@ -341,21 +359,21 @@ public class MinitlTraceExtractor implements ITraceExtractor {
 			return false;
 		}
 
-		final List<List<Diff>> result = new ArrayList<>();
+		boolean result = true;
 		for (int i = 0; i < values1.size(); i++) {
 			if (!respectIgnored || !isValueTraceIgnored(i)) {
 				final minitlTrace.States.Value value1 = values1.get(i);
 				final minitlTrace.States.Value value2 = values2.get(i);
 				if (value1 != value2) {
-					final List<Diff> diffs = compareEObjects(value1, value2);
-					if (!diffs.isEmpty()) {
-						result.add(diffs);
+					result = result && compareEObjects(value1, value2);
+					if (!result) {
+						break;
 					}
 				}
 			}
 		}
 
-		return result.isEmpty();
+		return result;
 	}
 
 	public boolean compareSteps(EObject eObject1, EObject eObject2) {
@@ -470,27 +488,25 @@ public class MinitlTraceExtractor implements ITraceExtractor {
 	}
 
 	private List<minitlTrace.States.Value> getAllStateValues(minitlTrace.States.State state) {
-		final List<List<? extends minitlTrace.States.Value>> traces = new ArrayList<>();
+		return getAllStateValues(state, false);
+	}
+
+	private List<minitlTrace.States.Value> getAllStateValues(minitlTrace.States.State state,
+			boolean includeHiddenValues) {
 		final List<minitlTrace.States.Value> result = new ArrayList<>();
-		for (minitlTrace.States.minitl.TracedObjectTemplate tracedObject : ((minitlTrace.SpecificTrace) state
-				.eContainer()).getMinitl_tracedObjectTemplates()) {
-			traces.add(tracedObject.getCurrentObjectSequence());
-		}
-		for (minitlTrace.States.minitl.TracedTransformation tracedObject : ((minitlTrace.SpecificTrace) state
-				.eContainer()).getMinitl_tracedTransformations()) {
-			traces.add(tracedObject.getInputModelSequence());
-			traces.add(tracedObject.getInputModelURISequence());
-			traces.add(tracedObject.getOutputFilePathSequence());
-			traces.add(tracedObject.getOutputModelSequence());
-		}
-		for (int i = 0; i < traces.size(); i++) {
-			if (!isValueTraceIgnored(i)) {
-				final List<? extends minitlTrace.States.Value> trace = traces.get(i);
+		for (int i = 0; i < valueTraces.size(); i++) {
+			if (includeHiddenValues || !isValueTraceIgnored(i)) {
+				final List<? extends minitlTrace.States.Value> trace = valueTraces.get(i);
+				boolean notFound = true;
 				for (minitlTrace.States.Value value : trace) {
 					if (value.getStatesNoOpposite().contains(state)) {
 						result.add(value);
+						notFound = false;
 						break;
 					}
+				}
+				if (notFound) {
+					result.add(null);
 				}
 			}
 		}
@@ -516,6 +532,7 @@ public class MinitlTraceExtractor implements ITraceExtractor {
 		traceRoot = root;
 		statesTrace = traceRoot.getStatesTrace();
 		valueTraces.addAll(getAllValueTraces());
+		updateEquivalenceClasses(statesTrace);
 	}
 
 	@Override
@@ -756,18 +773,108 @@ public class MinitlTraceExtractor implements ITraceExtractor {
 
 	@Override
 	public void ignoreValueTrace(int trace, boolean ignore) {
-		ignoredValueTraces.put(trace, ignore);
+		if (trace > -1 && trace < valueTraces.size()) {
+			ignoredValueTraces.put(trace, ignore);
+			cachedMaskedStateEquivalenceClasses.clear();
+			notifyListeners();
+		}
 	}
 
 	@Override
 	public boolean isValueTraceIgnored(int trace) {
-		Boolean result = ignoredValueTraces.get(trace);
+		Boolean result = null;
+		if (trace > -1 && trace < valueTraces.size()) {
+			result = ignoredValueTraces.get(trace);
+		}
 		return result != null && result;
 	}
 
 	@Override
-	public void update() {
-		valueTraces.clear();
-		valueTraces.addAll(getAllValueTraces());
+	public void statesAdded(List<EObject> states) {
+		updateEquivalenceClasses(states.stream().map(e -> (minitlTrace.States.State) e).collect(Collectors.toList()));
+		notifyListeners();
+	}
+
+	private Map<EObject, Map<EReference, List<EObject>>> valuesTracesMap = new HashMap<>();
+
+	private Map<ITraceViewListener, Set<TraceViewCommand>> listeners = new HashMap<>();
+
+	@Override
+	public void valuesAdded(List<EObject> values) {
+		// Nothing to do here.
+	}
+
+	@Override
+	public void dimensionsAdded(List<List<? extends EObject>> dimensions) {
+		if (!dimensions.isEmpty()) {
+			valueTraces.clear();
+			cachedMaskedStateEquivalenceClasses.clear();
+			valueTraces.addAll(getAllValueTraces());
+			final List<Integer> insertedTracesIndexes = new ArrayList<>();
+			for (List<? extends EObject> valueTrace : dimensions) {
+				final int i = valueTraces.indexOf(valueTrace);
+				insertedTracesIndexes.add(i);
+			}
+			Collections.sort(insertedTracesIndexes);
+			final List<List<Integer>> keys = new ArrayList<>(stateEquivalenceClasses.keySet());
+			for (List<Integer> key : keys) {
+				List<EObject> states = stateEquivalenceClasses.remove(key);
+				for (Integer i : insertedTracesIndexes) {
+					key.add(i, -1);
+				}
+				stateEquivalenceClasses.put(key, states);
+			}
+			List<Integer> ignoredTracesIndexes = new ArrayList<>(ignoredValueTraces.keySet());
+			Collections.sort(ignoredTracesIndexes);
+			while (!ignoredTracesIndexes.isEmpty()) {
+				int i = ignoredTracesIndexes.remove(0);
+				if (insertedTracesIndexes.get(0) <= i) {
+					for (int j = ignoredTracesIndexes.size() - 1; j >= 0; j--) {
+						final Integer idx = ignoredTracesIndexes.get(j);
+						ignoredValueTraces.put(idx + 1, ignoredValueTraces.remove(idx));
+					}
+					ignoredTracesIndexes = ignoredTracesIndexes.stream().map(idx -> idx + 1)
+							.collect(Collectors.toList());
+					ignoredValueTraces.put(i + 1, ignoredValueTraces.remove(i));
+					insertedTracesIndexes.remove(0);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void notifyListeners() {
+		for (Map.Entry<ITraceViewListener, Set<TraceViewCommand>> entry : listeners.entrySet()) {
+			entry.getValue().forEach(c -> c.execute());
+		}
+	}
+
+	@Override
+	public void registerCommand(ITraceViewListener listener, TraceViewCommand command) {
+		if (listener != null) {
+			Set<TraceViewCommand> commands = listeners.get(listener);
+			if (commands == null) {
+				commands = new HashSet<>();
+				listeners.put(listener, commands);
+			}
+			commands.add(command);
+		}
+	}
+
+	@Override
+	public void removeListener(ITraceViewListener listener) {
+		if (listener != null) {
+			listeners.remove(listener);
+		}
+	}
+
+	@Override
+	public void stepsStarted(List<EObject> steps) {
+		// Nothing to do here.
+	}
+
+	@Override
+	public void stepsEnded(List<EObject> steps) {
+		// Nothing to do here.
 	}
 }

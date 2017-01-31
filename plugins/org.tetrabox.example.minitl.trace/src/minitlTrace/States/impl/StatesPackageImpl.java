@@ -26,7 +26,6 @@ import minitlTrace.impl.MinitlTracePackageImpl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -207,15 +206,6 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getObjectTemplate_currentObject_Value__GetStatesNoOpposite() {
-		return objectTemplate_currentObject_ValueEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getState() {
 		return stateEClass;
 	}
@@ -324,15 +314,6 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTransformation_inputModelURI_Value__GetStatesNoOpposite() {
-		return transformation_inputModelURI_ValueEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTransformation_inputModel_Value() {
 		return transformation_inputModel_ValueEClass;
 	}
@@ -362,15 +343,6 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 */
 	public EReference getTransformation_inputModel_Value_States() {
 		return (EReference)transformation_inputModel_ValueEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTransformation_inputModel_Value__GetStatesNoOpposite() {
-		return transformation_inputModel_ValueEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -414,15 +386,6 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTransformation_outputFilePath_Value__GetStatesNoOpposite() {
-		return transformation_outputFilePath_ValueEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTransformation_outputModel_Value() {
 		return transformation_outputModel_ValueEClass;
 	}
@@ -452,15 +415,6 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 */
 	public EReference getTransformation_outputModel_Value_States() {
 		return (EReference)transformation_outputModel_ValueEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTransformation_outputModel_Value__GetStatesNoOpposite() {
-		return transformation_outputModel_ValueEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -513,7 +467,6 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		createEAttribute(objectTemplate_currentObject_ValueEClass, OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__CURRENT_OBJECT);
 		createEReference(objectTemplate_currentObject_ValueEClass, OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__PARENT);
 		createEReference(objectTemplate_currentObject_ValueEClass, OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__STATES);
-		createEOperation(objectTemplate_currentObject_ValueEClass, OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE___GET_STATES_NO_OPPOSITE);
 
 		stateEClass = createEClass(STATE);
 		createEReference(stateEClass, STATE__ENDED_STEPS);
@@ -528,25 +481,21 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		createEAttribute(transformation_inputModelURI_ValueEClass, TRANSFORMATION_INPUT_MODEL_URI_VALUE__INPUT_MODEL_URI);
 		createEReference(transformation_inputModelURI_ValueEClass, TRANSFORMATION_INPUT_MODEL_URI_VALUE__PARENT);
 		createEReference(transformation_inputModelURI_ValueEClass, TRANSFORMATION_INPUT_MODEL_URI_VALUE__STATES);
-		createEOperation(transformation_inputModelURI_ValueEClass, TRANSFORMATION_INPUT_MODEL_URI_VALUE___GET_STATES_NO_OPPOSITE);
 
 		transformation_inputModel_ValueEClass = createEClass(TRANSFORMATION_INPUT_MODEL_VALUE);
 		createEAttribute(transformation_inputModel_ValueEClass, TRANSFORMATION_INPUT_MODEL_VALUE__INPUT_MODEL);
 		createEReference(transformation_inputModel_ValueEClass, TRANSFORMATION_INPUT_MODEL_VALUE__PARENT);
 		createEReference(transformation_inputModel_ValueEClass, TRANSFORMATION_INPUT_MODEL_VALUE__STATES);
-		createEOperation(transformation_inputModel_ValueEClass, TRANSFORMATION_INPUT_MODEL_VALUE___GET_STATES_NO_OPPOSITE);
 
 		transformation_outputFilePath_ValueEClass = createEClass(TRANSFORMATION_OUTPUT_FILE_PATH_VALUE);
 		createEAttribute(transformation_outputFilePath_ValueEClass, TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__OUTPUT_FILE_PATH);
 		createEReference(transformation_outputFilePath_ValueEClass, TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__PARENT);
 		createEReference(transformation_outputFilePath_ValueEClass, TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__STATES);
-		createEOperation(transformation_outputFilePath_ValueEClass, TRANSFORMATION_OUTPUT_FILE_PATH_VALUE___GET_STATES_NO_OPPOSITE);
 
 		transformation_outputModel_ValueEClass = createEClass(TRANSFORMATION_OUTPUT_MODEL_VALUE);
 		createEAttribute(transformation_outputModel_ValueEClass, TRANSFORMATION_OUTPUT_MODEL_VALUE__OUTPUT_MODEL);
 		createEReference(transformation_outputModel_ValueEClass, TRANSFORMATION_OUTPUT_MODEL_VALUE__PARENT);
 		createEReference(transformation_outputModel_ValueEClass, TRANSFORMATION_OUTPUT_MODEL_VALUE__STATES);
-		createEOperation(transformation_outputModel_ValueEClass, TRANSFORMATION_OUTPUT_MODEL_VALUE___GET_STATES_NO_OPPOSITE);
 
 		valueEClass = createEClass(VALUE);
 		createEReference(valueEClass, VALUE__STATES_NO_OPPOSITE);
@@ -594,13 +543,13 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		transformation_outputFilePath_ValueEClass.getESuperTypes().add(this.getValue());
 		transformation_outputModel_ValueEClass.getESuperTypes().add(this.getValue());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(objectTemplate_currentObject_ValueEClass, ObjectTemplate_currentObject_Value.class, "ObjectTemplate_currentObject_Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getObjectTemplate_currentObject_Value_CurrentObject(), theMinitlPackage.getEObject(), "currentObject", null, 0, 1, ObjectTemplate_currentObject_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectTemplate_currentObject_Value_Parent(), theMinitlPackage_1.getTracedObjectTemplate(), theMinitlPackage_1.getTracedObjectTemplate_CurrentObjectSequence(), "parent", null, 1, 1, ObjectTemplate_currentObject_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectTemplate_currentObject_Value_States(), this.getState(), this.getState_ObjectTemplate_currentObject_Values(), "states", null, 1, -1, ObjectTemplate_currentObject_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getObjectTemplate_currentObject_Value__GetStatesNoOpposite(), this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(objectTemplate_currentObject_ValueEClass, this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getState_EndedSteps(), theStepsPackage.getSpecificStep(), theStepsPackage.getSpecificStep_EndingState(), "endedSteps", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -616,28 +565,28 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		initEReference(getTransformation_inputModelURI_Value_Parent(), theMinitlPackage_1.getTracedTransformation(), theMinitlPackage_1.getTracedTransformation_InputModelURISequence(), "parent", null, 1, 1, Transformation_inputModelURI_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransformation_inputModelURI_Value_States(), this.getState(), this.getState_Transformation_inputModelURI_Values(), "states", null, 1, -1, Transformation_inputModelURI_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getTransformation_inputModelURI_Value__GetStatesNoOpposite(), this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(transformation_inputModelURI_ValueEClass, this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(transformation_inputModel_ValueEClass, Transformation_inputModel_Value.class, "Transformation_inputModel_Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTransformation_inputModel_Value_InputModel(), theMinitlPackage.getEObject(), "inputModel", null, 0, -1, Transformation_inputModel_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransformation_inputModel_Value_Parent(), theMinitlPackage_1.getTracedTransformation(), theMinitlPackage_1.getTracedTransformation_InputModelSequence(), "parent", null, 1, 1, Transformation_inputModel_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransformation_inputModel_Value_States(), this.getState(), this.getState_Transformation_inputModel_Values(), "states", null, 1, -1, Transformation_inputModel_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getTransformation_inputModel_Value__GetStatesNoOpposite(), this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(transformation_inputModel_ValueEClass, this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(transformation_outputFilePath_ValueEClass, Transformation_outputFilePath_Value.class, "Transformation_outputFilePath_Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTransformation_outputFilePath_Value_OutputFilePath(), ecorePackage.getEString(), "outputFilePath", null, 0, 1, Transformation_outputFilePath_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransformation_outputFilePath_Value_Parent(), theMinitlPackage_1.getTracedTransformation(), theMinitlPackage_1.getTracedTransformation_OutputFilePathSequence(), "parent", null, 1, 1, Transformation_outputFilePath_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransformation_outputFilePath_Value_States(), this.getState(), this.getState_Transformation_outputFilePath_Values(), "states", null, 1, -1, Transformation_outputFilePath_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getTransformation_outputFilePath_Value__GetStatesNoOpposite(), this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(transformation_outputFilePath_ValueEClass, this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(transformation_outputModel_ValueEClass, Transformation_outputModel_Value.class, "Transformation_outputModel_Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTransformation_outputModel_Value_OutputModel(), theMinitlPackage.getEObject(), "outputModel", null, 0, -1, Transformation_outputModel_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransformation_outputModel_Value_Parent(), theMinitlPackage_1.getTracedTransformation(), theMinitlPackage_1.getTracedTransformation_OutputModelSequence(), "parent", null, 1, 1, Transformation_outputModel_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransformation_outputModel_Value_States(), this.getState(), this.getState_Transformation_outputModel_Values(), "states", null, 1, -1, Transformation_outputModel_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getTransformation_outputModel_Value__GetStatesNoOpposite(), this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(transformation_outputModel_ValueEClass, this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(valueEClass, Value.class, "Value", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValue_StatesNoOpposite(), this.getState(), null, "statesNoOpposite", null, 1, -1, Value.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);

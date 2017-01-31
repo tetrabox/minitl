@@ -36,7 +36,6 @@ import minitlTrace.impl.MinitlTracePackageImpl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -260,15 +259,6 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getMinitl_Binding_Assign__GetCaller() {
-		return minitl_Binding_AssignEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMinitl_Binding_Check() {
 		return minitl_Binding_CheckEClass;
 	}
@@ -278,26 +268,8 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getMinitl_Binding_Check__GetCaller() {
-		return minitl_Binding_CheckEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMinitl_ObjectTemplate_Construct() {
 		return minitl_ObjectTemplate_ConstructEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMinitl_ObjectTemplate_Construct__GetCaller() {
-		return minitl_ObjectTemplate_ConstructEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -332,15 +304,6 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getMinitl_ObjectTemplate_Match__GetCaller() {
-		return minitl_ObjectTemplate_MatchEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMinitl_ObjectTemplate_Match_AbstractSubStep() {
 		return minitl_ObjectTemplate_Match_AbstractSubStepEClass;
 	}
@@ -361,15 +324,6 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 */
 	public EClass getMinitl_Rule_Apply() {
 		return minitl_Rule_ApplyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMinitl_Rule_Apply__GetCaller() {
-		return minitl_Rule_ApplyEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -404,15 +358,6 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getMinitl_Transformation_Execute__GetCaller() {
-		return minitl_Transformation_ExecuteEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMinitl_Transformation_Execute_AbstractSubStep() {
 		return minitl_Transformation_Execute_AbstractSubStepEClass;
 	}
@@ -433,15 +378,6 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 */
 	public EClass getMinitl_Transformation_Initialize() {
 		return minitl_Transformation_InitializeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMinitl_Transformation_Initialize__GetCaller() {
-		return minitl_Transformation_InitializeEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -509,41 +445,34 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 
 		// Create classes and their features
 		minitl_Binding_AssignEClass = createEClass(MINITL_BINDING_ASSIGN);
-		createEOperation(minitl_Binding_AssignEClass, MINITL_BINDING_ASSIGN___GET_CALLER);
 
 		minitl_Binding_CheckEClass = createEClass(MINITL_BINDING_CHECK);
-		createEOperation(minitl_Binding_CheckEClass, MINITL_BINDING_CHECK___GET_CALLER);
 
 		minitl_ObjectTemplate_ConstructEClass = createEClass(MINITL_OBJECT_TEMPLATE_CONSTRUCT);
-		createEOperation(minitl_ObjectTemplate_ConstructEClass, MINITL_OBJECT_TEMPLATE_CONSTRUCT___GET_CALLER);
 
 		minitl_ObjectTemplate_Construct_AbstractSubStepEClass = createEClass(MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP);
 
 		minitl_ObjectTemplate_Construct_ImplicitStepEClass = createEClass(MINITL_OBJECT_TEMPLATE_CONSTRUCT_IMPLICIT_STEP);
 
 		minitl_ObjectTemplate_MatchEClass = createEClass(MINITL_OBJECT_TEMPLATE_MATCH);
-		createEOperation(minitl_ObjectTemplate_MatchEClass, MINITL_OBJECT_TEMPLATE_MATCH___GET_CALLER);
 
 		minitl_ObjectTemplate_Match_AbstractSubStepEClass = createEClass(MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP);
 
 		minitl_ObjectTemplate_Match_ImplicitStepEClass = createEClass(MINITL_OBJECT_TEMPLATE_MATCH_IMPLICIT_STEP);
 
 		minitl_Rule_ApplyEClass = createEClass(MINITL_RULE_APPLY);
-		createEOperation(minitl_Rule_ApplyEClass, MINITL_RULE_APPLY___GET_CALLER);
 
 		minitl_Rule_Apply_AbstractSubStepEClass = createEClass(MINITL_RULE_APPLY_ABSTRACT_SUB_STEP);
 
 		minitl_Rule_Apply_ImplicitStepEClass = createEClass(MINITL_RULE_APPLY_IMPLICIT_STEP);
 
 		minitl_Transformation_ExecuteEClass = createEClass(MINITL_TRANSFORMATION_EXECUTE);
-		createEOperation(minitl_Transformation_ExecuteEClass, MINITL_TRANSFORMATION_EXECUTE___GET_CALLER);
 
 		minitl_Transformation_Execute_AbstractSubStepEClass = createEClass(MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP);
 
 		minitl_Transformation_Execute_ImplicitStepEClass = createEClass(MINITL_TRANSFORMATION_EXECUTE_IMPLICIT_STEP);
 
 		minitl_Transformation_InitializeEClass = createEClass(MINITL_TRANSFORMATION_INITIALIZE);
-		createEOperation(minitl_Transformation_InitializeEClass, MINITL_TRANSFORMATION_INITIALIZE___GET_CALLER);
 
 		rootImplicitStepEClass = createEClass(ROOT_IMPLICIT_STEP);
 
@@ -639,18 +568,18 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		rootImplicitStepEClass.getESuperTypes().add(theTracePackage.getSmallStep());
 		specificStepEClass.getESuperTypes().add(theTracePackage.getStep());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(minitl_Binding_AssignEClass, Minitl_Binding_Assign.class, "Minitl_Binding_Assign", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getMinitl_Binding_Assign__GetCaller(), theMinitlPackage.getBinding(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(minitl_Binding_AssignEClass, theMinitlPackage.getBinding(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(minitl_Binding_CheckEClass, Minitl_Binding_Check.class, "Minitl_Binding_Check", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getMinitl_Binding_Check__GetCaller(), theMinitlPackage.getBinding(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(minitl_Binding_CheckEClass, theMinitlPackage.getBinding(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(minitl_ObjectTemplate_ConstructEClass, Minitl_ObjectTemplate_Construct.class, "Minitl_ObjectTemplate_Construct", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getMinitl_ObjectTemplate_Construct__GetCaller(), theMinitlPackage_1.getTracedObjectTemplate(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(minitl_ObjectTemplate_ConstructEClass, theMinitlPackage_1.getTracedObjectTemplate(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(minitl_ObjectTemplate_Construct_AbstractSubStepEClass, Minitl_ObjectTemplate_Construct_AbstractSubStep.class, "Minitl_ObjectTemplate_Construct_AbstractSubStep", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -658,7 +587,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 
 		initEClass(minitl_ObjectTemplate_MatchEClass, Minitl_ObjectTemplate_Match.class, "Minitl_ObjectTemplate_Match", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getMinitl_ObjectTemplate_Match__GetCaller(), theMinitlPackage_1.getTracedObjectTemplate(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(minitl_ObjectTemplate_MatchEClass, theMinitlPackage_1.getTracedObjectTemplate(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(minitl_ObjectTemplate_Match_AbstractSubStepEClass, Minitl_ObjectTemplate_Match_AbstractSubStep.class, "Minitl_ObjectTemplate_Match_AbstractSubStep", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -666,7 +595,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 
 		initEClass(minitl_Rule_ApplyEClass, Minitl_Rule_Apply.class, "Minitl_Rule_Apply", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getMinitl_Rule_Apply__GetCaller(), theMinitlPackage_1.getTracedRule(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(minitl_Rule_ApplyEClass, theMinitlPackage_1.getTracedRule(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(minitl_Rule_Apply_AbstractSubStepEClass, Minitl_Rule_Apply_AbstractSubStep.class, "Minitl_Rule_Apply_AbstractSubStep", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -674,7 +603,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 
 		initEClass(minitl_Transformation_ExecuteEClass, Minitl_Transformation_Execute.class, "Minitl_Transformation_Execute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getMinitl_Transformation_Execute__GetCaller(), theMinitlPackage_1.getTracedTransformation(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(minitl_Transformation_ExecuteEClass, theMinitlPackage_1.getTracedTransformation(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(minitl_Transformation_Execute_AbstractSubStepEClass, Minitl_Transformation_Execute_AbstractSubStep.class, "Minitl_Transformation_Execute_AbstractSubStep", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -682,7 +611,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 
 		initEClass(minitl_Transformation_InitializeEClass, Minitl_Transformation_Initialize.class, "Minitl_Transformation_Initialize", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getMinitl_Transformation_Initialize__GetCaller(), theMinitlPackage_1.getTracedTransformation(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(minitl_Transformation_InitializeEClass, theMinitlPackage_1.getTracedTransformation(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(rootImplicitStepEClass, RootImplicitStep.class, "RootImplicitStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

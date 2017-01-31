@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
   <extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
-    <XDSML_Definition modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.tetrabox.example.Minitl" xdsmlFilePath="/org.tetrabox.example.minitl.xdsml/bin/org/tetrabox/example/minitl.melange" />
+    <XDSML_Definition modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.tetrabox.example.Minitl" xdsmlFilePath="/org.tetrabox.example.minitl.xdsml/src/org/tetrabox/example/minitl.melange" />
   </extension>
   <extension point="fr.inria.diverse.melange.modeltype">
     <modeltype id="org.tetrabox.example.MinitlMT" uri="http://org.tetrabox.example.minitlmt/" />

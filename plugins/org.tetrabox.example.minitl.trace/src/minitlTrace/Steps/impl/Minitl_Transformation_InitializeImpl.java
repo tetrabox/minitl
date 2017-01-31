@@ -4,8 +4,6 @@ package minitlTrace.Steps.impl;
 
 import fr.inria.diverse.trace.commons.model.trace.impl.StepImpl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import minitlTrace.States.State;
 import minitlTrace.States.StatesPackage;
 
@@ -16,8 +14,6 @@ import minitlTrace.Steps.StepsPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -311,20 +307,6 @@ public class Minitl_Transformation_InitializeImpl extends StepImpl implements Mi
 				return startingState != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case StepsPackage.MINITL_TRANSFORMATION_INITIALIZE___GET_CALLER:
-				return getCaller();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } //Minitl_Transformation_InitializeImpl

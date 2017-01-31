@@ -312,7 +312,7 @@ public class MinitlTracePackageImpl extends EPackageImpl implements MinitlTraceP
 		g2.getETypeArguments().add(g3);
 		specificTraceEClass.getEGenericSuperTypes().add(g1);
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(specificTraceEClass, SpecificTrace.class, "SpecificTrace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSpecificTrace_Minitl_Binding_Assign_Sequence(), theStepsPackage.getMinitl_Binding_Assign(), null, "Minitl_Binding_Assign_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSpecificTrace_Minitl_Binding_Check_Sequence(), theStepsPackage.getMinitl_Binding_Check(), null, "Minitl_Binding_Check_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

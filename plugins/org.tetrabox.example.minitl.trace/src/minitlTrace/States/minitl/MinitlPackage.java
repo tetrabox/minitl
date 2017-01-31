@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -75,15 +74,6 @@ public interface MinitlPackage extends EPackage {
 	int TRACED_NAMED_ELEMENT_FEATURE_COUNT = 0;
 
 	/**
-	 * The number of operations of the '<em>Traced Named Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACED_NAMED_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.States.minitl.impl.TracedObjectTemplateImpl <em>Traced Object Template</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -121,15 +111,6 @@ public interface MinitlPackage extends EPackage {
 	int TRACED_OBJECT_TEMPLATE_FEATURE_COUNT = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Traced Object Template</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACED_OBJECT_TEMPLATE_OPERATION_COUNT = TRACED_NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.States.minitl.impl.TracedRuleImpl <em>Traced Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,15 +137,6 @@ public interface MinitlPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRACED_RULE_FEATURE_COUNT = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Traced Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACED_RULE_OPERATION_COUNT = TRACED_NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.States.minitl.impl.TracedTransformationImpl <em>Traced Transformation</em>}' class.
@@ -229,15 +201,6 @@ public interface MinitlPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRACED_TRANSFORMATION_FEATURE_COUNT = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of operations of the '<em>Traced Transformation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACED_TRANSFORMATION_OPERATION_COUNT = TRACED_NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -383,7 +346,6 @@ public interface MinitlPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

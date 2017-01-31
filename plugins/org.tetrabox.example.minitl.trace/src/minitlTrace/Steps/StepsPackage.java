@@ -5,7 +5,6 @@ package minitlTrace.Steps;
 import fr.inria.diverse.trace.commons.model.trace.TracePackage;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -16,7 +15,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -105,15 +103,6 @@ public interface StepsPackage extends EPackage {
 	int SPECIFIC_STEP_FEATURE_COUNT = TracePackage.STEP_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Specific Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECIFIC_STEP_OPERATION_COUNT = TracePackage.STEP_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.Minitl_ObjectTemplate_Construct_AbstractSubStep <em>Minitl Object Template Construct Abstract Sub Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,15 +147,6 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Object Template Construct Abstract Sub Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.impl.Minitl_Binding_AssignImpl <em>Minitl Binding Assign</em>}' class.
@@ -215,24 +195,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_BINDING_ASSIGN_FEATURE_COUNT = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Caller</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_BINDING_ASSIGN___GET_CALLER = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Binding Assign</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_BINDING_ASSIGN_OPERATION_COUNT = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.impl.Minitl_Binding_CheckImpl <em>Minitl Binding Check</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -279,24 +241,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_BINDING_CHECK_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Caller</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_BINDING_CHECK___GET_CALLER = SPECIFIC_STEP_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Binding Check</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_BINDING_CHECK_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.Minitl_Rule_Apply_AbstractSubStep <em>Minitl Rule Apply Abstract Sub Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -341,15 +285,6 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_RULE_APPLY_ABSTRACT_SUB_STEP_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Rule Apply Abstract Sub Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_RULE_APPLY_ABSTRACT_SUB_STEP_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.impl.Minitl_ObjectTemplate_ConstructImpl <em>Minitl Object Template Construct</em>}' class.
@@ -407,24 +342,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_FEATURE_COUNT = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Caller</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_CONSTRUCT___GET_CALLER = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Object Template Construct</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_OPERATION_COUNT = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.impl.Minitl_ObjectTemplate_Construct_ImplicitStepImpl <em>Minitl Object Template Construct Implicit Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -469,15 +386,6 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_IMPLICIT_STEP_FEATURE_COUNT = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Object Template Construct Implicit Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_IMPLICIT_STEP_OPERATION_COUNT = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.impl.Minitl_ObjectTemplate_MatchImpl <em>Minitl Object Template Match</em>}' class.
@@ -535,24 +443,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_OBJECT_TEMPLATE_MATCH_FEATURE_COUNT = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Caller</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_MATCH___GET_CALLER = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Object Template Match</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_MATCH_OPERATION_COUNT = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.Minitl_ObjectTemplate_Match_AbstractSubStep <em>Minitl Object Template Match Abstract Sub Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -597,15 +487,6 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Object Template Match Abstract Sub Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.impl.Minitl_ObjectTemplate_Match_ImplicitStepImpl <em>Minitl Object Template Match Implicit Step</em>}' class.
@@ -654,15 +535,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_OBJECT_TEMPLATE_MATCH_IMPLICIT_STEP_FEATURE_COUNT = MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Minitl Object Template Match Implicit Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_MATCH_IMPLICIT_STEP_OPERATION_COUNT = MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.Minitl_Transformation_Execute_AbstractSubStep <em>Minitl Transformation Execute Abstract Sub Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -707,15 +579,6 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Transformation Execute Abstract Sub Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.impl.Minitl_Rule_ApplyImpl <em>Minitl Rule Apply</em>}' class.
@@ -773,24 +636,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_RULE_APPLY_FEATURE_COUNT = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Caller</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_RULE_APPLY___GET_CALLER = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Rule Apply</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_RULE_APPLY_OPERATION_COUNT = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.impl.Minitl_Rule_Apply_ImplicitStepImpl <em>Minitl Rule Apply Implicit Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -835,15 +680,6 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_RULE_APPLY_IMPLICIT_STEP_FEATURE_COUNT = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Rule Apply Implicit Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_RULE_APPLY_IMPLICIT_STEP_OPERATION_COUNT = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.impl.Minitl_Transformation_ExecuteImpl <em>Minitl Transformation Execute</em>}' class.
@@ -901,24 +737,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_TRANSFORMATION_EXECUTE_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Caller</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_TRANSFORMATION_EXECUTE___GET_CALLER = SPECIFIC_STEP_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Transformation Execute</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_TRANSFORMATION_EXECUTE_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.impl.Minitl_Transformation_Execute_ImplicitStepImpl <em>Minitl Transformation Execute Implicit Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -963,15 +781,6 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_TRANSFORMATION_EXECUTE_IMPLICIT_STEP_FEATURE_COUNT = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Transformation Execute Implicit Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_TRANSFORMATION_EXECUTE_IMPLICIT_STEP_OPERATION_COUNT = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.impl.Minitl_Transformation_InitializeImpl <em>Minitl Transformation Initialize</em>}' class.
@@ -1020,24 +829,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_TRANSFORMATION_INITIALIZE_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Caller</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_TRANSFORMATION_INITIALIZE___GET_CALLER = SPECIFIC_STEP_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Minitl Transformation Initialize</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_TRANSFORMATION_INITIALIZE_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.impl.RootImplicitStepImpl <em>Root Implicit Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1065,15 +856,6 @@ public interface StepsPackage extends EPackage {
 	 */
 	int ROOT_IMPLICIT_STEP_FEATURE_COUNT = TracePackage.SMALL_STEP_FEATURE_COUNT + 0;
 
-	/**
-	 * The number of operations of the '<em>Root Implicit Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOT_IMPLICIT_STEP_OPERATION_COUNT = TracePackage.SMALL_STEP_OPERATION_COUNT + 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link minitlTrace.Steps.Minitl_Binding_Assign <em>Minitl Binding Assign</em>}'.
@@ -1086,16 +868,6 @@ public interface StepsPackage extends EPackage {
 	EClass getMinitl_Binding_Assign();
 
 	/**
-	 * Returns the meta object for the '{@link minitlTrace.Steps.Minitl_Binding_Assign#getCaller() <em>Get Caller</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Caller</em>' operation.
-	 * @see minitlTrace.Steps.Minitl_Binding_Assign#getCaller()
-	 * @generated
-	 */
-	EOperation getMinitl_Binding_Assign__GetCaller();
-
-	/**
 	 * Returns the meta object for class '{@link minitlTrace.Steps.Minitl_Binding_Check <em>Minitl Binding Check</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1106,16 +878,6 @@ public interface StepsPackage extends EPackage {
 	EClass getMinitl_Binding_Check();
 
 	/**
-	 * Returns the meta object for the '{@link minitlTrace.Steps.Minitl_Binding_Check#getCaller() <em>Get Caller</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Caller</em>' operation.
-	 * @see minitlTrace.Steps.Minitl_Binding_Check#getCaller()
-	 * @generated
-	 */
-	EOperation getMinitl_Binding_Check__GetCaller();
-
-	/**
 	 * Returns the meta object for class '{@link minitlTrace.Steps.Minitl_ObjectTemplate_Construct <em>Minitl Object Template Construct</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1124,16 +886,6 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMinitl_ObjectTemplate_Construct();
-
-	/**
-	 * Returns the meta object for the '{@link minitlTrace.Steps.Minitl_ObjectTemplate_Construct#getCaller() <em>Get Caller</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Caller</em>' operation.
-	 * @see minitlTrace.Steps.Minitl_ObjectTemplate_Construct#getCaller()
-	 * @generated
-	 */
-	EOperation getMinitl_ObjectTemplate_Construct__GetCaller();
 
 	/**
 	 * Returns the meta object for class '{@link minitlTrace.Steps.Minitl_ObjectTemplate_Construct_AbstractSubStep <em>Minitl Object Template Construct Abstract Sub Step</em>}'.
@@ -1166,16 +918,6 @@ public interface StepsPackage extends EPackage {
 	EClass getMinitl_ObjectTemplate_Match();
 
 	/**
-	 * Returns the meta object for the '{@link minitlTrace.Steps.Minitl_ObjectTemplate_Match#getCaller() <em>Get Caller</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Caller</em>' operation.
-	 * @see minitlTrace.Steps.Minitl_ObjectTemplate_Match#getCaller()
-	 * @generated
-	 */
-	EOperation getMinitl_ObjectTemplate_Match__GetCaller();
-
-	/**
 	 * Returns the meta object for class '{@link minitlTrace.Steps.Minitl_ObjectTemplate_Match_AbstractSubStep <em>Minitl Object Template Match Abstract Sub Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1204,16 +946,6 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMinitl_Rule_Apply();
-
-	/**
-	 * Returns the meta object for the '{@link minitlTrace.Steps.Minitl_Rule_Apply#getCaller() <em>Get Caller</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Caller</em>' operation.
-	 * @see minitlTrace.Steps.Minitl_Rule_Apply#getCaller()
-	 * @generated
-	 */
-	EOperation getMinitl_Rule_Apply__GetCaller();
 
 	/**
 	 * Returns the meta object for class '{@link minitlTrace.Steps.Minitl_Rule_Apply_AbstractSubStep <em>Minitl Rule Apply Abstract Sub Step</em>}'.
@@ -1246,16 +978,6 @@ public interface StepsPackage extends EPackage {
 	EClass getMinitl_Transformation_Execute();
 
 	/**
-	 * Returns the meta object for the '{@link minitlTrace.Steps.Minitl_Transformation_Execute#getCaller() <em>Get Caller</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Caller</em>' operation.
-	 * @see minitlTrace.Steps.Minitl_Transformation_Execute#getCaller()
-	 * @generated
-	 */
-	EOperation getMinitl_Transformation_Execute__GetCaller();
-
-	/**
 	 * Returns the meta object for class '{@link minitlTrace.Steps.Minitl_Transformation_Execute_AbstractSubStep <em>Minitl Transformation Execute Abstract Sub Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1284,16 +1006,6 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMinitl_Transformation_Initialize();
-
-	/**
-	 * Returns the meta object for the '{@link minitlTrace.Steps.Minitl_Transformation_Initialize#getCaller() <em>Get Caller</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Caller</em>' operation.
-	 * @see minitlTrace.Steps.Minitl_Transformation_Initialize#getCaller()
-	 * @generated
-	 */
-	EOperation getMinitl_Transformation_Initialize__GetCaller();
 
 	/**
 	 * Returns the meta object for class '{@link minitlTrace.Steps.RootImplicitStep <em>Root Implicit Step</em>}'.
@@ -1352,7 +1064,6 @@ public interface StepsPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -1371,14 +1082,6 @@ public interface StepsPackage extends EPackage {
 		EClass MINITL_BINDING_ASSIGN = eINSTANCE.getMinitl_Binding_Assign();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Caller</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MINITL_BINDING_ASSIGN___GET_CALLER = eINSTANCE.getMinitl_Binding_Assign__GetCaller();
-
-		/**
 		 * The meta object literal for the '{@link minitlTrace.Steps.impl.Minitl_Binding_CheckImpl <em>Minitl Binding Check</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1389,14 +1092,6 @@ public interface StepsPackage extends EPackage {
 		EClass MINITL_BINDING_CHECK = eINSTANCE.getMinitl_Binding_Check();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Caller</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MINITL_BINDING_CHECK___GET_CALLER = eINSTANCE.getMinitl_Binding_Check__GetCaller();
-
-		/**
 		 * The meta object literal for the '{@link minitlTrace.Steps.impl.Minitl_ObjectTemplate_ConstructImpl <em>Minitl Object Template Construct</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1405,14 +1100,6 @@ public interface StepsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MINITL_OBJECT_TEMPLATE_CONSTRUCT = eINSTANCE.getMinitl_ObjectTemplate_Construct();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Caller</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MINITL_OBJECT_TEMPLATE_CONSTRUCT___GET_CALLER = eINSTANCE.getMinitl_ObjectTemplate_Construct__GetCaller();
 
 		/**
 		 * The meta object literal for the '{@link minitlTrace.Steps.Minitl_ObjectTemplate_Construct_AbstractSubStep <em>Minitl Object Template Construct Abstract Sub Step</em>}' class.
@@ -1445,14 +1132,6 @@ public interface StepsPackage extends EPackage {
 		EClass MINITL_OBJECT_TEMPLATE_MATCH = eINSTANCE.getMinitl_ObjectTemplate_Match();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Caller</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MINITL_OBJECT_TEMPLATE_MATCH___GET_CALLER = eINSTANCE.getMinitl_ObjectTemplate_Match__GetCaller();
-
-		/**
 		 * The meta object literal for the '{@link minitlTrace.Steps.Minitl_ObjectTemplate_Match_AbstractSubStep <em>Minitl Object Template Match Abstract Sub Step</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1481,14 +1160,6 @@ public interface StepsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MINITL_RULE_APPLY = eINSTANCE.getMinitl_Rule_Apply();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Caller</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MINITL_RULE_APPLY___GET_CALLER = eINSTANCE.getMinitl_Rule_Apply__GetCaller();
 
 		/**
 		 * The meta object literal for the '{@link minitlTrace.Steps.Minitl_Rule_Apply_AbstractSubStep <em>Minitl Rule Apply Abstract Sub Step</em>}' class.
@@ -1521,14 +1192,6 @@ public interface StepsPackage extends EPackage {
 		EClass MINITL_TRANSFORMATION_EXECUTE = eINSTANCE.getMinitl_Transformation_Execute();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Caller</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MINITL_TRANSFORMATION_EXECUTE___GET_CALLER = eINSTANCE.getMinitl_Transformation_Execute__GetCaller();
-
-		/**
 		 * The meta object literal for the '{@link minitlTrace.Steps.Minitl_Transformation_Execute_AbstractSubStep <em>Minitl Transformation Execute Abstract Sub Step</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1557,14 +1220,6 @@ public interface StepsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MINITL_TRANSFORMATION_INITIALIZE = eINSTANCE.getMinitl_Transformation_Initialize();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Caller</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MINITL_TRANSFORMATION_INITIALIZE___GET_CALLER = eINSTANCE.getMinitl_Transformation_Initialize__GetCaller();
 
 		/**
 		 * The meta object literal for the '{@link minitlTrace.Steps.impl.RootImplicitStepImpl <em>Root Implicit Step</em>}' class.

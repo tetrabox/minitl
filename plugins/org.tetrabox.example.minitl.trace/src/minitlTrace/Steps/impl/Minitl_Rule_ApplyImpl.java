@@ -8,8 +8,6 @@ import fr.inria.diverse.trace.commons.model.trace.TracePackage;
 
 import fr.inria.diverse.trace.commons.model.trace.impl.StepImpl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import minitlTrace.States.State;
@@ -400,20 +398,6 @@ public class Minitl_Rule_ApplyImpl extends StepImpl implements Minitl_Rule_Apply
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case StepsPackage.MINITL_RULE_APPLY___GET_CALLER:
-				return getCaller();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } //Minitl_Rule_ApplyImpl

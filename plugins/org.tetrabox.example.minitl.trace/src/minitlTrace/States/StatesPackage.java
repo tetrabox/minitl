@@ -4,7 +4,6 @@ package minitlTrace.States;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -15,7 +14,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -86,15 +84,6 @@ public interface StatesPackage extends EPackage {
 	int VALUE_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.States.impl.ObjectTemplate_currentObject_ValueImpl <em>Object Template current Object Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,24 +137,6 @@ public interface StatesPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Get States No Opposite</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE___GET_STATES_NO_OPPOSITE = VALUE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Object Template current Object Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.States.impl.StateImpl <em>State</em>}' class.
@@ -250,15 +221,6 @@ public interface StatesPackage extends EPackage {
 	int STATE_FEATURE_COUNT = 7;
 
 	/**
-	 * The number of operations of the '<em>State</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.States.impl.Transformation_inputModelURI_ValueImpl <em>Transformation input Model URI Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -312,24 +274,6 @@ public interface StatesPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRANSFORMATION_INPUT_MODEL_URI_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Get States No Opposite</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_INPUT_MODEL_URI_VALUE___GET_STATES_NO_OPPOSITE = VALUE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Transformation input Model URI Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_INPUT_MODEL_URI_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.States.impl.Transformation_inputModel_ValueImpl <em>Transformation input Model Value</em>}' class.
@@ -387,24 +331,6 @@ public interface StatesPackage extends EPackage {
 	int TRANSFORMATION_INPUT_MODEL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get States No Opposite</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_INPUT_MODEL_VALUE___GET_STATES_NO_OPPOSITE = VALUE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Transformation input Model Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_INPUT_MODEL_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link minitlTrace.States.impl.Transformation_outputFilePath_ValueImpl <em>Transformation output File Path Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -458,24 +384,6 @@ public interface StatesPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Get States No Opposite</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE___GET_STATES_NO_OPPOSITE = VALUE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Transformation output File Path Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.States.impl.Transformation_outputModel_ValueImpl <em>Transformation output Model Value</em>}' class.
@@ -532,24 +440,6 @@ public interface StatesPackage extends EPackage {
 	 */
 	int TRANSFORMATION_OUTPUT_MODEL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
 
-	/**
-	 * The operation id for the '<em>Get States No Opposite</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_OUTPUT_MODEL_VALUE___GET_STATES_NO_OPPOSITE = VALUE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Transformation output Model Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_OUTPUT_MODEL_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 1;
-
 
 	/**
 	 * Returns the meta object for class '{@link minitlTrace.States.ObjectTemplate_currentObject_Value <em>Object Template current Object Value</em>}'.
@@ -593,16 +483,6 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getObjectTemplate_currentObject_Value_States();
-
-	/**
-	 * Returns the meta object for the '{@link minitlTrace.States.ObjectTemplate_currentObject_Value#getStatesNoOpposite() <em>Get States No Opposite</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get States No Opposite</em>' operation.
-	 * @see minitlTrace.States.ObjectTemplate_currentObject_Value#getStatesNoOpposite()
-	 * @generated
-	 */
-	EOperation getObjectTemplate_currentObject_Value__GetStatesNoOpposite();
 
 	/**
 	 * Returns the meta object for class '{@link minitlTrace.States.State <em>State</em>}'.
@@ -735,16 +615,6 @@ public interface StatesPackage extends EPackage {
 	EReference getTransformation_inputModelURI_Value_States();
 
 	/**
-	 * Returns the meta object for the '{@link minitlTrace.States.Transformation_inputModelURI_Value#getStatesNoOpposite() <em>Get States No Opposite</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get States No Opposite</em>' operation.
-	 * @see minitlTrace.States.Transformation_inputModelURI_Value#getStatesNoOpposite()
-	 * @generated
-	 */
-	EOperation getTransformation_inputModelURI_Value__GetStatesNoOpposite();
-
-	/**
 	 * Returns the meta object for class '{@link minitlTrace.States.Transformation_inputModel_Value <em>Transformation input Model Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -786,16 +656,6 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTransformation_inputModel_Value_States();
-
-	/**
-	 * Returns the meta object for the '{@link minitlTrace.States.Transformation_inputModel_Value#getStatesNoOpposite() <em>Get States No Opposite</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get States No Opposite</em>' operation.
-	 * @see minitlTrace.States.Transformation_inputModel_Value#getStatesNoOpposite()
-	 * @generated
-	 */
-	EOperation getTransformation_inputModel_Value__GetStatesNoOpposite();
 
 	/**
 	 * Returns the meta object for class '{@link minitlTrace.States.Transformation_outputFilePath_Value <em>Transformation output File Path Value</em>}'.
@@ -841,16 +701,6 @@ public interface StatesPackage extends EPackage {
 	EReference getTransformation_outputFilePath_Value_States();
 
 	/**
-	 * Returns the meta object for the '{@link minitlTrace.States.Transformation_outputFilePath_Value#getStatesNoOpposite() <em>Get States No Opposite</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get States No Opposite</em>' operation.
-	 * @see minitlTrace.States.Transformation_outputFilePath_Value#getStatesNoOpposite()
-	 * @generated
-	 */
-	EOperation getTransformation_outputFilePath_Value__GetStatesNoOpposite();
-
-	/**
 	 * Returns the meta object for class '{@link minitlTrace.States.Transformation_outputModel_Value <em>Transformation output Model Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -894,16 +744,6 @@ public interface StatesPackage extends EPackage {
 	EReference getTransformation_outputModel_Value_States();
 
 	/**
-	 * Returns the meta object for the '{@link minitlTrace.States.Transformation_outputModel_Value#getStatesNoOpposite() <em>Get States No Opposite</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get States No Opposite</em>' operation.
-	 * @see minitlTrace.States.Transformation_outputModel_Value#getStatesNoOpposite()
-	 * @generated
-	 */
-	EOperation getTransformation_outputModel_Value__GetStatesNoOpposite();
-
-	/**
 	 * Returns the meta object for class '{@link minitlTrace.States.Value <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -939,7 +779,6 @@ public interface StatesPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -980,14 +819,6 @@ public interface StatesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__STATES = eINSTANCE.getObjectTemplate_currentObject_Value_States();
-
-		/**
-		 * The meta object literal for the '<em><b>Get States No Opposite</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE___GET_STATES_NO_OPPOSITE = eINSTANCE.getObjectTemplate_currentObject_Value__GetStatesNoOpposite();
 
 		/**
 		 * The meta object literal for the '{@link minitlTrace.States.impl.StateImpl <em>State</em>}' class.
@@ -1090,14 +921,6 @@ public interface StatesPackage extends EPackage {
 		EReference TRANSFORMATION_INPUT_MODEL_URI_VALUE__STATES = eINSTANCE.getTransformation_inputModelURI_Value_States();
 
 		/**
-		 * The meta object literal for the '<em><b>Get States No Opposite</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TRANSFORMATION_INPUT_MODEL_URI_VALUE___GET_STATES_NO_OPPOSITE = eINSTANCE.getTransformation_inputModelURI_Value__GetStatesNoOpposite();
-
-		/**
 		 * The meta object literal for the '{@link minitlTrace.States.impl.Transformation_inputModel_ValueImpl <em>Transformation input Model Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1130,14 +953,6 @@ public interface StatesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRANSFORMATION_INPUT_MODEL_VALUE__STATES = eINSTANCE.getTransformation_inputModel_Value_States();
-
-		/**
-		 * The meta object literal for the '<em><b>Get States No Opposite</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TRANSFORMATION_INPUT_MODEL_VALUE___GET_STATES_NO_OPPOSITE = eINSTANCE.getTransformation_inputModel_Value__GetStatesNoOpposite();
 
 		/**
 		 * The meta object literal for the '{@link minitlTrace.States.impl.Transformation_outputFilePath_ValueImpl <em>Transformation output File Path Value</em>}' class.
@@ -1174,14 +989,6 @@ public interface StatesPackage extends EPackage {
 		EReference TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__STATES = eINSTANCE.getTransformation_outputFilePath_Value_States();
 
 		/**
-		 * The meta object literal for the '<em><b>Get States No Opposite</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TRANSFORMATION_OUTPUT_FILE_PATH_VALUE___GET_STATES_NO_OPPOSITE = eINSTANCE.getTransformation_outputFilePath_Value__GetStatesNoOpposite();
-
-		/**
 		 * The meta object literal for the '{@link minitlTrace.States.impl.Transformation_outputModel_ValueImpl <em>Transformation output Model Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1214,14 +1021,6 @@ public interface StatesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRANSFORMATION_OUTPUT_MODEL_VALUE__STATES = eINSTANCE.getTransformation_outputModel_Value_States();
-
-		/**
-		 * The meta object literal for the '<em><b>Get States No Opposite</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TRANSFORMATION_OUTPUT_MODEL_VALUE___GET_STATES_NO_OPPOSITE = eINSTANCE.getTransformation_outputModel_Value__GetStatesNoOpposite();
 
 		/**
 		 * The meta object literal for the '{@link minitlTrace.States.Value <em>Value</em>}' class.

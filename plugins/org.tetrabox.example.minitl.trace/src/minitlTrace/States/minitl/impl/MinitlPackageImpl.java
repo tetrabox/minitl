@@ -329,7 +329,7 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 		tracedRuleEClass.getESuperTypes().add(this.getTracedNamedElement());
 		tracedTransformationEClass.getESuperTypes().add(this.getTracedNamedElement());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(tracedNamedElementEClass, TracedNamedElement.class, "TracedNamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(tracedObjectTemplateEClass, TracedObjectTemplate.class, "TracedObjectTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
