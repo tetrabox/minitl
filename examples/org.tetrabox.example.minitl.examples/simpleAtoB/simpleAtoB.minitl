@@ -1,0 +1,23 @@
+transformation simpleAtoB {
+	
+	// Ecore metamodel called "metamodelA"
+	inputMetamodel metamodelA
+	
+	// Ecore metamodel called "metamodelB"
+	outputMetamodel metamodelB
+	
+	// Rule to translate each A element into a B element
+	rule AToB {
+		
+		// Input template
+		from a : metamodelA.A
+		
+		// Output template
+		to b : metamodelB.B {
+			
+			// Sets the y field of B using the x field of A
+			y = a.x + "_out"
+		}
+	}
+	
+}
