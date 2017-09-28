@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.UniqueEList
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.util.EcoreUtil
 
 import static extension org.tetrabox.example.minitl.semantics.BindingAspect.*
@@ -72,15 +73,15 @@ class TransformationAspect {
 
 		// Saving output model
 		if (_self.outputFilePath != null && _self.outputFilePath != "") {
-			val rs = _self.eResource.resourceSet
+			val rs = new ResourceSetImpl
 			val File outputFile = new File(_self.outputFilePath)
 			if (outputFile.exists)
 				outputFile.delete
 			outputFile.parentFile.mkdirs
 			val URI outputModelURI = URI.createFileURI(outputFile.absolutePath)
-			val Resource inputModelResource = rs.createResource(outputModelURI)
-			inputModelResource.contents.addAll(_self.outputModel)
-			inputModelResource.save(null)
+			val Resource outputModelResource = rs.createResource(outputModelURI)
+			outputModelResource.contents.addAll(_self.outputModel)
+			outputModelResource.save(null)
 		}
 	}
 }

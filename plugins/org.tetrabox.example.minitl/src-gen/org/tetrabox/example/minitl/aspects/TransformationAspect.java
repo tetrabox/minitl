@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -185,8 +186,7 @@ public class TransformationAspect {
         RuleAspect.apply(r);
       }
       if (((!Objects.equal(TransformationAspect.outputFilePath(_self), null)) && (!Objects.equal(TransformationAspect.outputFilePath(_self), "")))) {
-        Resource _eResource = _self.eResource();
-        final ResourceSet rs = _eResource.getResourceSet();
+        final ResourceSetImpl rs = new ResourceSetImpl();
         String _outputFilePath = TransformationAspect.outputFilePath(_self);
         final File outputFile = new File(_outputFilePath);
         boolean _exists = outputFile.exists();
@@ -197,11 +197,11 @@ public class TransformationAspect {
         _parentFile.mkdirs();
         String _absolutePath = outputFile.getAbsolutePath();
         final URI outputModelURI = URI.createFileURI(_absolutePath);
-        final Resource inputModelResource = rs.createResource(outputModelURI);
-        EList<EObject> _contents = inputModelResource.getContents();
+        final Resource outputModelResource = rs.createResource(outputModelURI);
+        EList<EObject> _contents = outputModelResource.getContents();
         List<EObject> _outputModel = TransformationAspect.outputModel(_self);
         _contents.addAll(_outputModel);
-        inputModelResource.save(null);
+        outputModelResource.save(null);
       }
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

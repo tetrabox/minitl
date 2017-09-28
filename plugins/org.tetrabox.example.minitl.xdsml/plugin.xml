@@ -5,9 +5,12 @@
   </extension>
   
    <extension point="org.eclipse.emf.ecore.generated_package">
-    <!-- @generated MinitlMT -->
-    <package class="org.tetrabox.example.minitlmt.minitl.MinitlPackage" genModel="model-gen/MinitlMT.genmodel" uri="http://org.tetrabox.example.minitlmt/minitl/"/>
-  </extension>
+      <!-- @generated MinitlMT -->
+      <package
+            uri="http://org.tetrabox.example.minitlmt/minitl/"
+            class="org.tetrabox.example.minitlmt.minitl.MinitlPackage"
+            genModel="model-gen/MinitlMT.genmodel"/>
+   </extension>
   <extension point="fr.inria.diverse.melange.modeltype">
     <modeltype id="org.tetrabox.example.MinitlMT" uri="http://org.tetrabox.example.minitlmt/"/>
   </extension>
