@@ -2,6 +2,10 @@
  */
 package minitlTrace.States.minitl;
 
+import minitlTrace.States.SpecificDimension;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.tetrabox.example.minitl.minitl.Rule;
 
 /**
@@ -46,5 +50,14 @@ public interface TracedRule extends TracedNamedElement {
 	 * @generated
 	 */
 	void setOriginalObject(Rule value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);\nresult.addAll(super.getDimensionsInternal());\nreturn result;\n'"
+	 * @generated
+	 */
+	EList<SpecificDimension<?>> getDimensionsInternal();
 
 } // TracedRule

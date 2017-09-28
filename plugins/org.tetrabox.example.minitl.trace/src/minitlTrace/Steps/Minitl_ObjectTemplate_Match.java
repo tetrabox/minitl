@@ -2,9 +2,11 @@
  */
 package minitlTrace.Steps;
 
-import fr.inria.diverse.trace.commons.model.trace.SequentialStep;
+import minitlTrace.States.SpecificState;
 
 import minitlTrace.States.minitl.TracedObjectTemplate;
+
+import org.eclipse.gemoc.trace.commons.model.trace.SequentialStep;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +18,7 @@ import minitlTrace.States.minitl.TracedObjectTemplate;
  * @model
  * @generated
  */
-public interface Minitl_ObjectTemplate_Match extends Minitl_Rule_Apply_AbstractSubStep, SpecificStep, SequentialStep<Minitl_ObjectTemplate_Match_AbstractSubStep> {
+public interface Minitl_ObjectTemplate_Match extends Minitl_Rule_Apply_AbstractSubStep, SpecificStep, SequentialStep<Minitl_ObjectTemplate_Match_AbstractSubStep, SpecificState> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -21,19 +21,18 @@ Export-Package: minitlTrace,
  minitlTrace.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- fr.inria.diverse.trace.commons.model;visibility:=reexport,
+ org.eclipse.gemoc.trace.commons.model;visibility:=reexport,
  org.tetrabox.example.minitl;visibility:=reexport,
- fr.inria.diverse.trace.api,
  org.eclipse.emf.transaction,
  org.eclipse.emf.compare,
- org.gemoc.executionframework.engine,
+ org.eclipse.gemoc.executionframework.engine,
  org.eclipse.xtext,
- org.gemoc.commons.eclipse,
- fr.inria.diverse.trace.gemoc,
- fr.inria.diverse.trace.gemoc.api,
- org.gemoc.xdsmlframework.api,
- org.gemoc.sequential_addons.multidimensional.timeline,
- fr.obeo.timeline,
- fr.inria.diverse.trace.commons
+ org.eclipse.gemoc.commons.eclipse,
+ org.eclipse.gemoc.trace.gemoc,
+ org.eclipse.gemoc.trace.gemoc.api,
+ org.eclipse.gemoc.xdsmlframework.api,
+ org.eclipse.gemoc.addon.multidimensional.timeline,
+ org.eclipse.gemoc.timeline,
+ org.eclipse.gemoc.trace.commons
 Bundle-ActivationPolicy: lazy
 

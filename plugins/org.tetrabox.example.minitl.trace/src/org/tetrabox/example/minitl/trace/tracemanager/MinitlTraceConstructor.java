@@ -13,23 +13,25 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import fr.inria.diverse.trace.commons.model.trace.LaunchConfiguration;
-import fr.inria.diverse.trace.commons.model.trace.MSEModel;
-import fr.inria.diverse.trace.commons.model.trace.SequentialStep;
-import fr.inria.diverse.trace.gemoc.api.ITraceConstructor;
+import org.eclipse.gemoc.trace.commons.model.launchconfiguration.LaunchConfiguration;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEModel;
+import org.eclipse.gemoc.trace.commons.model.trace.SequentialStep;
+import org.eclipse.gemoc.trace.commons.model.trace.TracedObject;
+import org.eclipse.gemoc.trace.gemoc.api.ITraceConstructor;
 
 public class MinitlTraceConstructor implements ITraceConstructor {
 	private minitlTrace.SpecificTrace traceRoot;
 	private MSEModel mseModel;
 	private Resource executedModel;
-	private final Map<EObject, EObject> exeToTraced;
+	private final Map<EObject, TracedObject<?>> exeToTraced;
 
-	private minitlTrace.States.State lastState;
+	private minitlTrace.States.SpecificState lastState;
 
 	private Resource traceResource;
 	private final Deque<minitlTrace.Steps.SpecificStep> context = new LinkedList<minitlTrace.Steps.SpecificStep>();
 
-	public MinitlTraceConstructor(Resource exeModel, Resource traceResource, Map<EObject, EObject> exeToTraced) {
+	public MinitlTraceConstructor(Resource exeModel, Resource traceResource,
+			Map<EObject, TracedObject<?>> exeToTraced) {
 		this.traceResource = traceResource;
 		this.executedModel = exeModel;
 		this.exeToTraced = exeToTraced;
@@ -39,7 +41,7 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 		if (lastState == null) {
 			// Creation of the initial state
 			Set<Resource> allResources = getAllExecutedModelResources();
-			lastState = minitlTrace.States.StatesFactory.eINSTANCE.createState();
+			lastState = minitlTrace.States.StatesFactory.eINSTANCE.createSpecificState();
 			for (Resource r : allResources) {
 				for (TreeIterator<EObject> i = r.getAllContents(); i.hasNext();) {
 					EObject o = i.next();
@@ -50,26 +52,26 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 					}
 				}
 			}
-			this.traceRoot.getStatesTrace().add(lastState);
+			this.traceRoot.getStates().add(lastState);
 		}
 	}
 
 	private boolean addNewObjectToState(org.tetrabox.example.minitl.minitl.NamedElement o_cast,
-			minitlTrace.States.State newState) {
+			minitlTrace.States.SpecificState newState) {
 		boolean added = false;
 		if (o_cast instanceof org.tetrabox.example.minitl.minitl.Transformation) {
 			added = addNewObjectToState((org.tetrabox.example.minitl.minitl.Transformation) o_cast, newState);
-		} else if (o_cast instanceof org.tetrabox.example.minitl.minitl.ObjectTemplate) {
-			added = addNewObjectToState((org.tetrabox.example.minitl.minitl.ObjectTemplate) o_cast, newState);
 		} else if (o_cast instanceof org.tetrabox.example.minitl.minitl.Rule) {
 			added = addNewObjectToState((org.tetrabox.example.minitl.minitl.Rule) o_cast, newState);
+		} else if (o_cast instanceof org.tetrabox.example.minitl.minitl.ObjectTemplate) {
+			added = addNewObjectToState((org.tetrabox.example.minitl.minitl.ObjectTemplate) o_cast, newState);
 		}
 
 		return added;
 	}// end addNewObjectToState
 
 	private boolean addNewObjectToState(org.tetrabox.example.minitl.minitl.ObjectTemplate o_cast,
-			minitlTrace.States.State newState) {
+			minitlTrace.States.SpecificState newState) {
 		boolean added = false;
 
 		if (!added && !exeToTraced.containsKey(o_cast)) {
@@ -77,22 +79,25 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 					.createTracedObjectTemplate();
 			tracedObject.setOriginalObject((org.tetrabox.example.minitl.minitl.ObjectTemplate) o_cast);
 			exeToTraced.put(o_cast, tracedObject);
-			traceRoot.getMinitl_tracedObjectTemplates().add(tracedObject);
+			traceRoot.getTracedObjects().add(tracedObject);
 
+			// Creation of the dimension corresponding to the field currentObject
+			tracedObject.setObjectTemplate_currentObject_Dimension(
+					minitlTrace.States.StatesFactory.eINSTANCE.createObjectTemplate_currentObject_Dimension());
 			// Creation of the first value of the field currentObject
 			minitlTrace.States.ObjectTemplate_currentObject_Value firstValue_currentObject = minitlTrace.States.StatesFactory.eINSTANCE
 					.createObjectTemplate_currentObject_Value();
 
 			firstValue_currentObject.setCurrentObject((org.eclipse.emf.ecore.EObject) o_cast.getCurrentObject());
-			tracedObject.getCurrentObjectSequence().add(firstValue_currentObject);
-			newState.getObjectTemplate_currentObject_Values().add(firstValue_currentObject);
+			tracedObject.getObjectTemplate_currentObject_Dimension().getValues().add(firstValue_currentObject);
+			newState.getValues().add(firstValue_currentObject);
 
 		} // end if (!exeToTraced.containsKey
 		return added;
 	}// end addNewObjectToState
 
 	private boolean addNewObjectToState(org.tetrabox.example.minitl.minitl.Rule o_cast,
-			minitlTrace.States.State newState) {
+			minitlTrace.States.SpecificState newState) {
 		boolean added = false;
 
 		if (!added && !exeToTraced.containsKey(o_cast)) {
@@ -100,14 +105,14 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 					.createTracedRule();
 			tracedObject.setOriginalObject((org.tetrabox.example.minitl.minitl.Rule) o_cast);
 			exeToTraced.put(o_cast, tracedObject);
-			traceRoot.getMinitl_tracedRules().add(tracedObject);
+			traceRoot.getTracedObjects().add(tracedObject);
 
 		} // end if (!exeToTraced.containsKey
 		return added;
 	}// end addNewObjectToState
 
 	private boolean addNewObjectToState(org.tetrabox.example.minitl.minitl.Transformation o_cast,
-			minitlTrace.States.State newState) {
+			minitlTrace.States.SpecificState newState) {
 		boolean added = false;
 
 		if (!added && !exeToTraced.containsKey(o_cast)) {
@@ -115,8 +120,11 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 					.createTracedTransformation();
 			tracedObject.setOriginalObject((org.tetrabox.example.minitl.minitl.Transformation) o_cast);
 			exeToTraced.put(o_cast, tracedObject);
-			traceRoot.getMinitl_tracedTransformations().add(tracedObject);
+			traceRoot.getTracedObjects().add(tracedObject);
 
+			// Creation of the dimension corresponding to the field inputModel
+			tracedObject.setTransformation_inputModel_Dimension(
+					minitlTrace.States.StatesFactory.eINSTANCE.createTransformation_inputModel_Dimension());
 			// Creation of the first value of the field inputModel
 			minitlTrace.States.Transformation_inputModel_Value firstValue_inputModel = minitlTrace.States.StatesFactory.eINSTANCE
 					.createTransformation_inputModel_Value();
@@ -124,25 +132,34 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 			firstValue_inputModel.getInputModel()
 					.addAll((Collection<? extends org.eclipse.emf.ecore.EObject>) o_cast.getInputModel());
 
-			tracedObject.getInputModelSequence().add(firstValue_inputModel);
-			newState.getTransformation_inputModel_Values().add(firstValue_inputModel);
+			tracedObject.getTransformation_inputModel_Dimension().getValues().add(firstValue_inputModel);
+			newState.getValues().add(firstValue_inputModel);
 
+			// Creation of the dimension corresponding to the field inputModelURI
+			tracedObject.setTransformation_inputModelURI_Dimension(
+					minitlTrace.States.StatesFactory.eINSTANCE.createTransformation_inputModelURI_Dimension());
 			// Creation of the first value of the field inputModelURI
 			minitlTrace.States.Transformation_inputModelURI_Value firstValue_inputModelURI = minitlTrace.States.StatesFactory.eINSTANCE
 					.createTransformation_inputModelURI_Value();
 
 			firstValue_inputModelURI.setInputModelURI((java.lang.String) o_cast.getInputModelURI());
-			tracedObject.getInputModelURISequence().add(firstValue_inputModelURI);
-			newState.getTransformation_inputModelURI_Values().add(firstValue_inputModelURI);
+			tracedObject.getTransformation_inputModelURI_Dimension().getValues().add(firstValue_inputModelURI);
+			newState.getValues().add(firstValue_inputModelURI);
 
+			// Creation of the dimension corresponding to the field outputFilePath
+			tracedObject.setTransformation_outputFilePath_Dimension(
+					minitlTrace.States.StatesFactory.eINSTANCE.createTransformation_outputFilePath_Dimension());
 			// Creation of the first value of the field outputFilePath
 			minitlTrace.States.Transformation_outputFilePath_Value firstValue_outputFilePath = minitlTrace.States.StatesFactory.eINSTANCE
 					.createTransformation_outputFilePath_Value();
 
 			firstValue_outputFilePath.setOutputFilePath((java.lang.String) o_cast.getOutputFilePath());
-			tracedObject.getOutputFilePathSequence().add(firstValue_outputFilePath);
-			newState.getTransformation_outputFilePath_Values().add(firstValue_outputFilePath);
+			tracedObject.getTransformation_outputFilePath_Dimension().getValues().add(firstValue_outputFilePath);
+			newState.getValues().add(firstValue_outputFilePath);
 
+			// Creation of the dimension corresponding to the field outputModel
+			tracedObject.setTransformation_outputModel_Dimension(
+					minitlTrace.States.StatesFactory.eINSTANCE.createTransformation_outputModel_Dimension());
 			// Creation of the first value of the field outputModel
 			minitlTrace.States.Transformation_outputModel_Value firstValue_outputModel = minitlTrace.States.StatesFactory.eINSTANCE
 					.createTransformation_outputModel_Value();
@@ -150,8 +167,8 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 			firstValue_outputModel.getOutputModel()
 					.addAll((Collection<? extends org.eclipse.emf.ecore.EObject>) o_cast.getOutputModel());
 
-			tracedObject.getOutputModelSequence().add(firstValue_outputModel);
-			newState.getTransformation_outputModel_Values().add(firstValue_outputModel);
+			tracedObject.getTransformation_outputModel_Dimension().getValues().add(firstValue_outputModel);
+			newState.getValues().add(firstValue_outputModel);
 
 		} // end if (!exeToTraced.containsKey
 		return added;
@@ -159,63 +176,37 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 
 	private boolean copiedState = false;
 
-	private minitlTrace.States.State copyState(minitlTrace.States.State oldState) {
-		minitlTrace.States.State newState = minitlTrace.States.StatesFactory.eINSTANCE.createState();
-		newState.getObjectTemplate_currentObject_Values().addAll(oldState.getObjectTemplate_currentObject_Values());
-		newState.getTransformation_inputModel_Values().addAll(oldState.getTransformation_inputModel_Values());
-		newState.getTransformation_inputModelURI_Values().addAll(oldState.getTransformation_inputModelURI_Values());
-		newState.getTransformation_outputFilePath_Values().addAll(oldState.getTransformation_outputFilePath_Values());
-		newState.getTransformation_outputModel_Values().addAll(oldState.getTransformation_outputModel_Values());
+	private minitlTrace.States.SpecificState copyState(minitlTrace.States.SpecificState oldState) {
+		minitlTrace.States.SpecificState newState = minitlTrace.States.StatesFactory.eINSTANCE.createSpecificState();
+		newState.getValues().addAll(oldState.getValues());
 		copiedState = true;
 		return newState;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public void addState(List<org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.ModelChange> changes) {
+	public void addState(
+			List<org.eclipse.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.ModelChange> changes) {
 		if (lastState == null) {
 			addInitialState();
-		}
-		if (!changes.isEmpty()) {
+		} else if (!changes.isEmpty()) {
 			boolean stateChanged = false;
 			// We start by a (shallow) copy of the last state
 			// But we will have to rollback a little by replacing values that changed
-			minitlTrace.States.State newState = copyState(lastState);
-			for (org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.ModelChange modelChange : changes) {
+			minitlTrace.States.SpecificState newState = copyState(lastState);
+			for (org.eclipse.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.ModelChange modelChange : changes) {
 				EObject o = modelChange.getChangedObject();
 				// Here we must look at non-collection mutable fields
 				// We must rollback the last values from the copied state, and add new values as well
 				// ie. mix of remove and new
-				if (modelChange instanceof org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.NonCollectionFieldModelChange) {
+				if (modelChange instanceof org.eclipse.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.NonCollectionFieldModelChange) {
 					stateChanged = true;
 
-					org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.NonCollectionFieldModelChange modelChange_cast = (org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.NonCollectionFieldModelChange) modelChange;
+					org.eclipse.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.NonCollectionFieldModelChange modelChange_cast = (org.eclipse.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.NonCollectionFieldModelChange) modelChange;
 					org.eclipse.emf.ecore.EStructuralFeature p = modelChange_cast.getChangedField();
 
 					if (o instanceof org.tetrabox.example.minitl.minitl.Transformation) {
 						org.tetrabox.example.minitl.minitl.Transformation o_cast = (org.tetrabox.example.minitl.minitl.Transformation) o;
-
-						if (p.getFeatureID() == org.tetrabox.example.minitl.minitl.MinitlPackage.eINSTANCE
-								.getTransformation_OutputFilePath().getFeatureID()) {
-
-							// Rollback: we remove the last value of this field from the new state
-							minitlTrace.States.minitl.TracedTransformation traced = (minitlTrace.States.minitl.TracedTransformation) exeToTraced
-									.get(o);
-							minitlTrace.States.Transformation_outputFilePath_Value lastValue = traced
-									.getOutputFilePathSequence().get(traced.getOutputFilePathSequence().size() - 1);
-							newState.getTransformation_outputFilePath_Values().remove(lastValue);
-
-							// And we create a proper new value
-							minitlTrace.States.Transformation_outputFilePath_Value newValue = minitlTrace.States.StatesFactory.eINSTANCE
-									.createTransformation_outputFilePath_Value();
-
-							java.lang.String value = o_cast.getOutputFilePath();
-
-							newValue.setOutputFilePath((java.lang.String) value);
-
-							traced.getOutputFilePathSequence().add(newValue);
-							newState.getTransformation_outputFilePath_Values().add(newValue);
-						} else
 
 						if (p.getFeatureID() == org.tetrabox.example.minitl.minitl.MinitlPackage.eINSTANCE
 								.getTransformation_InputModelURI().getFeatureID()) {
@@ -224,8 +215,9 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 							minitlTrace.States.minitl.TracedTransformation traced = (minitlTrace.States.minitl.TracedTransformation) exeToTraced
 									.get(o);
 							minitlTrace.States.Transformation_inputModelURI_Value lastValue = traced
-									.getInputModelURISequence().get(traced.getInputModelURISequence().size() - 1);
-							newState.getTransformation_inputModelURI_Values().remove(lastValue);
+									.getTransformation_inputModelURI_Dimension().getValues()
+									.get(traced.getTransformation_inputModelURI_Dimension().getValues().size() - 1);
+							newState.getValues().remove(lastValue);
 
 							// And we create a proper new value
 							minitlTrace.States.Transformation_inputModelURI_Value newValue = minitlTrace.States.StatesFactory.eINSTANCE
@@ -235,8 +227,31 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 
 							newValue.setInputModelURI((java.lang.String) value);
 
-							traced.getInputModelURISequence().add(newValue);
-							newState.getTransformation_inputModelURI_Values().add(newValue);
+							traced.getTransformation_inputModelURI_Dimension().getValues().add(newValue);
+							newState.getValues().add(newValue);
+						} else
+
+						if (p.getFeatureID() == org.tetrabox.example.minitl.minitl.MinitlPackage.eINSTANCE
+								.getTransformation_OutputFilePath().getFeatureID()) {
+
+							// Rollback: we remove the last value of this field from the new state
+							minitlTrace.States.minitl.TracedTransformation traced = (minitlTrace.States.minitl.TracedTransformation) exeToTraced
+									.get(o);
+							minitlTrace.States.Transformation_outputFilePath_Value lastValue = traced
+									.getTransformation_outputFilePath_Dimension().getValues()
+									.get(traced.getTransformation_outputFilePath_Dimension().getValues().size() - 1);
+							newState.getValues().remove(lastValue);
+
+							// And we create a proper new value
+							minitlTrace.States.Transformation_outputFilePath_Value newValue = minitlTrace.States.StatesFactory.eINSTANCE
+									.createTransformation_outputFilePath_Value();
+
+							java.lang.String value = o_cast.getOutputFilePath();
+
+							newValue.setOutputFilePath((java.lang.String) value);
+
+							traced.getTransformation_outputFilePath_Dimension().getValues().add(newValue);
+							newState.getValues().add(newValue);
 						}
 					}
 
@@ -250,8 +265,9 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 							minitlTrace.States.minitl.TracedObjectTemplate traced = (minitlTrace.States.minitl.TracedObjectTemplate) exeToTraced
 									.get(o);
 							minitlTrace.States.ObjectTemplate_currentObject_Value lastValue = traced
-									.getCurrentObjectSequence().get(traced.getCurrentObjectSequence().size() - 1);
-							newState.getObjectTemplate_currentObject_Values().remove(lastValue);
+									.getObjectTemplate_currentObject_Dimension().getValues()
+									.get(traced.getObjectTemplate_currentObject_Dimension().getValues().size() - 1);
+							newState.getValues().remove(lastValue);
 
 							// And we create a proper new value
 							minitlTrace.States.ObjectTemplate_currentObject_Value newValue = minitlTrace.States.StatesFactory.eINSTANCE
@@ -261,16 +277,16 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 
 							newValue.setCurrentObject((org.eclipse.emf.ecore.EObject) value);
 
-							traced.getCurrentObjectSequence().add(newValue);
-							newState.getObjectTemplate_currentObject_Values().add(newValue);
+							traced.getObjectTemplate_currentObject_Dimension().getValues().add(newValue);
+							newState.getValues().add(newValue);
 						}
 					}
 				}
 				// Here we look at collection mutable fields
 				// We must first manually find out if the collection changed...
 				// If it changed we must rollback the last values from the copied state, and add new values as well
-				else if (modelChange instanceof org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.PotentialCollectionFieldModelChange) {
-					org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.PotentialCollectionFieldModelChange modelChange_cast = (org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.PotentialCollectionFieldModelChange) modelChange;
+				else if (modelChange instanceof org.eclipse.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.PotentialCollectionFieldModelChange) {
+					org.eclipse.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.PotentialCollectionFieldModelChange modelChange_cast = (org.eclipse.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.PotentialCollectionFieldModelChange) modelChange;
 					org.eclipse.emf.ecore.EStructuralFeature p = modelChange_cast.getChangedField();
 					if (o instanceof org.tetrabox.example.minitl.minitl.Transformation) {
 						org.tetrabox.example.minitl.minitl.Transformation o_cast = (org.tetrabox.example.minitl.minitl.Transformation) o;
@@ -280,7 +296,7 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 								.getTransformation_OutputModel().getFeatureID()) {
 							// We compare the last collection in the value sequence, and the current one in the potentially changed object
 							List<minitlTrace.States.Transformation_outputModel_Value> valueSequence = tracedObject
-									.getOutputModelSequence();
+									.getTransformation_outputModel_Dimension().getValues();
 							minitlTrace.States.Transformation_outputModel_Value previousValue = null;
 							if (!valueSequence.isEmpty()) {
 								previousValue = valueSequence.get(valueSequence.size() - 1);
@@ -308,21 +324,23 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 								stateChanged = true;
 								// Rollback: we remove the last value of this field from the new state
 								minitlTrace.States.Transformation_outputModel_Value lastValue = tracedObject
-										.getOutputModelSequence().get(tracedObject.getOutputModelSequence().size() - 1);
-								newState.getTransformation_outputModel_Values().remove(lastValue);
-								// And we create a proper new value							
+										.getTransformation_outputModel_Dimension().getValues()
+										.get(tracedObject.getTransformation_outputModel_Dimension().getValues().size()
+												- 1);
+								newState.getValues().remove(lastValue);
+								// And we create a proper new value
 								minitlTrace.States.Transformation_outputModel_Value newValue = minitlTrace.States.StatesFactory.eINSTANCE
 										.createTransformation_outputModel_Value();
 								newValue.getOutputModel().addAll(
 										(Collection<? extends org.eclipse.emf.ecore.EObject>) o_cast.getOutputModel());
-								tracedObject.getOutputModelSequence().add(newValue);
-								newState.getTransformation_outputModel_Values().add(newValue);
+								tracedObject.getTransformation_outputModel_Dimension().getValues().add(newValue);
+								newState.getValues().add(newValue);
 							}
 						} else if (p.getFeatureID() == org.tetrabox.example.minitl.minitl.MinitlPackage.eINSTANCE
 								.getTransformation_InputModel().getFeatureID()) {
 							// We compare the last collection in the value sequence, and the current one in the potentially changed object
 							List<minitlTrace.States.Transformation_inputModel_Value> valueSequence = tracedObject
-									.getInputModelSequence();
+									.getTransformation_inputModel_Dimension().getValues();
 							minitlTrace.States.Transformation_inputModel_Value previousValue = null;
 							if (!valueSequence.isEmpty()) {
 								previousValue = valueSequence.get(valueSequence.size() - 1);
@@ -349,15 +367,17 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 								stateChanged = true;
 								// Rollback: we remove the last value of this field from the new state
 								minitlTrace.States.Transformation_inputModel_Value lastValue = tracedObject
-										.getInputModelSequence().get(tracedObject.getInputModelSequence().size() - 1);
-								newState.getTransformation_inputModel_Values().remove(lastValue);
-								// And we create a proper new value							
+										.getTransformation_inputModel_Dimension().getValues()
+										.get(tracedObject.getTransformation_inputModel_Dimension().getValues().size()
+												- 1);
+								newState.getValues().remove(lastValue);
+								// And we create a proper new value
 								minitlTrace.States.Transformation_inputModel_Value newValue = minitlTrace.States.StatesFactory.eINSTANCE
 										.createTransformation_inputModel_Value();
 								newValue.getInputModel().addAll(
 										(Collection<? extends org.eclipse.emf.ecore.EObject>) o_cast.getInputModel());
-								tracedObject.getInputModelSequence().add(newValue);
-								newState.getTransformation_inputModel_Values().add(newValue);
+								tracedObject.getTransformation_inputModel_Dimension().getValues().add(newValue);
+								newState.getValues().add(newValue);
 							}
 						}
 					}
@@ -365,19 +385,19 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 			}
 			if (stateChanged) {
 				final minitlTrace.Steps.SpecificStep currentStep = context.peekFirst();
-				if (currentStep != null && currentStep instanceof fr.inria.diverse.trace.commons.model.trace.BigStep) {
-					final minitlTrace.States.State startingState = lastState;
-					final minitlTrace.States.State endingState = newState;
+				if (currentStep != null && currentStep instanceof org.eclipse.gemoc.trace.commons.model.trace.BigStep) {
+					final minitlTrace.States.SpecificState startingState = lastState;
+					final minitlTrace.States.SpecificState endingState = newState;
 					addImplicitStep(currentStep, startingState, endingState);
 				}
 				lastState = newState;
-				traceRoot.getStatesTrace().add(lastState);
+				traceRoot.getStates().add(lastState);
 			} else if (copiedState) {
-				newState.getObjectTemplate_currentObject_Values().clear();
-				newState.getTransformation_inputModel_Values().clear();
-				newState.getTransformation_inputModelURI_Values().clear();
-				newState.getTransformation_outputFilePath_Values().clear();
-				newState.getTransformation_outputModel_Values().clear();
+				newState.getValues().clear();
+				newState.getValues().clear();
+				newState.getValues().clear();
+				newState.getValues().clear();
+				newState.getValues().clear();
 			}
 			copiedState = false;
 		}
@@ -385,23 +405,25 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public void addStep(fr.inria.diverse.trace.commons.model.trace.Step step) {
+	public void addStep(org.eclipse.gemoc.trace.commons.model.trace.Step<?> step) {
 		minitlTrace.Steps.SpecificStep step_cast = null;
 		if (step != null && step instanceof minitlTrace.Steps.SpecificStep) {
 			step_cast = (minitlTrace.Steps.SpecificStep) step;
 			if (mseModel == null) {
-				mseModel = fr.inria.diverse.trace.commons.model.trace.TraceFactory.eINSTANCE.createMSEModel();
+				mseModel = org.eclipse.gemoc.trace.commons.model.trace.TraceFactory.eINSTANCE.createMSEModel();
 				traceResource.getContents().add(mseModel);
 			}
 			mseModel.getOwnedMSEs().add(step_cast.getMseoccurrence().getMse());
 
 			// Creating generic (or almost generic) links
-			minitlTrace.States.State state = traceRoot.getStatesTrace().get(traceRoot.getStatesTrace().size() - 1);
+			minitlTrace.States.SpecificState state = traceRoot.getStates().get(traceRoot.getStates().size() - 1);
 			step_cast.setStartingState(state);
 			if (!context.isEmpty() && context.getFirst() != null) {
-				((SequentialStep<minitlTrace.Steps.SpecificStep>) context.getFirst()).getSubSteps().add(step_cast);
+				((SequentialStep<minitlTrace.Steps.SpecificStep, minitlTrace.States.SpecificState>) context.getFirst())
+						.getSubSteps().add(step_cast);
 			} else {
-				traceRoot.getRootStep().getSubSteps().add(step_cast);
+				((SequentialStep<minitlTrace.Steps.SpecificStep, minitlTrace.States.SpecificState>) traceRoot
+						.getRootStep()).getSubSteps().add(step_cast);
 			}
 
 			// Adding step in its dedicated sequence/dimension
@@ -432,8 +454,8 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 	}
 
 	@SuppressWarnings("unchecked")
-	private void addImplicitStep(minitlTrace.Steps.SpecificStep currentStep, minitlTrace.States.State startingState,
-			minitlTrace.States.State endingState) {
+	private void addImplicitStep(minitlTrace.Steps.SpecificStep currentStep,
+			minitlTrace.States.SpecificState startingState, minitlTrace.States.SpecificState endingState) {
 
 		minitlTrace.Steps.SpecificStep implicitStep = null;
 		if (currentStep instanceof minitlTrace.Steps.Minitl_ObjectTemplate_Construct) {
@@ -449,13 +471,14 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 		if (implicitStep != null) {
 			implicitStep.setStartingState(startingState);
 			implicitStep.setEndingState(endingState);
-			((SequentialStep<minitlTrace.Steps.SpecificStep>) currentStep).getSubSteps().add(implicitStep);
+			((SequentialStep<minitlTrace.Steps.SpecificStep, minitlTrace.States.SpecificState>) currentStep)
+					.getSubSteps().add(implicitStep);
 
 		}
 	}
 
 	@Override
-	public void endStep(fr.inria.diverse.trace.commons.model.trace.Step step) {
+	public void endStep(org.eclipse.gemoc.trace.commons.model.trace.Step<?> step) {
 		minitlTrace.Steps.SpecificStep popped = context.pop();
 		if (popped != null)
 			popped.setEndingState(lastState);
@@ -468,8 +491,8 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 		traceRoot.setLaunchconfiguration(launchConfiguration);
 
 		// Create root sequential step
-		fr.inria.diverse.trace.commons.model.trace.SequentialStep<minitlTrace.Steps.SpecificStep> rootStep = fr.inria.diverse.trace.commons.model.trace.TraceFactory.eINSTANCE
-				.createSequentialStep();
+		org.eclipse.gemoc.trace.commons.model.trace.SequentialStep<minitlTrace.Steps.SpecificStep, minitlTrace.States.SpecificState> rootStep = minitlTrace.Steps.StepsFactory.eINSTANCE
+				.createSpecificRootStep();
 		traceRoot.setRootStep(rootStep);
 
 		// Put in the resource
@@ -500,8 +523,9 @@ public class MinitlTraceConstructor implements ITraceConstructor {
 	private Set<Resource> getAllExecutedModelResources() {
 		Set<Resource> allResources = new HashSet<>();
 		allResources.add(executedModel);
-		allResources.addAll(org.gemoc.commons.eclipse.emf.EMFResource.getRelatedResources(executedModel));
-		allResources.removeIf(r -> r == null);
+		allResources.addAll(org.eclipse.gemoc.commons.eclipse.emf.EMFResource.getRelatedResources(executedModel));
+		allResources.removeIf(
+				r -> r == null || (r != executedModel && executedModel.getContents().contains(r.getContents().get(0))));
 		return allResources;
 	}
 

@@ -2,8 +2,6 @@
  */
 package minitlTrace.impl;
 
-import fr.inria.diverse.trace.commons.model.trace.TracePackage;
-
 import minitlTrace.MinitlTraceFactory;
 import minitlTrace.MinitlTracePackage;
 import minitlTrace.SpecificTrace;
@@ -24,6 +22,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
 
 import org.tetrabox.example.minitl.minitl.MinitlPackage;
 
@@ -194,42 +194,6 @@ public class MinitlTracePackageImpl extends EPackageImpl implements MinitlTraceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSpecificTrace_Minitl_tracedObjectTemplates() {
-		return (EReference)specificTraceEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSpecificTrace_Minitl_tracedRules() {
-		return (EReference)specificTraceEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSpecificTrace_Minitl_tracedTransformations() {
-		return (EReference)specificTraceEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSpecificTrace_StatesTrace() {
-		return (EReference)specificTraceEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MinitlTraceFactory getMinitlTraceFactory() {
 		return (MinitlTraceFactory)getEFactoryInstance();
 	}
@@ -261,10 +225,6 @@ public class MinitlTracePackageImpl extends EPackageImpl implements MinitlTraceP
 		createEReference(specificTraceEClass, SPECIFIC_TRACE__MINITL_RULE_APPLY_SEQUENCE);
 		createEReference(specificTraceEClass, SPECIFIC_TRACE__MINITL_TRANSFORMATION_EXECUTE_SEQUENCE);
 		createEReference(specificTraceEClass, SPECIFIC_TRACE__MINITL_TRANSFORMATION_INITIALIZE_SEQUENCE);
-		createEReference(specificTraceEClass, SPECIFIC_TRACE__MINITL_TRACED_OBJECT_TEMPLATES);
-		createEReference(specificTraceEClass, SPECIFIC_TRACE__MINITL_TRACED_RULES);
-		createEReference(specificTraceEClass, SPECIFIC_TRACE__MINITL_TRACED_TRANSFORMATIONS);
-		createEReference(specificTraceEClass, SPECIFIC_TRACE__STATES_TRACE);
 	}
 
 	/**
@@ -294,7 +254,6 @@ public class MinitlTracePackageImpl extends EPackageImpl implements MinitlTraceP
 		StepsPackage theStepsPackage = (StepsPackage)EPackage.Registry.INSTANCE.getEPackage(StepsPackage.eNS_URI);
 		StatesPackage theStatesPackage = (StatesPackage)EPackage.Registry.INSTANCE.getEPackage(StatesPackage.eNS_URI);
 		TracePackage theTracePackage = (TracePackage)EPackage.Registry.INSTANCE.getEPackage(TracePackage.eNS_URI);
-		minitlTrace.States.minitl.MinitlPackage theMinitlPackage_1 = (minitlTrace.States.minitl.MinitlPackage)EPackage.Registry.INSTANCE.getEPackage(minitlTrace.States.minitl.MinitlPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theStepsPackage);
@@ -308,8 +267,26 @@ public class MinitlTracePackageImpl extends EPackageImpl implements MinitlTraceP
 		EGenericType g1 = createEGenericType(theTracePackage.getTrace());
 		EGenericType g2 = createEGenericType(theTracePackage.getSequentialStep());
 		g1.getETypeArguments().add(g2);
-		EGenericType g3 = createEGenericType(theStepsPackage.getSpecificStep());
+		EGenericType g3 = createEGenericType();
 		g2.getETypeArguments().add(g3);
+		EGenericType g4 = createEGenericType(theStepsPackage.getSpecificStep());
+		g3.setEUpperBound(g4);
+		g3 = createEGenericType();
+		g2.getETypeArguments().add(g3);
+		g4 = createEGenericType(theStatesPackage.getSpecificState());
+		g3.setEUpperBound(g4);
+		g2 = createEGenericType(theStatesPackage.getSpecificTracedObject());
+		g1.getETypeArguments().add(g2);
+		g3 = createEGenericType();
+		g2.getETypeArguments().add(g3);
+		g4 = createEGenericType(theStatesPackage.getSpecificDimension());
+		g3.setEUpperBound(g4);
+		EGenericType g5 = createEGenericType();
+		g4.getETypeArguments().add(g5);
+		EGenericType g6 = createEGenericType(theStatesPackage.getSpecificValue());
+		g5.setEUpperBound(g6);
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
 		specificTraceEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes and features; add operations and parameters
@@ -321,10 +298,6 @@ public class MinitlTracePackageImpl extends EPackageImpl implements MinitlTraceP
 		initEReference(getSpecificTrace_Minitl_Rule_Apply_Sequence(), theStepsPackage.getMinitl_Rule_Apply(), null, "Minitl_Rule_Apply_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSpecificTrace_Minitl_Transformation_Execute_Sequence(), theStepsPackage.getMinitl_Transformation_Execute(), null, "Minitl_Transformation_Execute_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSpecificTrace_Minitl_Transformation_Initialize_Sequence(), theStepsPackage.getMinitl_Transformation_Initialize(), null, "Minitl_Transformation_Initialize_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSpecificTrace_Minitl_tracedObjectTemplates(), theMinitlPackage_1.getTracedObjectTemplate(), null, "minitl_tracedObjectTemplates", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecificTrace_Minitl_tracedRules(), theMinitlPackage_1.getTracedRule(), null, "minitl_tracedRules", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecificTrace_Minitl_tracedTransformations(), theMinitlPackage_1.getTracedTransformation(), null, "minitl_tracedTransformations", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecificTrace_StatesTrace(), theStatesPackage.getState(), null, "statesTrace", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

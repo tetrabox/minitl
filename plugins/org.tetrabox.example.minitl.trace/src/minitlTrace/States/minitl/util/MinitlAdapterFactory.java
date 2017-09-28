@@ -2,6 +2,10 @@
  */
 package minitlTrace.States.minitl.util;
 
+import minitlTrace.States.SpecificDimension;
+import minitlTrace.States.SpecificTracedObject;
+import minitlTrace.States.SpecificValue;
+
 import minitlTrace.States.minitl.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -10,6 +14,9 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.gemoc.trace.commons.model.trace.Dimension;
+import org.eclipse.gemoc.trace.commons.model.trace.TracedObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,6 +91,14 @@ public class MinitlAdapterFactory extends AdapterFactoryImpl {
 				return createTracedTransformationAdapter();
 			}
 			@Override
+			public <DimensionSubType extends Dimension<?>> Adapter caseTracedObject(TracedObject<DimensionSubType> object) {
+				return createTracedObjectAdapter();
+			}
+			@Override
+			public <DimensionSubType extends SpecificDimension<? extends SpecificValue>> Adapter caseSpecificTracedObject(SpecificTracedObject<DimensionSubType> object) {
+				return createSpecificTracedObjectAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -156,6 +171,34 @@ public class MinitlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTracedTransformationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.trace.commons.model.trace.TracedObject <em>Traced Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.gemoc.trace.commons.model.trace.TracedObject
+	 * @generated
+	 */
+	public Adapter createTracedObjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link minitlTrace.States.SpecificTracedObject <em>Specific Traced Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see minitlTrace.States.SpecificTracedObject
+	 * @generated
+	 */
+	public Adapter createSpecificTracedObjectAdapter() {
 		return null;
 	}
 

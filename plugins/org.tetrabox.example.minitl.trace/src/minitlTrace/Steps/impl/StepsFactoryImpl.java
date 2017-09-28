@@ -68,6 +68,7 @@ public class StepsFactoryImpl extends EFactoryImpl implements StepsFactory {
 			case StepsPackage.MINITL_TRANSFORMATION_EXECUTE_IMPLICIT_STEP: return createMinitl_Transformation_Execute_ImplicitStep();
 			case StepsPackage.MINITL_TRANSFORMATION_INITIALIZE: return createMinitl_Transformation_Initialize();
 			case StepsPackage.ROOT_IMPLICIT_STEP: return createRootImplicitStep();
+			case StepsPackage.SPECIFIC_ROOT_STEP: return createSpecificRootStep();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -191,6 +192,16 @@ public class StepsFactoryImpl extends EFactoryImpl implements StepsFactory {
 	public RootImplicitStep createRootImplicitStep() {
 		RootImplicitStepImpl rootImplicitStep = new RootImplicitStepImpl();
 		return rootImplicitStep;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpecificRootStep createSpecificRootStep() {
+		SpecificRootStepImpl specificRootStep = new SpecificRootStepImpl();
+		return specificRootStep;
 	}
 
 	/**

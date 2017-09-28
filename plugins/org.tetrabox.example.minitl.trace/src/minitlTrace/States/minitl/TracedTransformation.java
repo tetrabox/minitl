@@ -2,10 +2,11 @@
  */
 package minitlTrace.States.minitl;
 
-import minitlTrace.States.Transformation_inputModelURI_Value;
-import minitlTrace.States.Transformation_inputModel_Value;
-import minitlTrace.States.Transformation_outputFilePath_Value;
-import minitlTrace.States.Transformation_outputModel_Value;
+import minitlTrace.States.SpecificDimension;
+import minitlTrace.States.Transformation_inputModelURI_Dimension;
+import minitlTrace.States.Transformation_inputModel_Dimension;
+import minitlTrace.States.Transformation_outputFilePath_Dimension;
+import minitlTrace.States.Transformation_outputModel_Dimension;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -20,11 +21,11 @@ import org.tetrabox.example.minitl.minitl.Transformation;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link minitlTrace.States.minitl.TracedTransformation#getInputModelSequence <em>Input Model Sequence</em>}</li>
- *   <li>{@link minitlTrace.States.minitl.TracedTransformation#getInputModelURISequence <em>Input Model URI Sequence</em>}</li>
  *   <li>{@link minitlTrace.States.minitl.TracedTransformation#getOriginalObject <em>Original Object</em>}</li>
- *   <li>{@link minitlTrace.States.minitl.TracedTransformation#getOutputFilePathSequence <em>Output File Path Sequence</em>}</li>
- *   <li>{@link minitlTrace.States.minitl.TracedTransformation#getOutputModelSequence <em>Output Model Sequence</em>}</li>
+ *   <li>{@link minitlTrace.States.minitl.TracedTransformation#getTransformation_inputModelURI_Dimension <em>Transformation input Model URI Dimension</em>}</li>
+ *   <li>{@link minitlTrace.States.minitl.TracedTransformation#getTransformation_inputModel_Dimension <em>Transformation input Model Dimension</em>}</li>
+ *   <li>{@link minitlTrace.States.minitl.TracedTransformation#getTransformation_outputFilePath_Dimension <em>Transformation output File Path Dimension</em>}</li>
+ *   <li>{@link minitlTrace.States.minitl.TracedTransformation#getTransformation_outputModel_Dimension <em>Transformation output Model Dimension</em>}</li>
  * </ul>
  *
  * @see minitlTrace.States.minitl.MinitlPackage#getTracedTransformation()
@@ -32,42 +33,6 @@ import org.tetrabox.example.minitl.minitl.Transformation;
  * @generated
  */
 public interface TracedTransformation extends TracedNamedElement {
-	/**
-	 * Returns the value of the '<em><b>Input Model Sequence</b></em>' containment reference list.
-	 * The list contents are of type {@link minitlTrace.States.Transformation_inputModel_Value}.
-	 * It is bidirectional and its opposite is '{@link minitlTrace.States.Transformation_inputModel_Value#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Input Model Sequence</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input Model Sequence</em>' containment reference list.
-	 * @see minitlTrace.States.minitl.MinitlPackage#getTracedTransformation_InputModelSequence()
-	 * @see minitlTrace.States.Transformation_inputModel_Value#getParent
-	 * @model opposite="parent" containment="true"
-	 * @generated
-	 */
-	EList<Transformation_inputModel_Value> getInputModelSequence();
-
-	/**
-	 * Returns the value of the '<em><b>Input Model URI Sequence</b></em>' containment reference list.
-	 * The list contents are of type {@link minitlTrace.States.Transformation_inputModelURI_Value}.
-	 * It is bidirectional and its opposite is '{@link minitlTrace.States.Transformation_inputModelURI_Value#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Input Model URI Sequence</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input Model URI Sequence</em>' containment reference list.
-	 * @see minitlTrace.States.minitl.MinitlPackage#getTracedTransformation_InputModelURISequence()
-	 * @see minitlTrace.States.Transformation_inputModelURI_Value#getParent
-	 * @model opposite="parent" containment="true"
-	 * @generated
-	 */
-	EList<Transformation_inputModelURI_Value> getInputModelURISequence();
-
 	/**
 	 * Returns the value of the '<em><b>Original Object</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -95,39 +60,116 @@ public interface TracedTransformation extends TracedNamedElement {
 	void setOriginalObject(Transformation value);
 
 	/**
-	 * Returns the value of the '<em><b>Output File Path Sequence</b></em>' containment reference list.
-	 * The list contents are of type {@link minitlTrace.States.Transformation_outputFilePath_Value}.
-	 * It is bidirectional and its opposite is '{@link minitlTrace.States.Transformation_outputFilePath_Value#getParent <em>Parent</em>}'.
+	 * Returns the value of the '<em><b>Transformation input Model URI Dimension</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output File Path Sequence</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Transformation input Model URI Dimension</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output File Path Sequence</em>' containment reference list.
-	 * @see minitlTrace.States.minitl.MinitlPackage#getTracedTransformation_OutputFilePathSequence()
-	 * @see minitlTrace.States.Transformation_outputFilePath_Value#getParent
-	 * @model opposite="parent" containment="true"
+	 * @return the value of the '<em>Transformation input Model URI Dimension</em>' containment reference.
+	 * @see #setTransformation_inputModelURI_Dimension(Transformation_inputModelURI_Dimension)
+	 * @see minitlTrace.States.minitl.MinitlPackage#getTracedTransformation_Transformation_inputModelURI_Dimension()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Transformation_outputFilePath_Value> getOutputFilePathSequence();
+	Transformation_inputModelURI_Dimension getTransformation_inputModelURI_Dimension();
 
 	/**
-	 * Returns the value of the '<em><b>Output Model Sequence</b></em>' containment reference list.
-	 * The list contents are of type {@link minitlTrace.States.Transformation_outputModel_Value}.
-	 * It is bidirectional and its opposite is '{@link minitlTrace.States.Transformation_outputModel_Value#getParent <em>Parent</em>}'.
+	 * Sets the value of the '{@link minitlTrace.States.minitl.TracedTransformation#getTransformation_inputModelURI_Dimension <em>Transformation input Model URI Dimension</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Transformation input Model URI Dimension</em>' containment reference.
+	 * @see #getTransformation_inputModelURI_Dimension()
+	 * @generated
+	 */
+	void setTransformation_inputModelURI_Dimension(Transformation_inputModelURI_Dimension value);
+
+	/**
+	 * Returns the value of the '<em><b>Transformation input Model Dimension</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output Model Sequence</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Transformation input Model Dimension</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output Model Sequence</em>' containment reference list.
-	 * @see minitlTrace.States.minitl.MinitlPackage#getTracedTransformation_OutputModelSequence()
-	 * @see minitlTrace.States.Transformation_outputModel_Value#getParent
-	 * @model opposite="parent" containment="true"
+	 * @return the value of the '<em>Transformation input Model Dimension</em>' containment reference.
+	 * @see #setTransformation_inputModel_Dimension(Transformation_inputModel_Dimension)
+	 * @see minitlTrace.States.minitl.MinitlPackage#getTracedTransformation_Transformation_inputModel_Dimension()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Transformation_outputModel_Value> getOutputModelSequence();
+	Transformation_inputModel_Dimension getTransformation_inputModel_Dimension();
+
+	/**
+	 * Sets the value of the '{@link minitlTrace.States.minitl.TracedTransformation#getTransformation_inputModel_Dimension <em>Transformation input Model Dimension</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Transformation input Model Dimension</em>' containment reference.
+	 * @see #getTransformation_inputModel_Dimension()
+	 * @generated
+	 */
+	void setTransformation_inputModel_Dimension(Transformation_inputModel_Dimension value);
+
+	/**
+	 * Returns the value of the '<em><b>Transformation output File Path Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Transformation output File Path Dimension</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Transformation output File Path Dimension</em>' containment reference.
+	 * @see #setTransformation_outputFilePath_Dimension(Transformation_outputFilePath_Dimension)
+	 * @see minitlTrace.States.minitl.MinitlPackage#getTracedTransformation_Transformation_outputFilePath_Dimension()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Transformation_outputFilePath_Dimension getTransformation_outputFilePath_Dimension();
+
+	/**
+	 * Sets the value of the '{@link minitlTrace.States.minitl.TracedTransformation#getTransformation_outputFilePath_Dimension <em>Transformation output File Path Dimension</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Transformation output File Path Dimension</em>' containment reference.
+	 * @see #getTransformation_outputFilePath_Dimension()
+	 * @generated
+	 */
+	void setTransformation_outputFilePath_Dimension(Transformation_outputFilePath_Dimension value);
+
+	/**
+	 * Returns the value of the '<em><b>Transformation output Model Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Transformation output Model Dimension</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Transformation output Model Dimension</em>' containment reference.
+	 * @see #setTransformation_outputModel_Dimension(Transformation_outputModel_Dimension)
+	 * @see minitlTrace.States.minitl.MinitlPackage#getTracedTransformation_Transformation_outputModel_Dimension()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Transformation_outputModel_Dimension getTransformation_outputModel_Dimension();
+
+	/**
+	 * Sets the value of the '{@link minitlTrace.States.minitl.TracedTransformation#getTransformation_outputModel_Dimension <em>Transformation output Model Dimension</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Transformation output Model Dimension</em>' containment reference.
+	 * @see #getTransformation_outputModel_Dimension()
+	 * @generated
+	 */
+	void setTransformation_outputModel_Dimension(Transformation_outputModel_Dimension value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);\nresult.addAll(super.getDimensionsInternal());\nresult.add(getTransformation_inputModelURI_Dimension());\nresult.add(getTransformation_outputModel_Dimension());\nresult.add(getTransformation_inputModel_Dimension());\nresult.add(getTransformation_outputFilePath_Dimension());\nreturn result;\n'"
+	 * @generated
+	 */
+	EList<SpecificDimension<?>> getDimensionsInternal();
 
 } // TracedTransformation

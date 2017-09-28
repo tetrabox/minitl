@@ -43,9 +43,9 @@ public class TransformationAspect {
     		_privk3_initialize(_self_, _self,args);
     	}
     };
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    if (manager != null) {
-    	manager.executeStep(_self,command,"Transformation","initialize");
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (stepManager != null) {
+    	stepManager.executeStep(_self,command,"Transformation","initialize");
     } else {
     	command.execute();
     }
@@ -55,28 +55,33 @@ public class TransformationAspect {
   @Main
   @Step
   public static void execute(final Transformation _self) {
-    final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    	@Override
-    	public void execute() {
-    		_privk3_execute(_self_, _self);
-    	}
-    };
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    if (manager != null) {
-    	manager.executeStep(_self,command,"Transformation","execute");
-    } else {
-    	command.execute();
-    }
-    ;;
-  }
+	final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext
+			.getSelf(_self);
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+		@Override
+		public void execute() {
+			_privk3_execute(_self_, _self);
+		}
+	};
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
+			.getInstance().findStepManager(_self);
+	if (manager != null) {
+		manager.executeStep(_self, command, "Transformation", "execute");
+	} else {
+		command.execute();
+	}
+	;
+	;
+}
   
   public static List<EObject> inputModel(final Transformation _self) {
-    final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
-    Object result = null;
-    result = _privk3_inputModel(_self_, _self);;
-    return (java.util.List<org.eclipse.emf.ecore.EObject>)result;
-  }
+	final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext
+			.getSelf(_self);
+	Object result = null;
+	result = _privk3_inputModel(_self_, _self);
+	;
+	return (java.util.List) result;
+}
   
   public static void inputModel(final Transformation _self, final List<EObject> inputModel) {
     final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
@@ -84,11 +89,13 @@ public class TransformationAspect {
   }
   
   public static List<EObject> outputModel(final Transformation _self) {
-    final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
-    Object result = null;
-    result = _privk3_outputModel(_self_, _self);;
-    return (java.util.List<org.eclipse.emf.ecore.EObject>)result;
-  }
+	final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext
+			.getSelf(_self);
+	Object result = null;
+	result = _privk3_outputModel(_self_, _self);
+	;
+	return (java.util.List) result;
+}
   
   public static void outputModel(final Transformation _self, final List<EObject> outputModel) {
     final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
@@ -96,28 +103,36 @@ public class TransformationAspect {
   }
   
   public static String inputModelURI(final Transformation _self) {
-    final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
-    Object result = null;
-    result = _privk3_inputModelURI(_self_, _self);;
-    return (java.lang.String)result;
-  }
+	final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext
+			.getSelf(_self);
+	Object result = null;
+	result = _privk3_inputModelURI(_self_, _self);
+	;
+	return (java.lang.String) result;
+}
   
   public static void inputModelURI(final Transformation _self, final String inputModelURI) {
-    final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
-    _privk3_inputModelURI(_self_, _self,inputModelURI);;
-  }
+	final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext
+			.getSelf(_self);
+	_privk3_inputModelURI(_self_, _self, inputModelURI);
+	;
+}
   
   public static String outputFilePath(final Transformation _self) {
-    final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
-    Object result = null;
-    result = _privk3_outputFilePath(_self_, _self);;
-    return (java.lang.String)result;
-  }
+	final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext
+			.getSelf(_self);
+	Object result = null;
+	result = _privk3_outputFilePath(_self_, _self);
+	;
+	return (java.lang.String) result;
+}
   
   public static void outputFilePath(final Transformation _self, final String outputFilePath) {
-    final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext.getSelf(_self);
-    _privk3_outputFilePath(_self_, _self,outputFilePath);;
-  }
+	final org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectProperties _self_ = org.tetrabox.example.minitl.aspects.TransformationAspectTransformationAspectContext
+			.getSelf(_self);
+	_privk3_outputFilePath(_self_, _self, outputFilePath);
+	;
+}
   
   protected static void _privk3_initialize(final TransformationAspectTransformationAspectProperties _self_, final Transformation _self, final List<String> args) {
     String _get = args.get(0);
@@ -169,21 +184,11 @@ public class TransformationAspect {
       for (final Rule r : _rules) {
         RuleAspect.apply(r);
       }
-      boolean _and = false;
-      String _outputFilePath = TransformationAspect.outputFilePath(_self);
-      boolean _notEquals = (!Objects.equal(_outputFilePath, null));
-      if (!_notEquals) {
-        _and = false;
-      } else {
-        String _outputFilePath_1 = TransformationAspect.outputFilePath(_self);
-        boolean _notEquals_1 = (!Objects.equal(_outputFilePath_1, ""));
-        _and = _notEquals_1;
-      }
-      if (_and) {
+      if (((!Objects.equal(TransformationAspect.outputFilePath(_self), null)) && (!Objects.equal(TransformationAspect.outputFilePath(_self), "")))) {
         Resource _eResource = _self.eResource();
         final ResourceSet rs = _eResource.getResourceSet();
-        String _outputFilePath_2 = TransformationAspect.outputFilePath(_self);
-        final File outputFile = new File(_outputFilePath_2);
+        String _outputFilePath = TransformationAspect.outputFilePath(_self);
+        final File outputFile = new File(_outputFilePath);
         boolean _exists = outputFile.exists();
         if (_exists) {
           outputFile.delete();
@@ -211,6 +216,8 @@ public class TransformationAspect {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
     					return (java.util.List) ret;
+    				} else {
+    					return null;
     				}
     		}
     	}
@@ -221,15 +228,20 @@ public class TransformationAspect {
   }
   
   protected static void _privk3_inputModel(final TransformationAspectTransformationAspectProperties _self_, final Transformation _self, final List<EObject> inputModel) {
-    _self_.inputModel = inputModel; try {
+    boolean setterCalled = false;
+    try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
     		if (m.getName().equals("setInputModel")
     				&& m.getParameterTypes().length == 1) {
     			m.invoke(_self, inputModel);
+    			setterCalled = true;
     		}
     	}
     } catch (Exception e) {
     	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.inputModel = inputModel;
     }
   }
   
@@ -241,6 +253,8 @@ public class TransformationAspect {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
     					return (java.util.List) ret;
+    				} else {
+    					return null;
     				}
     		}
     	}
@@ -251,15 +265,20 @@ public class TransformationAspect {
   }
   
   protected static void _privk3_outputModel(final TransformationAspectTransformationAspectProperties _self_, final Transformation _self, final List<EObject> outputModel) {
-    _self_.outputModel = outputModel; try {
+    boolean setterCalled = false;
+    try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
     		if (m.getName().equals("setOutputModel")
     				&& m.getParameterTypes().length == 1) {
     			m.invoke(_self, outputModel);
+    			setterCalled = true;
     		}
     	}
     } catch (Exception e) {
     	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.outputModel = outputModel;
     }
   }
   
@@ -271,6 +290,8 @@ public class TransformationAspect {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
     					return (java.lang.String) ret;
+    				} else {
+    					return null;
     				}
     		}
     	}
@@ -281,15 +302,20 @@ public class TransformationAspect {
   }
   
   protected static void _privk3_inputModelURI(final TransformationAspectTransformationAspectProperties _self_, final Transformation _self, final String inputModelURI) {
-    _self_.inputModelURI = inputModelURI; try {
+    boolean setterCalled = false;
+    try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
     		if (m.getName().equals("setInputModelURI")
     				&& m.getParameterTypes().length == 1) {
     			m.invoke(_self, inputModelURI);
+    			setterCalled = true;
     		}
     	}
     } catch (Exception e) {
     	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.inputModelURI = inputModelURI;
     }
   }
   
@@ -301,6 +327,8 @@ public class TransformationAspect {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
     					return (java.lang.String) ret;
+    				} else {
+    					return null;
     				}
     		}
     	}
@@ -311,15 +339,20 @@ public class TransformationAspect {
   }
   
   protected static void _privk3_outputFilePath(final TransformationAspectTransformationAspectProperties _self_, final Transformation _self, final String outputFilePath) {
-    _self_.outputFilePath = outputFilePath; try {
+    boolean setterCalled = false;
+    try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
     		if (m.getName().equals("setOutputFilePath")
     				&& m.getParameterTypes().length == 1) {
     			m.invoke(_self, outputFilePath);
+    			setterCalled = true;
     		}
     	}
     } catch (Exception e) {
     	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.outputFilePath = outputFilePath;
     }
   }
 }

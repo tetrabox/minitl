@@ -4,14 +4,13 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.BatchModelChangeListener;
 
-import fr.inria.diverse.trace.gemoc.api.IStepFactory;
-import fr.inria.diverse.trace.gemoc.api.ITraceConstructor;
-import fr.inria.diverse.trace.gemoc.api.ITraceExplorer;
-import fr.inria.diverse.trace.gemoc.api.ITraceExtractor;
-import fr.inria.diverse.trace.gemoc.api.ITraceNotifier;
-import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon;
+import org.eclipse.gemoc.trace.commons.model.trace.State;
+import org.eclipse.gemoc.trace.gemoc.api.IStateManager;
+import org.eclipse.gemoc.trace.gemoc.api.IStepFactory;
+import org.eclipse.gemoc.trace.commons.model.trace.TracedObject;
+import org.eclipse.gemoc.trace.gemoc.api.ITraceConstructor;
+import org.eclipse.gemoc.trace.gemoc.traceaddon.AbstractTraceAddon;
 
 public class MinitlTraceEngineAddon extends AbstractTraceAddon {
 
@@ -19,47 +18,14 @@ public class MinitlTraceEngineAddon extends AbstractTraceAddon {
 
 	@Override
 	public ITraceConstructor constructTraceConstructor(Resource modelResource, Resource traceResource,
-			Map<EObject, EObject> exeToTraced) {
+			Map<EObject, TracedObject<?>> exeToTraced) {
 		return new MinitlTraceConstructor(modelResource, traceResource, exeToTraced);
 	}
 
 	@Override
-	public ITraceExplorer constructTraceExplorer(Resource traceResource) {
-		MinitlTraceExplorer explorer = new MinitlTraceExplorer();
-		EObject root = traceResource.getContents().get(0);
-		if (root instanceof minitlTrace.SpecificTrace) {
-			explorer.loadTrace((minitlTrace.SpecificTrace) root);
-			return explorer;
-		}
-		return null;
-	}
-
-	@Override
-	public ITraceExplorer constructTraceExplorer(Resource modelResource, Resource traceResource,
-			Map<EObject, EObject> tracedToExe) {
-		MinitlTraceExplorer explorer = new MinitlTraceExplorer(tracedToExe);
-		EObject root = traceResource.getContents().get(0);
-		if (root instanceof minitlTrace.SpecificTrace) {
-			explorer.loadTrace(modelResource, (minitlTrace.SpecificTrace) root);
-			return explorer;
-		}
-		return null;
-	}
-
-	@Override
-	public ITraceExtractor constructTraceExtractor(Resource traceResource) {
-		MinitlTraceExtractor extractor = new MinitlTraceExtractor();
-		EObject root = traceResource.getContents().get(0);
-		if (root instanceof minitlTrace.SpecificTrace) {
-			extractor.loadTrace((minitlTrace.SpecificTrace) root);
-			return extractor;
-		}
-		return null;
-	}
-
-	@Override
-	public ITraceNotifier constructTraceNotifier(BatchModelChangeListener traceListener) {
-		return new MinitlTraceNotifier(traceListener);
+	public IStateManager<State<?, ?>> constructStateManager(Resource modelResource,
+			Map<TracedObject<?>, EObject> tracedToExe) {
+		return new MinitlTraceStateManager(modelResource, tracedToExe);
 	}
 
 	@Override

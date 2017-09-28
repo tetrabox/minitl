@@ -20,6 +20,6 @@
     <package uri="minitlTrace_minitl" class="minitlTrace.States.minitl.MinitlPackage" genModel="model/minitlTrace.genmodel" />
   </extension>
   <extension point="org.gemoc.gemoc_language_workbench.engine_addon">
-    <Addon Class="org.tetrabox.example.minitl.trace.tracemanager.MinitlTraceEngineAddon" Default="false" id="org.tetrabox.example.minitl.trace" Name="minitl MultiDimensional Trace" ShortDescription="MultiDimensional Trace support dedicated to minitl language" openViewIds="org.gemoc.sequential_addons.multidimensional.timeline.views.timeline.MultidimensionalTimeLineView" AddonGroupId="Sequential.AddonGroup" />
+    <Addon Class="org.tetrabox.example.minitl.trace.tracemanager.MinitlTraceEngineAddon" Default="false" id="org.tetrabox.example.minitl.trace" Name="minitl MultiDimensional Trace" ShortDescription="MultiDimensional Trace support dedicated to minitl language" openViewIds="org.eclipse.gemoc.addon.multidimensional.timeline.views.timeline.MultidimensionalTimeLineView" AddonGroupId="Sequential.AddonGroup" />
   </extension>
 </plugin>

@@ -5,7 +5,8 @@ package minitlTrace.States;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,32 +57,116 @@ public interface StatesPackage extends EPackage {
 	StatesPackage eINSTANCE = minitlTrace.States.impl.StatesPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link minitlTrace.States.Value <em>Value</em>}' class.
+	 * The meta object id for the '{@link minitlTrace.States.impl.SpecificDimensionImpl <em>Specific Dimension</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see minitlTrace.States.Value
-	 * @see minitlTrace.States.impl.StatesPackageImpl#getValue()
+	 * @see minitlTrace.States.impl.SpecificDimensionImpl
+	 * @see minitlTrace.States.impl.StatesPackageImpl#getSpecificDimension()
 	 * @generated
 	 */
-	int VALUE = 6;
+	int SPECIFIC_DIMENSION = 3;
 
 	/**
-	 * The feature id for the '<em><b>States No Opposite</b></em>' reference list.
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__STATES_NO_OPPOSITE = 0;
+	int SPECIFIC_DIMENSION__VALUES = TracePackage.DIMENSION__VALUES;
 
 	/**
-	 * The number of structural features of the '<em>Value</em>' class.
+	 * The number of structural features of the '<em>Specific Dimension</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_FEATURE_COUNT = 1;
+	int SPECIFIC_DIMENSION_FEATURE_COUNT = TracePackage.DIMENSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link minitlTrace.States.impl.ObjectTemplate_currentObject_DimensionImpl <em>Object Template current Object Dimension</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see minitlTrace.States.impl.ObjectTemplate_currentObject_DimensionImpl
+	 * @see minitlTrace.States.impl.StatesPackageImpl#getObjectTemplate_currentObject_Dimension()
+	 * @generated
+	 */
+	int OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION__VALUES = SPECIFIC_DIMENSION__VALUES;
+
+	/**
+	 * The number of structural features of the '<em>Object Template current Object Dimension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION_FEATURE_COUNT = SPECIFIC_DIMENSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link minitlTrace.States.impl.SpecificValueImpl <em>Specific Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see minitlTrace.States.impl.SpecificValueImpl
+	 * @see minitlTrace.States.impl.StatesPackageImpl#getSpecificValue()
+	 * @generated
+	 */
+	int SPECIFIC_VALUE = 7;
+
+	/**
+	 * The feature id for the '<em><b>States</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_VALUE__STATES = TracePackage.VALUE__STATES;
+
+	/**
+	 * The number of structural features of the '<em>Specific Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_VALUE_FEATURE_COUNT = TracePackage.VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link minitlTrace.States.SpecificAttributeValue <em>Specific Attribute Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see minitlTrace.States.SpecificAttributeValue
+	 * @see minitlTrace.States.impl.StatesPackageImpl#getSpecificAttributeValue()
+	 * @generated
+	 */
+	int SPECIFIC_ATTRIBUTE_VALUE = 2;
+
+	/**
+	 * The feature id for the '<em><b>States</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_ATTRIBUTE_VALUE__STATES = SPECIFIC_VALUE__STATES;
+
+	/**
+	 * The number of structural features of the '<em>Specific Attribute Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_ATTRIBUTE_VALUE_FEATURE_COUNT = SPECIFIC_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.States.impl.ObjectTemplate_currentObject_ValueImpl <em>Object Template current Object Value</em>}' class.
@@ -91,34 +176,7 @@ public interface StatesPackage extends EPackage {
 	 * @see minitlTrace.States.impl.StatesPackageImpl#getObjectTemplate_currentObject_Value()
 	 * @generated
 	 */
-	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE = 0;
-
-	/**
-	 * The feature id for the '<em><b>States No Opposite</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__STATES_NO_OPPOSITE = VALUE__STATES_NO_OPPOSITE;
-
-	/**
-	 * The feature id for the '<em><b>Current Object</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__CURRENT_OBJECT = VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__PARENT = VALUE_FEATURE_COUNT + 1;
+	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE = 1;
 
 	/**
 	 * The feature id for the '<em><b>States</b></em>' reference list.
@@ -127,7 +185,16 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__STATES = VALUE_FEATURE_COUNT + 2;
+	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__STATES = SPECIFIC_ATTRIBUTE_VALUE__STATES;
+
+	/**
+	 * The feature id for the '<em><b>Current Object</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__CURRENT_OBJECT = SPECIFIC_ATTRIBUTE_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Object Template current Object Value</em>' class.
@@ -136,35 +203,45 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
+	int OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE_FEATURE_COUNT = SPECIFIC_ATTRIBUTE_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link minitlTrace.States.impl.StateImpl <em>State</em>}' class.
+	 * The meta object id for the '{@link minitlTrace.States.SpecificReferenceValue <em>Specific Reference Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see minitlTrace.States.impl.StateImpl
-	 * @see minitlTrace.States.impl.StatesPackageImpl#getState()
+	 * @see minitlTrace.States.SpecificReferenceValue
+	 * @see minitlTrace.States.impl.StatesPackageImpl#getSpecificReferenceValue()
 	 * @generated
 	 */
-	int STATE = 1;
+	int SPECIFIC_REFERENCE_VALUE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Ended Steps</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE__ENDED_STEPS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Object Template current Object Values</b></em>' reference list.
+	 * The feature id for the '<em><b>States</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__OBJECT_TEMPLATE_CURRENT_OBJECT_VALUES = 1;
+	int SPECIFIC_REFERENCE_VALUE__STATES = SPECIFIC_VALUE__STATES;
+
+	/**
+	 * The number of structural features of the '<em>Specific Reference Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_REFERENCE_VALUE_FEATURE_COUNT = SPECIFIC_VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link minitlTrace.States.impl.SpecificStateImpl <em>Specific State</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see minitlTrace.States.impl.SpecificStateImpl
+	 * @see minitlTrace.States.impl.StatesPackageImpl#getSpecificState()
+	 * @generated
+	 */
+	int SPECIFIC_STATE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Started Steps</b></em>' reference list.
@@ -173,52 +250,90 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__STARTED_STEPS = 2;
+	int SPECIFIC_STATE__STARTED_STEPS = TracePackage.STATE__STARTED_STEPS;
 
 	/**
-	 * The feature id for the '<em><b>Transformation input Model URI Values</b></em>' reference list.
+	 * The feature id for the '<em><b>Ended Steps</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__TRANSFORMATION_INPUT_MODEL_URI_VALUES = 3;
+	int SPECIFIC_STATE__ENDED_STEPS = TracePackage.STATE__ENDED_STEPS;
 
 	/**
-	 * The feature id for the '<em><b>Transformation input Model Values</b></em>' reference list.
+	 * The feature id for the '<em><b>Values</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__TRANSFORMATION_INPUT_MODEL_VALUES = 4;
+	int SPECIFIC_STATE__VALUES = TracePackage.STATE__VALUES;
 
 	/**
-	 * The feature id for the '<em><b>Transformation output File Path Values</b></em>' reference list.
+	 * The number of structural features of the '<em>Specific State</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__TRANSFORMATION_OUTPUT_FILE_PATH_VALUES = 5;
+	int SPECIFIC_STATE_FEATURE_COUNT = TracePackage.STATE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Transformation output Model Values</b></em>' reference list.
+	 * The meta object id for the '{@link minitlTrace.States.impl.SpecificTracedObjectImpl <em>Specific Traced Object</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see minitlTrace.States.impl.SpecificTracedObjectImpl
+	 * @see minitlTrace.States.impl.StatesPackageImpl#getSpecificTracedObject()
+	 * @generated
+	 */
+	int SPECIFIC_TRACED_OBJECT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Dimensions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__TRANSFORMATION_OUTPUT_MODEL_VALUES = 6;
+	int SPECIFIC_TRACED_OBJECT__DIMENSIONS = TracePackage.TRACED_OBJECT__DIMENSIONS;
 
 	/**
-	 * The number of structural features of the '<em>State</em>' class.
+	 * The number of structural features of the '<em>Specific Traced Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = 7;
+	int SPECIFIC_TRACED_OBJECT_FEATURE_COUNT = TracePackage.TRACED_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link minitlTrace.States.impl.Transformation_inputModelURI_DimensionImpl <em>Transformation input Model URI Dimension</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see minitlTrace.States.impl.Transformation_inputModelURI_DimensionImpl
+	 * @see minitlTrace.States.impl.StatesPackageImpl#getTransformation_inputModelURI_Dimension()
+	 * @generated
+	 */
+	int TRANSFORMATION_INPUT_MODEL_URI_DIMENSION = 8;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_INPUT_MODEL_URI_DIMENSION__VALUES = SPECIFIC_DIMENSION__VALUES;
+
+	/**
+	 * The number of structural features of the '<em>Transformation input Model URI Dimension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_INPUT_MODEL_URI_DIMENSION_FEATURE_COUNT = SPECIFIC_DIMENSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.States.impl.Transformation_inputModelURI_ValueImpl <em>Transformation input Model URI Value</em>}' class.
@@ -228,34 +343,7 @@ public interface StatesPackage extends EPackage {
 	 * @see minitlTrace.States.impl.StatesPackageImpl#getTransformation_inputModelURI_Value()
 	 * @generated
 	 */
-	int TRANSFORMATION_INPUT_MODEL_URI_VALUE = 2;
-
-	/**
-	 * The feature id for the '<em><b>States No Opposite</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_INPUT_MODEL_URI_VALUE__STATES_NO_OPPOSITE = VALUE__STATES_NO_OPPOSITE;
-
-	/**
-	 * The feature id for the '<em><b>Input Model URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_INPUT_MODEL_URI_VALUE__INPUT_MODEL_URI = VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_INPUT_MODEL_URI_VALUE__PARENT = VALUE_FEATURE_COUNT + 1;
+	int TRANSFORMATION_INPUT_MODEL_URI_VALUE = 9;
 
 	/**
 	 * The feature id for the '<em><b>States</b></em>' reference list.
@@ -264,7 +352,16 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION_INPUT_MODEL_URI_VALUE__STATES = VALUE_FEATURE_COUNT + 2;
+	int TRANSFORMATION_INPUT_MODEL_URI_VALUE__STATES = SPECIFIC_ATTRIBUTE_VALUE__STATES;
+
+	/**
+	 * The feature id for the '<em><b>Input Model URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_INPUT_MODEL_URI_VALUE__INPUT_MODEL_URI = SPECIFIC_ATTRIBUTE_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Transformation input Model URI Value</em>' class.
@@ -273,7 +370,35 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION_INPUT_MODEL_URI_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
+	int TRANSFORMATION_INPUT_MODEL_URI_VALUE_FEATURE_COUNT = SPECIFIC_ATTRIBUTE_VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link minitlTrace.States.impl.Transformation_inputModel_DimensionImpl <em>Transformation input Model Dimension</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see minitlTrace.States.impl.Transformation_inputModel_DimensionImpl
+	 * @see minitlTrace.States.impl.StatesPackageImpl#getTransformation_inputModel_Dimension()
+	 * @generated
+	 */
+	int TRANSFORMATION_INPUT_MODEL_DIMENSION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_INPUT_MODEL_DIMENSION__VALUES = SPECIFIC_DIMENSION__VALUES;
+
+	/**
+	 * The number of structural features of the '<em>Transformation input Model Dimension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_INPUT_MODEL_DIMENSION_FEATURE_COUNT = SPECIFIC_DIMENSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.States.impl.Transformation_inputModel_ValueImpl <em>Transformation input Model Value</em>}' class.
@@ -283,34 +408,7 @@ public interface StatesPackage extends EPackage {
 	 * @see minitlTrace.States.impl.StatesPackageImpl#getTransformation_inputModel_Value()
 	 * @generated
 	 */
-	int TRANSFORMATION_INPUT_MODEL_VALUE = 3;
-
-	/**
-	 * The feature id for the '<em><b>States No Opposite</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_INPUT_MODEL_VALUE__STATES_NO_OPPOSITE = VALUE__STATES_NO_OPPOSITE;
-
-	/**
-	 * The feature id for the '<em><b>Input Model</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_INPUT_MODEL_VALUE__INPUT_MODEL = VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_INPUT_MODEL_VALUE__PARENT = VALUE_FEATURE_COUNT + 1;
+	int TRANSFORMATION_INPUT_MODEL_VALUE = 11;
 
 	/**
 	 * The feature id for the '<em><b>States</b></em>' reference list.
@@ -319,7 +417,16 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION_INPUT_MODEL_VALUE__STATES = VALUE_FEATURE_COUNT + 2;
+	int TRANSFORMATION_INPUT_MODEL_VALUE__STATES = SPECIFIC_ATTRIBUTE_VALUE__STATES;
+
+	/**
+	 * The feature id for the '<em><b>Input Model</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_INPUT_MODEL_VALUE__INPUT_MODEL = SPECIFIC_ATTRIBUTE_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Transformation input Model Value</em>' class.
@@ -328,7 +435,35 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION_INPUT_MODEL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
+	int TRANSFORMATION_INPUT_MODEL_VALUE_FEATURE_COUNT = SPECIFIC_ATTRIBUTE_VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link minitlTrace.States.impl.Transformation_outputFilePath_DimensionImpl <em>Transformation output File Path Dimension</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see minitlTrace.States.impl.Transformation_outputFilePath_DimensionImpl
+	 * @see minitlTrace.States.impl.StatesPackageImpl#getTransformation_outputFilePath_Dimension()
+	 * @generated
+	 */
+	int TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION__VALUES = SPECIFIC_DIMENSION__VALUES;
+
+	/**
+	 * The number of structural features of the '<em>Transformation output File Path Dimension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION_FEATURE_COUNT = SPECIFIC_DIMENSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.States.impl.Transformation_outputFilePath_ValueImpl <em>Transformation output File Path Value</em>}' class.
@@ -338,34 +473,7 @@ public interface StatesPackage extends EPackage {
 	 * @see minitlTrace.States.impl.StatesPackageImpl#getTransformation_outputFilePath_Value()
 	 * @generated
 	 */
-	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE = 4;
-
-	/**
-	 * The feature id for the '<em><b>States No Opposite</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__STATES_NO_OPPOSITE = VALUE__STATES_NO_OPPOSITE;
-
-	/**
-	 * The feature id for the '<em><b>Output File Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__OUTPUT_FILE_PATH = VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__PARENT = VALUE_FEATURE_COUNT + 1;
+	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE = 13;
 
 	/**
 	 * The feature id for the '<em><b>States</b></em>' reference list.
@@ -374,7 +482,16 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__STATES = VALUE_FEATURE_COUNT + 2;
+	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__STATES = SPECIFIC_ATTRIBUTE_VALUE__STATES;
+
+	/**
+	 * The feature id for the '<em><b>Output File Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__OUTPUT_FILE_PATH = SPECIFIC_ATTRIBUTE_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Transformation output File Path Value</em>' class.
@@ -383,7 +500,35 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
+	int TRANSFORMATION_OUTPUT_FILE_PATH_VALUE_FEATURE_COUNT = SPECIFIC_ATTRIBUTE_VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link minitlTrace.States.impl.Transformation_outputModel_DimensionImpl <em>Transformation output Model Dimension</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see minitlTrace.States.impl.Transformation_outputModel_DimensionImpl
+	 * @see minitlTrace.States.impl.StatesPackageImpl#getTransformation_outputModel_Dimension()
+	 * @generated
+	 */
+	int TRANSFORMATION_OUTPUT_MODEL_DIMENSION = 14;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_OUTPUT_MODEL_DIMENSION__VALUES = SPECIFIC_DIMENSION__VALUES;
+
+	/**
+	 * The number of structural features of the '<em>Transformation output Model Dimension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_OUTPUT_MODEL_DIMENSION_FEATURE_COUNT = SPECIFIC_DIMENSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.States.impl.Transformation_outputModel_ValueImpl <em>Transformation output Model Value</em>}' class.
@@ -393,34 +538,7 @@ public interface StatesPackage extends EPackage {
 	 * @see minitlTrace.States.impl.StatesPackageImpl#getTransformation_outputModel_Value()
 	 * @generated
 	 */
-	int TRANSFORMATION_OUTPUT_MODEL_VALUE = 5;
-
-	/**
-	 * The feature id for the '<em><b>States No Opposite</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_OUTPUT_MODEL_VALUE__STATES_NO_OPPOSITE = VALUE__STATES_NO_OPPOSITE;
-
-	/**
-	 * The feature id for the '<em><b>Output Model</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_OUTPUT_MODEL_VALUE__OUTPUT_MODEL = VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSFORMATION_OUTPUT_MODEL_VALUE__PARENT = VALUE_FEATURE_COUNT + 1;
+	int TRANSFORMATION_OUTPUT_MODEL_VALUE = 15;
 
 	/**
 	 * The feature id for the '<em><b>States</b></em>' reference list.
@@ -429,7 +547,16 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION_OUTPUT_MODEL_VALUE__STATES = VALUE_FEATURE_COUNT + 2;
+	int TRANSFORMATION_OUTPUT_MODEL_VALUE__STATES = SPECIFIC_ATTRIBUTE_VALUE__STATES;
+
+	/**
+	 * The feature id for the '<em><b>Output Model</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORMATION_OUTPUT_MODEL_VALUE__OUTPUT_MODEL = SPECIFIC_ATTRIBUTE_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Transformation output Model Value</em>' class.
@@ -438,8 +565,18 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMATION_OUTPUT_MODEL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
+	int TRANSFORMATION_OUTPUT_MODEL_VALUE_FEATURE_COUNT = SPECIFIC_ATTRIBUTE_VALUE_FEATURE_COUNT + 1;
 
+
+	/**
+	 * Returns the meta object for class '{@link minitlTrace.States.ObjectTemplate_currentObject_Dimension <em>Object Template current Object Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Object Template current Object Dimension</em>'.
+	 * @see minitlTrace.States.ObjectTemplate_currentObject_Dimension
+	 * @generated
+	 */
+	EClass getObjectTemplate_currentObject_Dimension();
 
 	/**
 	 * Returns the meta object for class '{@link minitlTrace.States.ObjectTemplate_currentObject_Value <em>Object Template current Object Value</em>}'.
@@ -463,113 +600,74 @@ public interface StatesPackage extends EPackage {
 	EAttribute getObjectTemplate_currentObject_Value_CurrentObject();
 
 	/**
-	 * Returns the meta object for the container reference '{@link minitlTrace.States.ObjectTemplate_currentObject_Value#getParent <em>Parent</em>}'.
+	 * Returns the meta object for class '{@link minitlTrace.States.SpecificAttributeValue <em>Specific Attribute Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent</em>'.
-	 * @see minitlTrace.States.ObjectTemplate_currentObject_Value#getParent()
-	 * @see #getObjectTemplate_currentObject_Value()
+	 * @return the meta object for class '<em>Specific Attribute Value</em>'.
+	 * @see minitlTrace.States.SpecificAttributeValue
 	 * @generated
 	 */
-	EReference getObjectTemplate_currentObject_Value_Parent();
+	EClass getSpecificAttributeValue();
 
 	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.ObjectTemplate_currentObject_Value#getStates <em>States</em>}'.
+	 * Returns the meta object for class '{@link minitlTrace.States.SpecificDimension <em>Specific Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>States</em>'.
-	 * @see minitlTrace.States.ObjectTemplate_currentObject_Value#getStates()
-	 * @see #getObjectTemplate_currentObject_Value()
+	 * @return the meta object for class '<em>Specific Dimension</em>'.
+	 * @see minitlTrace.States.SpecificDimension
 	 * @generated
 	 */
-	EReference getObjectTemplate_currentObject_Value_States();
+	EClass getSpecificDimension();
 
 	/**
-	 * Returns the meta object for class '{@link minitlTrace.States.State <em>State</em>}'.
+	 * Returns the meta object for class '{@link minitlTrace.States.SpecificReferenceValue <em>Specific Reference Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>State</em>'.
-	 * @see minitlTrace.States.State
+	 * @return the meta object for class '<em>Specific Reference Value</em>'.
+	 * @see minitlTrace.States.SpecificReferenceValue
 	 * @generated
 	 */
-	EClass getState();
+	EClass getSpecificReferenceValue();
 
 	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.State#getEndedSteps <em>Ended Steps</em>}'.
+	 * Returns the meta object for class '{@link minitlTrace.States.SpecificState <em>Specific State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Ended Steps</em>'.
-	 * @see minitlTrace.States.State#getEndedSteps()
-	 * @see #getState()
+	 * @return the meta object for class '<em>Specific State</em>'.
+	 * @see minitlTrace.States.SpecificState
 	 * @generated
 	 */
-	EReference getState_EndedSteps();
+	EClass getSpecificState();
 
 	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.State#getObjectTemplate_currentObject_Values <em>Object Template current Object Values</em>}'.
+	 * Returns the meta object for class '{@link minitlTrace.States.SpecificTracedObject <em>Specific Traced Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Object Template current Object Values</em>'.
-	 * @see minitlTrace.States.State#getObjectTemplate_currentObject_Values()
-	 * @see #getState()
+	 * @return the meta object for class '<em>Specific Traced Object</em>'.
+	 * @see minitlTrace.States.SpecificTracedObject
 	 * @generated
 	 */
-	EReference getState_ObjectTemplate_currentObject_Values();
+	EClass getSpecificTracedObject();
 
 	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.State#getStartedSteps <em>Started Steps</em>}'.
+	 * Returns the meta object for class '{@link minitlTrace.States.SpecificValue <em>Specific Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Started Steps</em>'.
-	 * @see minitlTrace.States.State#getStartedSteps()
-	 * @see #getState()
+	 * @return the meta object for class '<em>Specific Value</em>'.
+	 * @see minitlTrace.States.SpecificValue
 	 * @generated
 	 */
-	EReference getState_StartedSteps();
+	EClass getSpecificValue();
 
 	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.State#getTransformation_inputModelURI_Values <em>Transformation input Model URI Values</em>}'.
+	 * Returns the meta object for class '{@link minitlTrace.States.Transformation_inputModelURI_Dimension <em>Transformation input Model URI Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Transformation input Model URI Values</em>'.
-	 * @see minitlTrace.States.State#getTransformation_inputModelURI_Values()
-	 * @see #getState()
+	 * @return the meta object for class '<em>Transformation input Model URI Dimension</em>'.
+	 * @see minitlTrace.States.Transformation_inputModelURI_Dimension
 	 * @generated
 	 */
-	EReference getState_Transformation_inputModelURI_Values();
-
-	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.State#getTransformation_inputModel_Values <em>Transformation input Model Values</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Transformation input Model Values</em>'.
-	 * @see minitlTrace.States.State#getTransformation_inputModel_Values()
-	 * @see #getState()
-	 * @generated
-	 */
-	EReference getState_Transformation_inputModel_Values();
-
-	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.State#getTransformation_outputFilePath_Values <em>Transformation output File Path Values</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Transformation output File Path Values</em>'.
-	 * @see minitlTrace.States.State#getTransformation_outputFilePath_Values()
-	 * @see #getState()
-	 * @generated
-	 */
-	EReference getState_Transformation_outputFilePath_Values();
-
-	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.State#getTransformation_outputModel_Values <em>Transformation output Model Values</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Transformation output Model Values</em>'.
-	 * @see minitlTrace.States.State#getTransformation_outputModel_Values()
-	 * @see #getState()
-	 * @generated
-	 */
-	EReference getState_Transformation_outputModel_Values();
+	EClass getTransformation_inputModelURI_Dimension();
 
 	/**
 	 * Returns the meta object for class '{@link minitlTrace.States.Transformation_inputModelURI_Value <em>Transformation input Model URI Value</em>}'.
@@ -593,26 +691,14 @@ public interface StatesPackage extends EPackage {
 	EAttribute getTransformation_inputModelURI_Value_InputModelURI();
 
 	/**
-	 * Returns the meta object for the container reference '{@link minitlTrace.States.Transformation_inputModelURI_Value#getParent <em>Parent</em>}'.
+	 * Returns the meta object for class '{@link minitlTrace.States.Transformation_inputModel_Dimension <em>Transformation input Model Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent</em>'.
-	 * @see minitlTrace.States.Transformation_inputModelURI_Value#getParent()
-	 * @see #getTransformation_inputModelURI_Value()
+	 * @return the meta object for class '<em>Transformation input Model Dimension</em>'.
+	 * @see minitlTrace.States.Transformation_inputModel_Dimension
 	 * @generated
 	 */
-	EReference getTransformation_inputModelURI_Value_Parent();
-
-	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.Transformation_inputModelURI_Value#getStates <em>States</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>States</em>'.
-	 * @see minitlTrace.States.Transformation_inputModelURI_Value#getStates()
-	 * @see #getTransformation_inputModelURI_Value()
-	 * @generated
-	 */
-	EReference getTransformation_inputModelURI_Value_States();
+	EClass getTransformation_inputModel_Dimension();
 
 	/**
 	 * Returns the meta object for class '{@link minitlTrace.States.Transformation_inputModel_Value <em>Transformation input Model Value</em>}'.
@@ -636,26 +722,14 @@ public interface StatesPackage extends EPackage {
 	EAttribute getTransformation_inputModel_Value_InputModel();
 
 	/**
-	 * Returns the meta object for the container reference '{@link minitlTrace.States.Transformation_inputModel_Value#getParent <em>Parent</em>}'.
+	 * Returns the meta object for class '{@link minitlTrace.States.Transformation_outputFilePath_Dimension <em>Transformation output File Path Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent</em>'.
-	 * @see minitlTrace.States.Transformation_inputModel_Value#getParent()
-	 * @see #getTransformation_inputModel_Value()
+	 * @return the meta object for class '<em>Transformation output File Path Dimension</em>'.
+	 * @see minitlTrace.States.Transformation_outputFilePath_Dimension
 	 * @generated
 	 */
-	EReference getTransformation_inputModel_Value_Parent();
-
-	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.Transformation_inputModel_Value#getStates <em>States</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>States</em>'.
-	 * @see minitlTrace.States.Transformation_inputModel_Value#getStates()
-	 * @see #getTransformation_inputModel_Value()
-	 * @generated
-	 */
-	EReference getTransformation_inputModel_Value_States();
+	EClass getTransformation_outputFilePath_Dimension();
 
 	/**
 	 * Returns the meta object for class '{@link minitlTrace.States.Transformation_outputFilePath_Value <em>Transformation output File Path Value</em>}'.
@@ -679,26 +753,14 @@ public interface StatesPackage extends EPackage {
 	EAttribute getTransformation_outputFilePath_Value_OutputFilePath();
 
 	/**
-	 * Returns the meta object for the container reference '{@link minitlTrace.States.Transformation_outputFilePath_Value#getParent <em>Parent</em>}'.
+	 * Returns the meta object for class '{@link minitlTrace.States.Transformation_outputModel_Dimension <em>Transformation output Model Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent</em>'.
-	 * @see minitlTrace.States.Transformation_outputFilePath_Value#getParent()
-	 * @see #getTransformation_outputFilePath_Value()
+	 * @return the meta object for class '<em>Transformation output Model Dimension</em>'.
+	 * @see minitlTrace.States.Transformation_outputModel_Dimension
 	 * @generated
 	 */
-	EReference getTransformation_outputFilePath_Value_Parent();
-
-	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.Transformation_outputFilePath_Value#getStates <em>States</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>States</em>'.
-	 * @see minitlTrace.States.Transformation_outputFilePath_Value#getStates()
-	 * @see #getTransformation_outputFilePath_Value()
-	 * @generated
-	 */
-	EReference getTransformation_outputFilePath_Value_States();
+	EClass getTransformation_outputModel_Dimension();
 
 	/**
 	 * Returns the meta object for class '{@link minitlTrace.States.Transformation_outputModel_Value <em>Transformation output Model Value</em>}'.
@@ -720,49 +782,6 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTransformation_outputModel_Value_OutputModel();
-
-	/**
-	 * Returns the meta object for the container reference '{@link minitlTrace.States.Transformation_outputModel_Value#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent</em>'.
-	 * @see minitlTrace.States.Transformation_outputModel_Value#getParent()
-	 * @see #getTransformation_outputModel_Value()
-	 * @generated
-	 */
-	EReference getTransformation_outputModel_Value_Parent();
-
-	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.Transformation_outputModel_Value#getStates <em>States</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>States</em>'.
-	 * @see minitlTrace.States.Transformation_outputModel_Value#getStates()
-	 * @see #getTransformation_outputModel_Value()
-	 * @generated
-	 */
-	EReference getTransformation_outputModel_Value_States();
-
-	/**
-	 * Returns the meta object for class '{@link minitlTrace.States.Value <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Value</em>'.
-	 * @see minitlTrace.States.Value
-	 * @generated
-	 */
-	EClass getValue();
-
-	/**
-	 * Returns the meta object for the reference list '{@link minitlTrace.States.Value#getStatesNoOpposite <em>States No Opposite</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>States No Opposite</em>'.
-	 * @see minitlTrace.States.Value#getStatesNoOpposite()
-	 * @see #getValue()
-	 * @generated
-	 */
-	EReference getValue_StatesNoOpposite();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -787,6 +806,16 @@ public interface StatesPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link minitlTrace.States.impl.ObjectTemplate_currentObject_DimensionImpl <em>Object Template current Object Dimension</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see minitlTrace.States.impl.ObjectTemplate_currentObject_DimensionImpl
+		 * @see minitlTrace.States.impl.StatesPackageImpl#getObjectTemplate_currentObject_Dimension()
+		 * @generated
+		 */
+		EClass OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION = eINSTANCE.getObjectTemplate_currentObject_Dimension();
+
+		/**
 		 * The meta object literal for the '{@link minitlTrace.States.impl.ObjectTemplate_currentObject_ValueImpl <em>Object Template current Object Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -805,86 +834,74 @@ public interface StatesPackage extends EPackage {
 		EAttribute OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__CURRENT_OBJECT = eINSTANCE.getObjectTemplate_currentObject_Value_CurrentObject();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * The meta object literal for the '{@link minitlTrace.States.SpecificAttributeValue <em>Specific Attribute Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see minitlTrace.States.SpecificAttributeValue
+		 * @see minitlTrace.States.impl.StatesPackageImpl#getSpecificAttributeValue()
 		 * @generated
 		 */
-		EReference OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__PARENT = eINSTANCE.getObjectTemplate_currentObject_Value_Parent();
+		EClass SPECIFIC_ATTRIBUTE_VALUE = eINSTANCE.getSpecificAttributeValue();
 
 		/**
-		 * The meta object literal for the '<em><b>States</b></em>' reference list feature.
+		 * The meta object literal for the '{@link minitlTrace.States.impl.SpecificDimensionImpl <em>Specific Dimension</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see minitlTrace.States.impl.SpecificDimensionImpl
+		 * @see minitlTrace.States.impl.StatesPackageImpl#getSpecificDimension()
 		 * @generated
 		 */
-		EReference OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__STATES = eINSTANCE.getObjectTemplate_currentObject_Value_States();
+		EClass SPECIFIC_DIMENSION = eINSTANCE.getSpecificDimension();
 
 		/**
-		 * The meta object literal for the '{@link minitlTrace.States.impl.StateImpl <em>State</em>}' class.
+		 * The meta object literal for the '{@link minitlTrace.States.SpecificReferenceValue <em>Specific Reference Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see minitlTrace.States.impl.StateImpl
-		 * @see minitlTrace.States.impl.StatesPackageImpl#getState()
+		 * @see minitlTrace.States.SpecificReferenceValue
+		 * @see minitlTrace.States.impl.StatesPackageImpl#getSpecificReferenceValue()
 		 * @generated
 		 */
-		EClass STATE = eINSTANCE.getState();
+		EClass SPECIFIC_REFERENCE_VALUE = eINSTANCE.getSpecificReferenceValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Ended Steps</b></em>' reference list feature.
+		 * The meta object literal for the '{@link minitlTrace.States.impl.SpecificStateImpl <em>Specific State</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see minitlTrace.States.impl.SpecificStateImpl
+		 * @see minitlTrace.States.impl.StatesPackageImpl#getSpecificState()
 		 * @generated
 		 */
-		EReference STATE__ENDED_STEPS = eINSTANCE.getState_EndedSteps();
+		EClass SPECIFIC_STATE = eINSTANCE.getSpecificState();
 
 		/**
-		 * The meta object literal for the '<em><b>Object Template current Object Values</b></em>' reference list feature.
+		 * The meta object literal for the '{@link minitlTrace.States.impl.SpecificTracedObjectImpl <em>Specific Traced Object</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see minitlTrace.States.impl.SpecificTracedObjectImpl
+		 * @see minitlTrace.States.impl.StatesPackageImpl#getSpecificTracedObject()
 		 * @generated
 		 */
-		EReference STATE__OBJECT_TEMPLATE_CURRENT_OBJECT_VALUES = eINSTANCE.getState_ObjectTemplate_currentObject_Values();
+		EClass SPECIFIC_TRACED_OBJECT = eINSTANCE.getSpecificTracedObject();
 
 		/**
-		 * The meta object literal for the '<em><b>Started Steps</b></em>' reference list feature.
+		 * The meta object literal for the '{@link minitlTrace.States.impl.SpecificValueImpl <em>Specific Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see minitlTrace.States.impl.SpecificValueImpl
+		 * @see minitlTrace.States.impl.StatesPackageImpl#getSpecificValue()
 		 * @generated
 		 */
-		EReference STATE__STARTED_STEPS = eINSTANCE.getState_StartedSteps();
+		EClass SPECIFIC_VALUE = eINSTANCE.getSpecificValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Transformation input Model URI Values</b></em>' reference list feature.
+		 * The meta object literal for the '{@link minitlTrace.States.impl.Transformation_inputModelURI_DimensionImpl <em>Transformation input Model URI Dimension</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see minitlTrace.States.impl.Transformation_inputModelURI_DimensionImpl
+		 * @see minitlTrace.States.impl.StatesPackageImpl#getTransformation_inputModelURI_Dimension()
 		 * @generated
 		 */
-		EReference STATE__TRANSFORMATION_INPUT_MODEL_URI_VALUES = eINSTANCE.getState_Transformation_inputModelURI_Values();
-
-		/**
-		 * The meta object literal for the '<em><b>Transformation input Model Values</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STATE__TRANSFORMATION_INPUT_MODEL_VALUES = eINSTANCE.getState_Transformation_inputModel_Values();
-
-		/**
-		 * The meta object literal for the '<em><b>Transformation output File Path Values</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STATE__TRANSFORMATION_OUTPUT_FILE_PATH_VALUES = eINSTANCE.getState_Transformation_outputFilePath_Values();
-
-		/**
-		 * The meta object literal for the '<em><b>Transformation output Model Values</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STATE__TRANSFORMATION_OUTPUT_MODEL_VALUES = eINSTANCE.getState_Transformation_outputModel_Values();
+		EClass TRANSFORMATION_INPUT_MODEL_URI_DIMENSION = eINSTANCE.getTransformation_inputModelURI_Dimension();
 
 		/**
 		 * The meta object literal for the '{@link minitlTrace.States.impl.Transformation_inputModelURI_ValueImpl <em>Transformation input Model URI Value</em>}' class.
@@ -905,20 +922,14 @@ public interface StatesPackage extends EPackage {
 		EAttribute TRANSFORMATION_INPUT_MODEL_URI_VALUE__INPUT_MODEL_URI = eINSTANCE.getTransformation_inputModelURI_Value_InputModelURI();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * The meta object literal for the '{@link minitlTrace.States.impl.Transformation_inputModel_DimensionImpl <em>Transformation input Model Dimension</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see minitlTrace.States.impl.Transformation_inputModel_DimensionImpl
+		 * @see minitlTrace.States.impl.StatesPackageImpl#getTransformation_inputModel_Dimension()
 		 * @generated
 		 */
-		EReference TRANSFORMATION_INPUT_MODEL_URI_VALUE__PARENT = eINSTANCE.getTransformation_inputModelURI_Value_Parent();
-
-		/**
-		 * The meta object literal for the '<em><b>States</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRANSFORMATION_INPUT_MODEL_URI_VALUE__STATES = eINSTANCE.getTransformation_inputModelURI_Value_States();
+		EClass TRANSFORMATION_INPUT_MODEL_DIMENSION = eINSTANCE.getTransformation_inputModel_Dimension();
 
 		/**
 		 * The meta object literal for the '{@link minitlTrace.States.impl.Transformation_inputModel_ValueImpl <em>Transformation input Model Value</em>}' class.
@@ -939,20 +950,14 @@ public interface StatesPackage extends EPackage {
 		EAttribute TRANSFORMATION_INPUT_MODEL_VALUE__INPUT_MODEL = eINSTANCE.getTransformation_inputModel_Value_InputModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * The meta object literal for the '{@link minitlTrace.States.impl.Transformation_outputFilePath_DimensionImpl <em>Transformation output File Path Dimension</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see minitlTrace.States.impl.Transformation_outputFilePath_DimensionImpl
+		 * @see minitlTrace.States.impl.StatesPackageImpl#getTransformation_outputFilePath_Dimension()
 		 * @generated
 		 */
-		EReference TRANSFORMATION_INPUT_MODEL_VALUE__PARENT = eINSTANCE.getTransformation_inputModel_Value_Parent();
-
-		/**
-		 * The meta object literal for the '<em><b>States</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRANSFORMATION_INPUT_MODEL_VALUE__STATES = eINSTANCE.getTransformation_inputModel_Value_States();
+		EClass TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION = eINSTANCE.getTransformation_outputFilePath_Dimension();
 
 		/**
 		 * The meta object literal for the '{@link minitlTrace.States.impl.Transformation_outputFilePath_ValueImpl <em>Transformation output File Path Value</em>}' class.
@@ -973,20 +978,14 @@ public interface StatesPackage extends EPackage {
 		EAttribute TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__OUTPUT_FILE_PATH = eINSTANCE.getTransformation_outputFilePath_Value_OutputFilePath();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * The meta object literal for the '{@link minitlTrace.States.impl.Transformation_outputModel_DimensionImpl <em>Transformation output Model Dimension</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see minitlTrace.States.impl.Transformation_outputModel_DimensionImpl
+		 * @see minitlTrace.States.impl.StatesPackageImpl#getTransformation_outputModel_Dimension()
 		 * @generated
 		 */
-		EReference TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__PARENT = eINSTANCE.getTransformation_outputFilePath_Value_Parent();
-
-		/**
-		 * The meta object literal for the '<em><b>States</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__STATES = eINSTANCE.getTransformation_outputFilePath_Value_States();
+		EClass TRANSFORMATION_OUTPUT_MODEL_DIMENSION = eINSTANCE.getTransformation_outputModel_Dimension();
 
 		/**
 		 * The meta object literal for the '{@link minitlTrace.States.impl.Transformation_outputModel_ValueImpl <em>Transformation output Model Value</em>}' class.
@@ -1005,40 +1004,6 @@ public interface StatesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRANSFORMATION_OUTPUT_MODEL_VALUE__OUTPUT_MODEL = eINSTANCE.getTransformation_outputModel_Value_OutputModel();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRANSFORMATION_OUTPUT_MODEL_VALUE__PARENT = eINSTANCE.getTransformation_outputModel_Value_Parent();
-
-		/**
-		 * The meta object literal for the '<em><b>States</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRANSFORMATION_OUTPUT_MODEL_VALUE__STATES = eINSTANCE.getTransformation_outputModel_Value_States();
-
-		/**
-		 * The meta object literal for the '{@link minitlTrace.States.Value <em>Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see minitlTrace.States.Value
-		 * @see minitlTrace.States.impl.StatesPackageImpl#getValue()
-		 * @generated
-		 */
-		EClass VALUE = eINSTANCE.getValue();
-
-		/**
-		 * The meta object literal for the '<em><b>States No Opposite</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VALUE__STATES_NO_OPPOSITE = eINSTANCE.getValue_StatesNoOpposite();
 
 	}
 

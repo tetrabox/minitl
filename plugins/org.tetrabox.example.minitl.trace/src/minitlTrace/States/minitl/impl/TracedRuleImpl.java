@@ -2,10 +2,14 @@
  */
 package minitlTrace.States.minitl.impl;
 
+import minitlTrace.States.SpecificDimension;
+
 import minitlTrace.States.minitl.MinitlPackage;
 import minitlTrace.States.minitl.TracedRule;
 
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -93,6 +97,18 @@ public class TracedRuleImpl extends TracedNamedElementImpl implements TracedRule
 		originalObject = newOriginalObject;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MinitlPackage.TRACED_RULE__ORIGINAL_OBJECT, oldOriginalObject, originalObject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SpecificDimension<?>> getDimensionsInternal() {
+		final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);
+		result.addAll(super.getDimensionsInternal());
+		return result;
+		
 	}
 
 	/**

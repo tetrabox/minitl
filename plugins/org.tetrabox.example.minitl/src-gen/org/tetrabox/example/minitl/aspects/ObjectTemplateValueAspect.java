@@ -13,15 +13,13 @@ import org.tetrabox.example.minitl.aspects.ValueAspect;
 public class ObjectTemplateValueAspect extends ValueAspect {
   @OverrideAspectMethod
   public static Object evaluate(final ObjectTemplateValue _self) {
-    final org.tetrabox.example.minitl.aspects.ObjectTemplateValueAspectObjectTemplateValueAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateValueAspectObjectTemplateValueAspectContext.getSelf(_self);
-    Object result = null;
-     if (_self instanceof org.tetrabox.example.minitl.minitl.ObjectTemplateValue){
-    					result = org.tetrabox.example.minitl.aspects.ObjectTemplateValueAspect._privk3_evaluate(_self_, (org.tetrabox.example.minitl.minitl.ObjectTemplateValue)_self);
-    } else  if (_self instanceof org.tetrabox.example.minitl.minitl.Value){
-    					result = org.tetrabox.example.minitl.aspects.ValueAspect.evaluate((org.tetrabox.example.minitl.minitl.Value)_self);
-    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
-    return (java.lang.Object)result;
-  }
+	final org.tetrabox.example.minitl.aspects.ObjectTemplateValueAspectObjectTemplateValueAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateValueAspectObjectTemplateValueAspectContext
+			.getSelf(_self);
+	Object result = null;
+	result = _privk3_evaluate(_self_, _self);
+	;
+	return (java.lang.Object) result;
+}
   
   protected static Object _privk3_evaluate(final ObjectTemplateValueAspectObjectTemplateValueAspectProperties _self_, final ObjectTemplateValue _self) {
     ObjectTemplate _objecttemplate = _self.getObjecttemplate();

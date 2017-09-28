@@ -2,12 +2,19 @@
  */
 package minitlTrace.States.minitl.util;
 
+import minitlTrace.States.SpecificDimension;
+import minitlTrace.States.SpecificTracedObject;
+import minitlTrace.States.SpecificValue;
+
 import minitlTrace.States.minitl.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
+
+import org.eclipse.gemoc.trace.commons.model.trace.Dimension;
+import org.eclipse.gemoc.trace.commons.model.trace.TracedObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +76,8 @@ public class MinitlSwitch<T> extends Switch<T> {
 			case MinitlPackage.TRACED_NAMED_ELEMENT: {
 				TracedNamedElement tracedNamedElement = (TracedNamedElement)theEObject;
 				T result = caseTracedNamedElement(tracedNamedElement);
+				if (result == null) result = caseSpecificTracedObject(tracedNamedElement);
+				if (result == null) result = caseTracedObject(tracedNamedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -76,6 +85,8 @@ public class MinitlSwitch<T> extends Switch<T> {
 				TracedObjectTemplate tracedObjectTemplate = (TracedObjectTemplate)theEObject;
 				T result = caseTracedObjectTemplate(tracedObjectTemplate);
 				if (result == null) result = caseTracedNamedElement(tracedObjectTemplate);
+				if (result == null) result = caseSpecificTracedObject(tracedObjectTemplate);
+				if (result == null) result = caseTracedObject(tracedObjectTemplate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -83,6 +94,8 @@ public class MinitlSwitch<T> extends Switch<T> {
 				TracedRule tracedRule = (TracedRule)theEObject;
 				T result = caseTracedRule(tracedRule);
 				if (result == null) result = caseTracedNamedElement(tracedRule);
+				if (result == null) result = caseSpecificTracedObject(tracedRule);
+				if (result == null) result = caseTracedObject(tracedRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,6 +103,8 @@ public class MinitlSwitch<T> extends Switch<T> {
 				TracedTransformation tracedTransformation = (TracedTransformation)theEObject;
 				T result = caseTracedTransformation(tracedTransformation);
 				if (result == null) result = caseTracedNamedElement(tracedTransformation);
+				if (result == null) result = caseSpecificTracedObject(tracedTransformation);
+				if (result == null) result = caseTracedObject(tracedTransformation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -154,6 +169,36 @@ public class MinitlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTracedTransformation(TracedTransformation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Traced Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Traced Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <DimensionSubType extends Dimension<?>> T caseTracedObject(TracedObject<DimensionSubType> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Specific Traced Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Specific Traced Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <DimensionSubType extends SpecificDimension<? extends SpecificValue>> T caseSpecificTracedObject(SpecificTracedObject<DimensionSubType> object) {
 		return null;
 	}
 

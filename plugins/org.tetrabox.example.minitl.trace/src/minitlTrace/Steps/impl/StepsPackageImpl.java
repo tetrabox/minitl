@@ -2,8 +2,6 @@
  */
 package minitlTrace.Steps.impl;
 
-import fr.inria.diverse.trace.commons.model.trace.TracePackage;
-
 import minitlTrace.MinitlTracePackage;
 
 import minitlTrace.States.StatesPackage;
@@ -28,6 +26,7 @@ import minitlTrace.Steps.Minitl_Transformation_Execute_AbstractSubStep;
 import minitlTrace.Steps.Minitl_Transformation_Execute_ImplicitStep;
 import minitlTrace.Steps.Minitl_Transformation_Initialize;
 import minitlTrace.Steps.RootImplicitStep;
+import minitlTrace.Steps.SpecificRootStep;
 import minitlTrace.Steps.SpecificStep;
 import minitlTrace.Steps.StepsFactory;
 import minitlTrace.Steps.StepsPackage;
@@ -37,9 +36,10 @@ import minitlTrace.impl.MinitlTracePackageImpl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
 
 import org.tetrabox.example.minitl.minitl.MinitlPackage;
 
@@ -161,6 +161,13 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * @generated
 	 */
 	private EClass rootImplicitStepEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass specificRootStepEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -394,26 +401,17 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSpecificRootStep() {
+		return specificRootStepEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSpecificStep() {
 		return specificStepEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSpecificStep_EndingState() {
-		return (EReference)specificStepEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSpecificStep_StartingState() {
-		return (EReference)specificStepEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -476,9 +474,9 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 
 		rootImplicitStepEClass = createEClass(ROOT_IMPLICIT_STEP);
 
+		specificRootStepEClass = createEClass(SPECIFIC_ROOT_STEP);
+
 		specificStepEClass = createEClass(SPECIFIC_STEP);
-		createEReference(specificStepEClass, SPECIFIC_STEP__ENDING_STATE);
-		createEReference(specificStepEClass, SPECIFIC_STEP__STARTING_STATE);
 	}
 
 	/**
@@ -506,32 +504,48 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 
 		// Obtain other dependent packages
 		TracePackage theTracePackage = (TracePackage)EPackage.Registry.INSTANCE.getEPackage(TracePackage.eNS_URI);
+		StatesPackage theStatesPackage = (StatesPackage)EPackage.Registry.INSTANCE.getEPackage(StatesPackage.eNS_URI);
 		MinitlPackage theMinitlPackage = (MinitlPackage)EPackage.Registry.INSTANCE.getEPackage(MinitlPackage.eNS_URI);
 		minitlTrace.States.minitl.MinitlPackage theMinitlPackage_1 = (minitlTrace.States.minitl.MinitlPackage)EPackage.Registry.INSTANCE.getEPackage(minitlTrace.States.minitl.MinitlPackage.eNS_URI);
-		StatesPackage theStatesPackage = (StatesPackage)EPackage.Registry.INSTANCE.getEPackage(StatesPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		minitl_Binding_AssignEClass.getESuperTypes().add(this.getMinitl_ObjectTemplate_Construct_AbstractSubStep());
-		minitl_Binding_AssignEClass.getESuperTypes().add(this.getSpecificStep());
-		minitl_Binding_AssignEClass.getESuperTypes().add(theTracePackage.getSmallStep());
-		minitl_Binding_CheckEClass.getESuperTypes().add(this.getSpecificStep());
-		minitl_Binding_CheckEClass.getESuperTypes().add(theTracePackage.getSmallStep());
-		minitl_Binding_CheckEClass.getESuperTypes().add(this.getMinitl_ObjectTemplate_Match_AbstractSubStep());
-		EGenericType g1 = createEGenericType(this.getMinitl_Rule_Apply_AbstractSubStep());
+		EGenericType g1 = createEGenericType(this.getMinitl_ObjectTemplate_Construct_AbstractSubStep());
+		minitl_Binding_AssignEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getSpecificStep());
+		minitl_Binding_AssignEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theTracePackage.getSmallStep());
+		EGenericType g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
+		minitl_Binding_AssignEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getSpecificStep());
+		minitl_Binding_CheckEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theTracePackage.getSmallStep());
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
+		minitl_Binding_CheckEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getMinitl_ObjectTemplate_Match_AbstractSubStep());
+		minitl_Binding_CheckEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getMinitl_Rule_Apply_AbstractSubStep());
 		minitl_ObjectTemplate_ConstructEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getSpecificStep());
 		minitl_ObjectTemplate_ConstructEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theTracePackage.getSequentialStep());
-		EGenericType g2 = createEGenericType(this.getMinitl_ObjectTemplate_Construct_AbstractSubStep());
+		g2 = createEGenericType(this.getMinitl_ObjectTemplate_Construct_AbstractSubStep());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
 		g1.getETypeArguments().add(g2);
 		minitl_ObjectTemplate_ConstructEClass.getEGenericSuperTypes().add(g1);
 		minitl_ObjectTemplate_Construct_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
-		minitl_ObjectTemplate_Construct_ImplicitStepEClass.getESuperTypes().add(this.getMinitl_ObjectTemplate_Construct_AbstractSubStep());
-		minitl_ObjectTemplate_Construct_ImplicitStepEClass.getESuperTypes().add(theTracePackage.getSmallStep());
+		g1 = createEGenericType(this.getMinitl_ObjectTemplate_Construct_AbstractSubStep());
+		minitl_ObjectTemplate_Construct_ImplicitStepEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theTracePackage.getSmallStep());
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
+		minitl_ObjectTemplate_Construct_ImplicitStepEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getMinitl_Rule_Apply_AbstractSubStep());
 		minitl_ObjectTemplate_MatchEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getSpecificStep());
@@ -539,10 +553,16 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		g1 = createEGenericType(theTracePackage.getSequentialStep());
 		g2 = createEGenericType(this.getMinitl_ObjectTemplate_Match_AbstractSubStep());
 		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
 		minitl_ObjectTemplate_MatchEClass.getEGenericSuperTypes().add(g1);
 		minitl_ObjectTemplate_Match_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
-		minitl_ObjectTemplate_Match_ImplicitStepEClass.getESuperTypes().add(this.getMinitl_ObjectTemplate_Match_AbstractSubStep());
-		minitl_ObjectTemplate_Match_ImplicitStepEClass.getESuperTypes().add(theTracePackage.getSmallStep());
+		g1 = createEGenericType(this.getMinitl_ObjectTemplate_Match_AbstractSubStep());
+		minitl_ObjectTemplate_Match_ImplicitStepEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theTracePackage.getSmallStep());
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
+		minitl_ObjectTemplate_Match_ImplicitStepEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getMinitl_Transformation_Execute_AbstractSubStep());
 		minitl_Rule_ApplyEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getSpecificStep());
@@ -550,23 +570,53 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		g1 = createEGenericType(theTracePackage.getSequentialStep());
 		g2 = createEGenericType(this.getMinitl_Rule_Apply_AbstractSubStep());
 		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
 		minitl_Rule_ApplyEClass.getEGenericSuperTypes().add(g1);
 		minitl_Rule_Apply_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
-		minitl_Rule_Apply_ImplicitStepEClass.getESuperTypes().add(this.getMinitl_Rule_Apply_AbstractSubStep());
-		minitl_Rule_Apply_ImplicitStepEClass.getESuperTypes().add(theTracePackage.getSmallStep());
+		g1 = createEGenericType(this.getMinitl_Rule_Apply_AbstractSubStep());
+		minitl_Rule_Apply_ImplicitStepEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theTracePackage.getSmallStep());
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
+		minitl_Rule_Apply_ImplicitStepEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getSpecificStep());
 		minitl_Transformation_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theTracePackage.getSequentialStep());
 		g2 = createEGenericType(this.getMinitl_Transformation_Execute_AbstractSubStep());
 		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
 		minitl_Transformation_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		minitl_Transformation_Execute_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
-		minitl_Transformation_Execute_ImplicitStepEClass.getESuperTypes().add(this.getMinitl_Transformation_Execute_AbstractSubStep());
-		minitl_Transformation_Execute_ImplicitStepEClass.getESuperTypes().add(theTracePackage.getSmallStep());
-		minitl_Transformation_InitializeEClass.getESuperTypes().add(this.getSpecificStep());
-		minitl_Transformation_InitializeEClass.getESuperTypes().add(theTracePackage.getSmallStep());
-		rootImplicitStepEClass.getESuperTypes().add(theTracePackage.getSmallStep());
-		specificStepEClass.getESuperTypes().add(theTracePackage.getStep());
+		g1 = createEGenericType(this.getMinitl_Transformation_Execute_AbstractSubStep());
+		minitl_Transformation_Execute_ImplicitStepEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theTracePackage.getSmallStep());
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
+		minitl_Transformation_Execute_ImplicitStepEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getSpecificStep());
+		minitl_Transformation_InitializeEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theTracePackage.getSmallStep());
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
+		minitl_Transformation_InitializeEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theTracePackage.getSmallStep());
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
+		rootImplicitStepEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theTracePackage.getSequentialStep());
+		g2 = createEGenericType(this.getSpecificStep());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
+		specificRootStepEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getSpecificStep());
+		specificRootStepEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theTracePackage.getStep());
+		g2 = createEGenericType(theStatesPackage.getSpecificState());
+		g1.getETypeArguments().add(g2);
+		specificStepEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(minitl_Binding_AssignEClass, Minitl_Binding_Assign.class, "Minitl_Binding_Assign", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -615,9 +665,9 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 
 		initEClass(rootImplicitStepEClass, RootImplicitStep.class, "RootImplicitStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(specificStepEClass, SpecificStep.class, "SpecificStep", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecificStep_EndingState(), theStatesPackage.getState(), theStatesPackage.getState_EndedSteps(), "endingState", null, 0, 1, SpecificStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSpecificStep_StartingState(), theStatesPackage.getState(), theStatesPackage.getState_StartedSteps(), "startingState", null, 1, 1, SpecificStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(specificRootStepEClass, SpecificRootStep.class, "SpecificRootStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(specificStepEClass, SpecificStep.class, "SpecificStep", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 	}
 
 } //StepsPackageImpl

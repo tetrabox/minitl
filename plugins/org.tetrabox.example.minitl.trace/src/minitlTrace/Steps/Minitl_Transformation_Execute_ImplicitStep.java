@@ -2,7 +2,9 @@
  */
 package minitlTrace.Steps;
 
-import fr.inria.diverse.trace.commons.model.trace.SmallStep;
+import minitlTrace.States.SpecificState;
+
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,5 +16,5 @@ import fr.inria.diverse.trace.commons.model.trace.SmallStep;
  * @model
  * @generated
  */
-public interface Minitl_Transformation_Execute_ImplicitStep extends Minitl_Transformation_Execute_AbstractSubStep, SmallStep {
+public interface Minitl_Transformation_Execute_ImplicitStep extends Minitl_Transformation_Execute_AbstractSubStep, SmallStep<SpecificState> {
 } // Minitl_Transformation_Execute_ImplicitStep

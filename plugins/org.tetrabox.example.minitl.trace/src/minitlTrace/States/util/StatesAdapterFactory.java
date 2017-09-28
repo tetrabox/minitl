@@ -11,6 +11,12 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.gemoc.trace.commons.model.trace.Dimension;
+import org.eclipse.gemoc.trace.commons.model.trace.State;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.TracedObject;
+import org.eclipse.gemoc.trace.commons.model.trace.Value;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
@@ -68,32 +74,84 @@ public class StatesAdapterFactory extends AdapterFactoryImpl {
 	protected StatesSwitch<Adapter> modelSwitch =
 		new StatesSwitch<Adapter>() {
 			@Override
+			public Adapter caseObjectTemplate_currentObject_Dimension(ObjectTemplate_currentObject_Dimension object) {
+				return createObjectTemplate_currentObject_DimensionAdapter();
+			}
+			@Override
 			public Adapter caseObjectTemplate_currentObject_Value(ObjectTemplate_currentObject_Value object) {
 				return createObjectTemplate_currentObject_ValueAdapter();
 			}
 			@Override
-			public Adapter caseState(State object) {
-				return createStateAdapter();
+			public Adapter caseSpecificAttributeValue(SpecificAttributeValue object) {
+				return createSpecificAttributeValueAdapter();
+			}
+			@Override
+			public <ValueSubType extends SpecificValue> Adapter caseSpecificDimension(SpecificDimension<ValueSubType> object) {
+				return createSpecificDimensionAdapter();
+			}
+			@Override
+			public <T> Adapter caseSpecificReferenceValue(SpecificReferenceValue<T> object) {
+				return createSpecificReferenceValueAdapter();
+			}
+			@Override
+			public Adapter caseSpecificState(SpecificState object) {
+				return createSpecificStateAdapter();
+			}
+			@Override
+			public <DimensionSubType extends SpecificDimension<? extends SpecificValue>> Adapter caseSpecificTracedObject(SpecificTracedObject<DimensionSubType> object) {
+				return createSpecificTracedObjectAdapter();
+			}
+			@Override
+			public Adapter caseSpecificValue(SpecificValue object) {
+				return createSpecificValueAdapter();
+			}
+			@Override
+			public Adapter caseTransformation_inputModelURI_Dimension(Transformation_inputModelURI_Dimension object) {
+				return createTransformation_inputModelURI_DimensionAdapter();
 			}
 			@Override
 			public Adapter caseTransformation_inputModelURI_Value(Transformation_inputModelURI_Value object) {
 				return createTransformation_inputModelURI_ValueAdapter();
 			}
 			@Override
+			public Adapter caseTransformation_inputModel_Dimension(Transformation_inputModel_Dimension object) {
+				return createTransformation_inputModel_DimensionAdapter();
+			}
+			@Override
 			public Adapter caseTransformation_inputModel_Value(Transformation_inputModel_Value object) {
 				return createTransformation_inputModel_ValueAdapter();
+			}
+			@Override
+			public Adapter caseTransformation_outputFilePath_Dimension(Transformation_outputFilePath_Dimension object) {
+				return createTransformation_outputFilePath_DimensionAdapter();
 			}
 			@Override
 			public Adapter caseTransformation_outputFilePath_Value(Transformation_outputFilePath_Value object) {
 				return createTransformation_outputFilePath_ValueAdapter();
 			}
 			@Override
+			public Adapter caseTransformation_outputModel_Dimension(Transformation_outputModel_Dimension object) {
+				return createTransformation_outputModel_DimensionAdapter();
+			}
+			@Override
 			public Adapter caseTransformation_outputModel_Value(Transformation_outputModel_Value object) {
 				return createTransformation_outputModel_ValueAdapter();
 			}
 			@Override
-			public Adapter caseValue(Value object) {
+			public <ValueSubType extends Value<?>> Adapter caseDimension(Dimension<ValueSubType> object) {
+				return createDimensionAdapter();
+			}
+			@Override
+			public <StateSubType extends State<?, ?>> Adapter caseValue(Value<StateSubType> object) {
 				return createValueAdapter();
+			}
+			@Override
+			public <StepSubType extends Step<?>, ValueSubType extends Value<?>> Adapter caseState(State<StepSubType, ValueSubType> object) {
+				return createStateAdapter();
+			}
+			@Override
+			public <DimensionSubType extends Dimension<?>> Adapter caseTracedObject(TracedObject<DimensionSubType> object) {
+				return createTracedObjectAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -116,6 +174,20 @@ public class StatesAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link minitlTrace.States.ObjectTemplate_currentObject_Dimension <em>Object Template current Object Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see minitlTrace.States.ObjectTemplate_currentObject_Dimension
+	 * @generated
+	 */
+	public Adapter createObjectTemplate_currentObject_DimensionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link minitlTrace.States.ObjectTemplate_currentObject_Value <em>Object Template current Object Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -130,16 +202,100 @@ public class StatesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link minitlTrace.States.State <em>State</em>}'.
+	 * Creates a new adapter for an object of class '{@link minitlTrace.States.SpecificAttributeValue <em>Specific Attribute Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see minitlTrace.States.State
+	 * @see minitlTrace.States.SpecificAttributeValue
 	 * @generated
 	 */
-	public Adapter createStateAdapter() {
+	public Adapter createSpecificAttributeValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link minitlTrace.States.SpecificDimension <em>Specific Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see minitlTrace.States.SpecificDimension
+	 * @generated
+	 */
+	public Adapter createSpecificDimensionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link minitlTrace.States.SpecificReferenceValue <em>Specific Reference Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see minitlTrace.States.SpecificReferenceValue
+	 * @generated
+	 */
+	public Adapter createSpecificReferenceValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link minitlTrace.States.SpecificState <em>Specific State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see minitlTrace.States.SpecificState
+	 * @generated
+	 */
+	public Adapter createSpecificStateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link minitlTrace.States.SpecificTracedObject <em>Specific Traced Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see minitlTrace.States.SpecificTracedObject
+	 * @generated
+	 */
+	public Adapter createSpecificTracedObjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link minitlTrace.States.SpecificValue <em>Specific Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see minitlTrace.States.SpecificValue
+	 * @generated
+	 */
+	public Adapter createSpecificValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link minitlTrace.States.Transformation_inputModelURI_Dimension <em>Transformation input Model URI Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see minitlTrace.States.Transformation_inputModelURI_Dimension
+	 * @generated
+	 */
+	public Adapter createTransformation_inputModelURI_DimensionAdapter() {
 		return null;
 	}
 
@@ -158,6 +314,20 @@ public class StatesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link minitlTrace.States.Transformation_inputModel_Dimension <em>Transformation input Model Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see minitlTrace.States.Transformation_inputModel_Dimension
+	 * @generated
+	 */
+	public Adapter createTransformation_inputModel_DimensionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link minitlTrace.States.Transformation_inputModel_Value <em>Transformation input Model Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -168,6 +338,20 @@ public class StatesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTransformation_inputModel_ValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link minitlTrace.States.Transformation_outputFilePath_Dimension <em>Transformation output File Path Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see minitlTrace.States.Transformation_outputFilePath_Dimension
+	 * @generated
+	 */
+	public Adapter createTransformation_outputFilePath_DimensionAdapter() {
 		return null;
 	}
 
@@ -186,6 +370,20 @@ public class StatesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link minitlTrace.States.Transformation_outputModel_Dimension <em>Transformation output Model Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see minitlTrace.States.Transformation_outputModel_Dimension
+	 * @generated
+	 */
+	public Adapter createTransformation_outputModel_DimensionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link minitlTrace.States.Transformation_outputModel_Value <em>Transformation output Model Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -200,16 +398,58 @@ public class StatesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link minitlTrace.States.Value <em>Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.trace.commons.model.trace.Dimension <em>Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see minitlTrace.States.Value
+	 * @see org.eclipse.gemoc.trace.commons.model.trace.Dimension
+	 * @generated
+	 */
+	public Adapter createDimensionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.trace.commons.model.trace.Value <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.gemoc.trace.commons.model.trace.Value
 	 * @generated
 	 */
 	public Adapter createValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.trace.commons.model.trace.State <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.gemoc.trace.commons.model.trace.State
+	 * @generated
+	 */
+	public Adapter createStateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.trace.commons.model.trace.TracedObject <em>Traced Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.gemoc.trace.commons.model.trace.TracedObject
+	 * @generated
+	 */
+	public Adapter createTracedObjectAdapter() {
 		return null;
 	}
 

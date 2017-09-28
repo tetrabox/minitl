@@ -8,40 +8,57 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Minitl_Rule_Apply_Sequence" upperBound="-1" eType="//Steps/Minitl_Rule_Apply"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Minitl_Transformation_Execute_Sequence" upperBound="-1" eType="//Steps/Minitl_Transformation_Execute"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Minitl_Transformation_Initialize_Sequence" upperBound="-1" eType="//Steps/Minitl_Transformation_Initialize"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="minitl_tracedObjectTemplates" ordered="false" upperBound="-1" eType="//States/minitl/TracedObjectTemplate" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="minitl_tracedRules" ordered="false" upperBound="-1" eType="//States/minitl/TracedRule" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="minitl_tracedTransformations" ordered="false" upperBound="-1" eType="//States/minitl/TracedTransformation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="statesTrace" upperBound="-1" eType="//States/State" containment="true"/>
     <eGenericSuperTypes>
       <eTypeArguments>
-        <eTypeArguments eClassifier="//Steps/SpecificStep"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
+        <eTypeArguments>
+          <eUpperBound eClassifier="//Steps/SpecificStep"/>
+        </eTypeArguments>
+        <eTypeArguments>
+          <eUpperBound eClassifier="//States/SpecificState"/>
+        </eTypeArguments>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
       </eTypeArguments>
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//Trace"/>
+      <eTypeArguments eClassifier="//States/SpecificTracedObject">
+        <eTypeArguments>
+          <eUpperBound eClassifier="//States/SpecificDimension">
+            <eTypeArguments>
+              <eUpperBound eClassifier="//States/SpecificValue"/>
+            </eTypeArguments>
+          </eUpperBound>
+        </eTypeArguments>
+      </eTypeArguments>
+      <eTypeArguments eClassifier="//States/SpecificState"/>
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//Trace"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eSubpackages name="Steps" nsURI="minitlTrace_Steps" nsPrefix="events">
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_Binding_Assign">
-      <eSuperTypes href="#//Steps/Minitl_ObjectTemplate_Construct_AbstractSubStep"/>
-      <eSuperTypes href="#//Steps/SpecificStep"/>
-      <eSuperTypes href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
       <eOperations name="getCaller" lowerBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="body" value="return (org.tetrabox.example.minitl.minitl.Binding) this.getMseoccurrence().getMse().getCaller();"/>
         </eAnnotations>
         <eType xsi:type="ecore:EClass" href="../../org.tetrabox.example.minitl/model/Minitl.ecore#//Binding"/>
       </eOperations>
+      <eGenericSuperTypes eClassifier="//Steps/Minitl_ObjectTemplate_Construct_AbstractSubStep"/>
+      <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
+      <eGenericSuperTypes>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_Binding_Check">
-      <eSuperTypes href="#//Steps/SpecificStep"/>
-      <eSuperTypes href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
-      <eSuperTypes href="#//Steps/Minitl_ObjectTemplate_Match_AbstractSubStep"/>
       <eOperations name="getCaller" lowerBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="body" value="return (org.tetrabox.example.minitl.minitl.Binding) this.getMseoccurrence().getMse().getCaller();"/>
         </eAnnotations>
         <eType xsi:type="ecore:EClass" href="../../org.tetrabox.example.minitl/model/Minitl.ecore#//Binding"/>
       </eOperations>
+      <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
+      <eGenericSuperTypes>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      </eGenericSuperTypes>
+      <eGenericSuperTypes eClassifier="//Steps/Minitl_ObjectTemplate_Match_AbstractSubStep"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_ObjectTemplate_Construct">
       <eOperations name="getCaller" lowerBound="1" eType="//States/minitl/TracedObjectTemplate">
@@ -53,13 +70,17 @@
       <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//Steps/Minitl_ObjectTemplate_Construct_AbstractSubStep"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_ObjectTemplate_Construct_AbstractSubStep" abstract="true" interface="true" eSuperTypes="//Steps/SpecificStep"/>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_ObjectTemplate_Construct_ImplicitStep">
-      <eSuperTypes href="#//Steps/Minitl_ObjectTemplate_Construct_AbstractSubStep"/>
-      <eSuperTypes href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      <eGenericSuperTypes eClassifier="//Steps/Minitl_ObjectTemplate_Construct_AbstractSubStep"/>
+      <eGenericSuperTypes>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_ObjectTemplate_Match">
       <eOperations name="getCaller" lowerBound="1" eType="//States/minitl/TracedObjectTemplate">
@@ -71,13 +92,17 @@
       <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//Steps/Minitl_ObjectTemplate_Match_AbstractSubStep"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_ObjectTemplate_Match_AbstractSubStep" abstract="true" interface="true" eSuperTypes="//Steps/SpecificStep"/>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_ObjectTemplate_Match_ImplicitStep">
-      <eSuperTypes href="#//Steps/Minitl_ObjectTemplate_Match_AbstractSubStep"/>
-      <eSuperTypes href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      <eGenericSuperTypes eClassifier="//Steps/Minitl_ObjectTemplate_Match_AbstractSubStep"/>
+      <eGenericSuperTypes>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_Rule_Apply">
       <eOperations name="getCaller" lowerBound="1" eType="//States/minitl/TracedRule">
@@ -89,13 +114,17 @@
       <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//Steps/Minitl_Rule_Apply_AbstractSubStep"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_Rule_Apply_AbstractSubStep" abstract="true" interface="true" eSuperTypes="//Steps/SpecificStep"/>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_Rule_Apply_ImplicitStep">
-      <eSuperTypes href="#//Steps/Minitl_Rule_Apply_AbstractSubStep"/>
-      <eSuperTypes href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      <eGenericSuperTypes eClassifier="//Steps/Minitl_Rule_Apply_AbstractSubStep"/>
+      <eGenericSuperTypes>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_Transformation_Execute">
       <eOperations name="getCaller" lowerBound="1" eType="//States/minitl/TracedTransformation">
@@ -106,146 +135,220 @@
       <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//Steps/Minitl_Transformation_Execute_AbstractSubStep"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_Transformation_Execute_AbstractSubStep" abstract="true" interface="true" eSuperTypes="//Steps/SpecificStep"/>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_Transformation_Execute_ImplicitStep">
-      <eSuperTypes href="#//Steps/Minitl_Transformation_Execute_AbstractSubStep"/>
-      <eSuperTypes href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      <eGenericSuperTypes eClassifier="//Steps/Minitl_Transformation_Execute_AbstractSubStep"/>
+      <eGenericSuperTypes>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Minitl_Transformation_Initialize">
-      <eSuperTypes href="#//Steps/SpecificStep"/>
-      <eSuperTypes href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
       <eOperations name="getCaller" lowerBound="1" eType="//States/minitl/TracedTransformation">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="body" value="return (minitlTrace.States.minitl.TracedTransformation) this.getMseoccurrence().getMse().getCaller();"/>
         </eAnnotations>
       </eOperations>
+      <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
+      <eGenericSuperTypes>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RootImplicitStep">
-      <eSuperTypes href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      <eGenericSuperTypes>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+      </eGenericSuperTypes>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SpecificStep" abstract="true" interface="true">
-      <eSuperTypes href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//Step"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="endingState" eType="//States/State" eOpposite="//States/State/endedSteps"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="startingState" lowerBound="1" eType="//States/State" eOpposite="//States/State/startedSteps"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SpecificRootStep">
+      <eGenericSuperTypes>
+        <eTypeArguments eClassifier="//Steps/SpecificStep"/>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
+      </eGenericSuperTypes>
+      <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SpecificStep" abstract="true">
+      <eGenericSuperTypes>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//Step"/>
+      </eGenericSuperTypes>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="States" nsURI="minitlTrace_States" nsPrefix="tracedclasses">
-    <eClassifiers xsi:type="ecore:EClass" name="ObjectTemplate_currentObject_Value" eSuperTypes="//States/Value">
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectTemplate_currentObject_Dimension">
+      <eGenericSuperTypes eClassifier="//States/SpecificDimension">
+        <eTypeArguments eClassifier="//States/ObjectTemplate_currentObject_Value"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectTemplate_currentObject_Value" eSuperTypes="//States/SpecificAttributeValue">
       <eAnnotations source="http://www.modelexecution.org/trace/XMOF">
         <details key="executionMetamodelElement"/>
       </eAnnotations>
-      <eOperations name="getStatesNoOpposite" lowerBound="1" upperBound="-1" eType="//States/State">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="body" value="return this.getStates();"/>
-        </eAnnotations>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentObject" unique="false">
         <eAnnotations source="aspect"/>
         <eType xsi:type="ecore:EDataType" href="../../org.tetrabox.example.minitl/model/Minitl.ecore#//EObject"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1" eType="//States/minitl/TracedObjectTemplate" eOpposite="//States/minitl/TracedObjectTemplate/currentObjectSequence"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1" upperBound="-1" eType="//States/State" eOpposite="//States/State/objectTemplate_currentObject_Values"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="State">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="endedSteps" upperBound="-1" eType="//Steps/SpecificStep" eOpposite="//Steps/SpecificStep/endingState"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="objectTemplate_currentObject_Values" ordered="false" upperBound="-1" eType="//States/ObjectTemplate_currentObject_Value" eOpposite="//States/ObjectTemplate_currentObject_Value/states"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="startedSteps" upperBound="-1" eType="//Steps/SpecificStep" eOpposite="//Steps/SpecificStep/startingState"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="transformation_inputModelURI_Values" ordered="false" upperBound="-1" eType="//States/Transformation_inputModelURI_Value" eOpposite="//States/Transformation_inputModelURI_Value/states"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="transformation_inputModel_Values" ordered="false" upperBound="-1" eType="//States/Transformation_inputModel_Value" eOpposite="//States/Transformation_inputModel_Value/states"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="transformation_outputFilePath_Values" ordered="false" upperBound="-1" eType="//States/Transformation_outputFilePath_Value" eOpposite="//States/Transformation_outputFilePath_Value/states"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="transformation_outputModel_Values" ordered="false" upperBound="-1" eType="//States/Transformation_outputModel_Value" eOpposite="//States/Transformation_outputModel_Value/states"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SpecificAttributeValue" abstract="true" interface="true" eSuperTypes="//States/SpecificValue"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SpecificDimension" abstract="true">
+      <eTypeParameters name="ValueSubType">
+        <eBounds eClassifier="//States/SpecificValue"/>
+      </eTypeParameters>
+      <eGenericSuperTypes>
+        <eTypeArguments eTypeParameter="//States/SpecificDimension/ValueSubType"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//Dimension"/>
+      </eGenericSuperTypes>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Transformation_inputModelURI_Value" eSuperTypes="//States/Value">
+    <eClassifiers xsi:type="ecore:EClass" name="SpecificReferenceValue" abstract="true" interface="true" eSuperTypes="//States/SpecificValue">
+      <eTypeParameters name="T"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SpecificState">
+      <eGenericSuperTypes>
+        <eTypeArguments eClassifier="//Steps/SpecificStep"/>
+        <eTypeArguments eClassifier="//States/SpecificValue"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//State"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SpecificTracedObject" abstract="true">
+      <eTypeParameters name="DimensionSubType">
+        <eBounds eClassifier="//States/SpecificDimension">
+          <eTypeArguments>
+            <eUpperBound eClassifier="//States/SpecificValue"/>
+          </eTypeArguments>
+        </eBounds>
+      </eTypeParameters>
+      <eGenericSuperTypes>
+        <eTypeArguments eTypeParameter="//States/SpecificTracedObject/DimensionSubType"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//TracedObject"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SpecificValue" abstract="true">
+      <eGenericSuperTypes>
+        <eTypeArguments eClassifier="//States/SpecificState"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//Value"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Transformation_inputModelURI_Dimension">
+      <eGenericSuperTypes eClassifier="//States/SpecificDimension">
+        <eTypeArguments eClassifier="//States/Transformation_inputModelURI_Value"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Transformation_inputModelURI_Value" eSuperTypes="//States/SpecificAttributeValue">
       <eAnnotations source="http://www.modelexecution.org/trace/XMOF">
         <details key="executionMetamodelElement"/>
       </eAnnotations>
-      <eOperations name="getStatesNoOpposite" lowerBound="1" upperBound="-1" eType="//States/State">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="body" value="return this.getStates();"/>
-        </eAnnotations>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputModelURI" unique="false">
         <eAnnotations source="aspect"/>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1" eType="//States/minitl/TracedTransformation" eOpposite="//States/minitl/TracedTransformation/inputModelURISequence"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1" upperBound="-1" eType="//States/State" eOpposite="//States/State/transformation_inputModelURI_Values"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Transformation_inputModel_Value" eSuperTypes="//States/Value">
+    <eClassifiers xsi:type="ecore:EClass" name="Transformation_inputModel_Dimension">
+      <eGenericSuperTypes eClassifier="//States/SpecificDimension">
+        <eTypeArguments eClassifier="//States/Transformation_inputModel_Value"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Transformation_inputModel_Value" eSuperTypes="//States/SpecificAttributeValue">
       <eAnnotations source="http://www.modelexecution.org/trace/XMOF">
         <details key="executionMetamodelElement"/>
       </eAnnotations>
-      <eOperations name="getStatesNoOpposite" lowerBound="1" upperBound="-1" eType="//States/State">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="body" value="return this.getStates();"/>
-        </eAnnotations>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputModel" unique="false" upperBound="-1">
         <eAnnotations source="aspect"/>
         <eType xsi:type="ecore:EDataType" href="../../org.tetrabox.example.minitl/model/Minitl.ecore#//EObject"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1" eType="//States/minitl/TracedTransformation" eOpposite="//States/minitl/TracedTransformation/inputModelSequence"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1" upperBound="-1" eType="//States/State" eOpposite="//States/State/transformation_inputModel_Values"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Transformation_outputFilePath_Value" eSuperTypes="//States/Value">
+    <eClassifiers xsi:type="ecore:EClass" name="Transformation_outputFilePath_Dimension">
+      <eGenericSuperTypes eClassifier="//States/SpecificDimension">
+        <eTypeArguments eClassifier="//States/Transformation_outputFilePath_Value"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Transformation_outputFilePath_Value" eSuperTypes="//States/SpecificAttributeValue">
       <eAnnotations source="http://www.modelexecution.org/trace/XMOF">
         <details key="executionMetamodelElement"/>
       </eAnnotations>
-      <eOperations name="getStatesNoOpposite" lowerBound="1" upperBound="-1" eType="//States/State">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="body" value="return this.getStates();"/>
-        </eAnnotations>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputFilePath" unique="false">
         <eAnnotations source="aspect"/>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1" eType="//States/minitl/TracedTransformation" eOpposite="//States/minitl/TracedTransformation/outputFilePathSequence"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1" upperBound="-1" eType="//States/State" eOpposite="//States/State/transformation_outputFilePath_Values"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Transformation_outputModel_Value" eSuperTypes="//States/Value">
+    <eClassifiers xsi:type="ecore:EClass" name="Transformation_outputModel_Dimension">
+      <eGenericSuperTypes eClassifier="//States/SpecificDimension">
+        <eTypeArguments eClassifier="//States/Transformation_outputModel_Value"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Transformation_outputModel_Value" eSuperTypes="//States/SpecificAttributeValue">
       <eAnnotations source="http://www.modelexecution.org/trace/XMOF">
         <details key="executionMetamodelElement"/>
       </eAnnotations>
-      <eOperations name="getStatesNoOpposite" lowerBound="1" upperBound="-1" eType="//States/State">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="body" value="return this.getStates();"/>
-        </eAnnotations>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputModel" unique="false" upperBound="-1">
         <eAnnotations source="aspect"/>
         <eType xsi:type="ecore:EDataType" href="../../org.tetrabox.example.minitl/model/Minitl.ecore#//EObject"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1" eType="//States/minitl/TracedTransformation" eOpposite="//States/minitl/TracedTransformation/outputModelSequence"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1" upperBound="-1" eType="//States/State" eOpposite="//States/State/transformation_outputModel_Values"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true" interface="true">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="statesNoOpposite" lowerBound="1" upperBound="-1" eType="//States/State" changeable="false" volatile="true" transient="true" derived="true"/>
     </eClassifiers>
     <eSubpackages name="minitl" nsURI="minitlTrace_minitl" nsPrefix="">
-      <eClassifiers xsi:type="ecore:EClass" name="TracedNamedElement" abstract="true"/>
+      <eClassifiers xsi:type="ecore:EClass" name="TracedNamedElement" abstract="true">
+        <eOperations name="getDimensionsInternal" upperBound="-1">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="body" value="final EList&lt;SpecificDimension&lt;?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList&lt;SpecificDimension&lt;?>>(Object.class);&#xA;result.addAll(super.getDimensionsInternal());&#xA;return result;&#xA;"/>
+          </eAnnotations>
+          <eGenericType eClassifier="//States/SpecificDimension">
+            <eTypeArguments/>
+          </eGenericType>
+        </eOperations>
+        <eGenericSuperTypes eClassifier="//States/SpecificTracedObject">
+          <eTypeArguments eClassifier="//States/SpecificDimension">
+            <eTypeArguments/>
+          </eTypeArguments>
+        </eGenericSuperTypes>
+      </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="TracedObjectTemplate" eSuperTypes="//States/minitl/TracedNamedElement">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="currentObjectSequence" upperBound="-1" eType="//States/ObjectTemplate_currentObject_Value" containment="true" eOpposite="//States/ObjectTemplate_currentObject_Value/parent"/>
+        <eOperations name="getDimensionsInternal" upperBound="-1">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="body" value="final EList&lt;SpecificDimension&lt;?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList&lt;SpecificDimension&lt;?>>(Object.class);&#xA;result.addAll(super.getDimensionsInternal());&#xA;result.add(getObjectTemplate_currentObject_Dimension());&#xA;return result;&#xA;"/>
+          </eAnnotations>
+          <eGenericType eClassifier="//States/SpecificDimension">
+            <eTypeArguments/>
+          </eGenericType>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="objectTemplate_currentObject_Dimension" eType="//States/ObjectTemplate_currentObject_Dimension" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="originalObject">
           <eType xsi:type="ecore:EClass" href="../../org.tetrabox.example.minitl/model/Minitl.ecore#//ObjectTemplate"/>
         </eStructuralFeatures>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="TracedRule" eSuperTypes="//States/minitl/TracedNamedElement">
+        <eOperations name="getDimensionsInternal" upperBound="-1">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="body" value="final EList&lt;SpecificDimension&lt;?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList&lt;SpecificDimension&lt;?>>(Object.class);&#xA;result.addAll(super.getDimensionsInternal());&#xA;return result;&#xA;"/>
+          </eAnnotations>
+          <eGenericType eClassifier="//States/SpecificDimension">
+            <eTypeArguments/>
+          </eGenericType>
+        </eOperations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="originalObject">
           <eType xsi:type="ecore:EClass" href="../../org.tetrabox.example.minitl/model/Minitl.ecore#//Rule"/>
         </eStructuralFeatures>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="TracedTransformation" eSuperTypes="//States/minitl/TracedNamedElement">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="inputModelSequence" upperBound="-1" eType="//States/Transformation_inputModel_Value" containment="true" eOpposite="//States/Transformation_inputModel_Value/parent"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="inputModelURISequence" upperBound="-1" eType="//States/Transformation_inputModelURI_Value" containment="true" eOpposite="//States/Transformation_inputModelURI_Value/parent"/>
+        <eOperations name="getDimensionsInternal" upperBound="-1">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="body" value="final EList&lt;SpecificDimension&lt;?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList&lt;SpecificDimension&lt;?>>(Object.class);&#xA;result.addAll(super.getDimensionsInternal());&#xA;result.add(getTransformation_inputModelURI_Dimension());&#xA;result.add(getTransformation_outputModel_Dimension());&#xA;result.add(getTransformation_inputModel_Dimension());&#xA;result.add(getTransformation_outputFilePath_Dimension());&#xA;return result;&#xA;"/>
+          </eAnnotations>
+          <eGenericType eClassifier="//States/SpecificDimension">
+            <eTypeArguments/>
+          </eGenericType>
+        </eOperations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="originalObject">
           <eType xsi:type="ecore:EClass" href="../../org.tetrabox.example.minitl/model/Minitl.ecore#//Transformation"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="outputFilePathSequence" upperBound="-1" eType="//States/Transformation_outputFilePath_Value" containment="true" eOpposite="//States/Transformation_outputFilePath_Value/parent"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="outputModelSequence" upperBound="-1" eType="//States/Transformation_outputModel_Value" containment="true" eOpposite="//States/Transformation_outputModel_Value/parent"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="transformation_inputModelURI_Dimension" eType="//States/Transformation_inputModelURI_Dimension" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="transformation_inputModel_Dimension" eType="//States/Transformation_inputModel_Dimension" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="transformation_outputFilePath_Dimension" eType="//States/Transformation_outputFilePath_Dimension" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="transformation_outputModel_Dimension" eType="//States/Transformation_outputModel_Dimension" containment="true"/>
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>

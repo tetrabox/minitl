@@ -21,21 +21,24 @@ public class RuleAspect {
    */
   @Step
   public static void apply(final Rule _self) {
-    final org.tetrabox.example.minitl.aspects.RuleAspectRuleAspectProperties _self_ = org.tetrabox.example.minitl.aspects.RuleAspectRuleAspectContext.getSelf(_self);
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    	@Override
-    	public void execute() {
-    		_privk3_apply(_self_, _self);
-    	}
-    };
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    if (manager != null) {
-    	manager.executeStep(_self,command,"Rule","apply");
-    } else {
-    	command.execute();
-    }
-    ;;
-  }
+	final org.tetrabox.example.minitl.aspects.RuleAspectRuleAspectProperties _self_ = org.tetrabox.example.minitl.aspects.RuleAspectRuleAspectContext
+			.getSelf(_self);
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+		@Override
+		public void execute() {
+			_privk3_apply(_self_, _self);
+		}
+	};
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
+			.getInstance().findStepManager(_self);
+	if (manager != null) {
+		manager.executeStep(_self, command, "Rule", "apply");
+	} else {
+		command.execute();
+	}
+	;
+	;
+}
   
   protected static void _privk3_apply(final RuleAspectRuleAspectProperties _self_, final Rule _self) {
     EList<ObjectTemplate> _objectTemplates = _self.getObjectTemplates();

@@ -22,6 +22,15 @@ public interface StatesFactory extends EFactory {
 	StatesFactory eINSTANCE = minitlTrace.States.impl.StatesFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Object Template current Object Dimension</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Object Template current Object Dimension</em>'.
+	 * @generated
+	 */
+	ObjectTemplate_currentObject_Dimension createObjectTemplate_currentObject_Dimension();
+
+	/**
 	 * Returns a new object of class '<em>Object Template current Object Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31,13 +40,22 @@ public interface StatesFactory extends EFactory {
 	ObjectTemplate_currentObject_Value createObjectTemplate_currentObject_Value();
 
 	/**
-	 * Returns a new object of class '<em>State</em>'.
+	 * Returns a new object of class '<em>Specific State</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>State</em>'.
+	 * @return a new object of class '<em>Specific State</em>'.
 	 * @generated
 	 */
-	State createState();
+	SpecificState createSpecificState();
+
+	/**
+	 * Returns a new object of class '<em>Transformation input Model URI Dimension</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transformation input Model URI Dimension</em>'.
+	 * @generated
+	 */
+	Transformation_inputModelURI_Dimension createTransformation_inputModelURI_Dimension();
 
 	/**
 	 * Returns a new object of class '<em>Transformation input Model URI Value</em>'.
@@ -49,6 +67,15 @@ public interface StatesFactory extends EFactory {
 	Transformation_inputModelURI_Value createTransformation_inputModelURI_Value();
 
 	/**
+	 * Returns a new object of class '<em>Transformation input Model Dimension</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transformation input Model Dimension</em>'.
+	 * @generated
+	 */
+	Transformation_inputModel_Dimension createTransformation_inputModel_Dimension();
+
+	/**
 	 * Returns a new object of class '<em>Transformation input Model Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,6 +85,15 @@ public interface StatesFactory extends EFactory {
 	Transformation_inputModel_Value createTransformation_inputModel_Value();
 
 	/**
+	 * Returns a new object of class '<em>Transformation output File Path Dimension</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transformation output File Path Dimension</em>'.
+	 * @generated
+	 */
+	Transformation_outputFilePath_Dimension createTransformation_outputFilePath_Dimension();
+
+	/**
 	 * Returns a new object of class '<em>Transformation output File Path Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +101,15 @@ public interface StatesFactory extends EFactory {
 	 * @generated
 	 */
 	Transformation_outputFilePath_Value createTransformation_outputFilePath_Value();
+
+	/**
+	 * Returns a new object of class '<em>Transformation output Model Dimension</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transformation output Model Dimension</em>'.
+	 * @generated
+	 */
+	Transformation_outputModel_Dimension createTransformation_outputModel_Dimension();
 
 	/**
 	 * Returns a new object of class '<em>Transformation output Model Value</em>'.

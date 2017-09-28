@@ -2,17 +2,18 @@
  */
 package minitlTrace.Steps.util;
 
-import fr.inria.diverse.trace.commons.model.trace.BigStep;
-import fr.inria.diverse.trace.commons.model.trace.SequentialStep;
-import fr.inria.diverse.trace.commons.model.trace.SmallStep;
-import fr.inria.diverse.trace.commons.model.trace.Step;
-
 import minitlTrace.Steps.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
+
+import org.eclipse.gemoc.trace.commons.model.trace.BigStep;
+import org.eclipse.gemoc.trace.commons.model.trace.SequentialStep;
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
+import org.eclipse.gemoc.trace.commons.model.trace.State;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 /**
  * <!-- begin-user-doc -->
@@ -220,6 +221,16 @@ public class StepsSwitch<T> extends Switch<T> {
 				T result = caseRootImplicitStep(rootImplicitStep);
 				if (result == null) result = caseSmallStep(rootImplicitStep);
 				if (result == null) result = caseStep(rootImplicitStep);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StepsPackage.SPECIFIC_ROOT_STEP: {
+				SpecificRootStep specificRootStep = (SpecificRootStep)theEObject;
+				T result = caseSpecificRootStep(specificRootStep);
+				if (result == null) result = caseSequentialStep(specificRootStep);
+				if (result == null) result = caseSpecificStep(specificRootStep);
+				if (result == null) result = caseBigStep(specificRootStep);
+				if (result == null) result = caseStep(specificRootStep);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -475,6 +486,21 @@ public class StepsSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Specific Root Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Specific Root Step</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpecificRootStep(SpecificRootStep object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Specific Step</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -500,7 +526,7 @@ public class StepsSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStep(Step object) {
+	public <StateSubType extends State<?, ?>> T caseStep(Step<StateSubType> object) {
 		return null;
 	}
 
@@ -515,7 +541,7 @@ public class StepsSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSmallStep(SmallStep object) {
+	public <StateSubType extends State<?, ?>> T caseSmallStep(SmallStep<StateSubType> object) {
 		return null;
 	}
 
@@ -530,7 +556,7 @@ public class StepsSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <StepSubtype extends Step> T caseBigStep(BigStep<StepSubtype> object) {
+	public <StepSubtype extends Step<StateSubType>, StateSubType extends State<?, ?>> T caseBigStep(BigStep<StepSubtype, StateSubType> object) {
 		return null;
 	}
 
@@ -545,7 +571,7 @@ public class StepsSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <StepSubtype extends Step> T caseSequentialStep(SequentialStep<StepSubtype> object) {
+	public <StepSubtype extends Step<StateSubType>, StateSubType extends State<?, ?>> T caseSequentialStep(SequentialStep<StepSubtype, StateSubType> object) {
 		return null;
 	}
 

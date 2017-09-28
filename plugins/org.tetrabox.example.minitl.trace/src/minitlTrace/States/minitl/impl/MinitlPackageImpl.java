@@ -2,8 +2,6 @@
  */
 package minitlTrace.States.minitl.impl;
 
-import fr.inria.diverse.trace.commons.model.trace.TracePackage;
-
 import minitlTrace.MinitlTracePackage;
 
 import minitlTrace.States.StatesPackage;
@@ -24,10 +22,14 @@ import minitlTrace.Steps.impl.StepsPackageImpl;
 import minitlTrace.impl.MinitlTracePackageImpl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -163,7 +165,7 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTracedObjectTemplate_CurrentObjectSequence() {
+	public EReference getTracedObjectTemplate_ObjectTemplate_currentObject_Dimension() {
 		return (EReference)tracedObjectTemplateEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -208,7 +210,7 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTracedTransformation_InputModelSequence() {
+	public EReference getTracedTransformation_OriginalObject() {
 		return (EReference)tracedTransformationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -217,7 +219,7 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTracedTransformation_InputModelURISequence() {
+	public EReference getTracedTransformation_Transformation_inputModelURI_Dimension() {
 		return (EReference)tracedTransformationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -226,7 +228,7 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTracedTransformation_OriginalObject() {
+	public EReference getTracedTransformation_Transformation_inputModel_Dimension() {
 		return (EReference)tracedTransformationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -235,7 +237,7 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTracedTransformation_OutputFilePathSequence() {
+	public EReference getTracedTransformation_Transformation_outputFilePath_Dimension() {
 		return (EReference)tracedTransformationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -244,7 +246,7 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTracedTransformation_OutputModelSequence() {
+	public EReference getTracedTransformation_Transformation_outputModel_Dimension() {
 		return (EReference)tracedTransformationEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -279,18 +281,18 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 		tracedNamedElementEClass = createEClass(TRACED_NAMED_ELEMENT);
 
 		tracedObjectTemplateEClass = createEClass(TRACED_OBJECT_TEMPLATE);
-		createEReference(tracedObjectTemplateEClass, TRACED_OBJECT_TEMPLATE__CURRENT_OBJECT_SEQUENCE);
+		createEReference(tracedObjectTemplateEClass, TRACED_OBJECT_TEMPLATE__OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION);
 		createEReference(tracedObjectTemplateEClass, TRACED_OBJECT_TEMPLATE__ORIGINAL_OBJECT);
 
 		tracedRuleEClass = createEClass(TRACED_RULE);
 		createEReference(tracedRuleEClass, TRACED_RULE__ORIGINAL_OBJECT);
 
 		tracedTransformationEClass = createEClass(TRACED_TRANSFORMATION);
-		createEReference(tracedTransformationEClass, TRACED_TRANSFORMATION__INPUT_MODEL_SEQUENCE);
-		createEReference(tracedTransformationEClass, TRACED_TRANSFORMATION__INPUT_MODEL_URI_SEQUENCE);
 		createEReference(tracedTransformationEClass, TRACED_TRANSFORMATION__ORIGINAL_OBJECT);
-		createEReference(tracedTransformationEClass, TRACED_TRANSFORMATION__OUTPUT_FILE_PATH_SEQUENCE);
-		createEReference(tracedTransformationEClass, TRACED_TRANSFORMATION__OUTPUT_MODEL_SEQUENCE);
+		createEReference(tracedTransformationEClass, TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_URI_DIMENSION);
+		createEReference(tracedTransformationEClass, TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_DIMENSION);
+		createEReference(tracedTransformationEClass, TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION);
+		createEReference(tracedTransformationEClass, TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_MODEL_DIMENSION);
 	}
 
 	/**
@@ -325,6 +327,12 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		EGenericType g1 = createEGenericType(theStatesPackage.getSpecificTracedObject());
+		EGenericType g2 = createEGenericType(theStatesPackage.getSpecificDimension());
+		g1.getETypeArguments().add(g2);
+		EGenericType g3 = createEGenericType();
+		g2.getETypeArguments().add(g3);
+		tracedNamedElementEClass.getEGenericSuperTypes().add(g1);
 		tracedObjectTemplateEClass.getESuperTypes().add(this.getTracedNamedElement());
 		tracedRuleEClass.getESuperTypes().add(this.getTracedNamedElement());
 		tracedTransformationEClass.getESuperTypes().add(this.getTracedNamedElement());
@@ -332,19 +340,43 @@ public class MinitlPackageImpl extends EPackageImpl implements MinitlPackage {
 		// Initialize classes and features; add operations and parameters
 		initEClass(tracedNamedElementEClass, TracedNamedElement.class, "TracedNamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		EOperation op = addEOperation(tracedNamedElementEClass, null, "getDimensionsInternal", 0, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theStatesPackage.getSpecificDimension());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
 		initEClass(tracedObjectTemplateEClass, TracedObjectTemplate.class, "TracedObjectTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTracedObjectTemplate_CurrentObjectSequence(), theStatesPackage.getObjectTemplate_currentObject_Value(), theStatesPackage.getObjectTemplate_currentObject_Value_Parent(), "currentObjectSequence", null, 0, -1, TracedObjectTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTracedObjectTemplate_ObjectTemplate_currentObject_Dimension(), theStatesPackage.getObjectTemplate_currentObject_Dimension(), null, "objectTemplate_currentObject_Dimension", null, 0, 1, TracedObjectTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTracedObjectTemplate_OriginalObject(), theMinitlPackage_1.getObjectTemplate(), null, "originalObject", null, 0, 1, TracedObjectTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = addEOperation(tracedObjectTemplateEClass, null, "getDimensionsInternal", 0, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theStatesPackage.getSpecificDimension());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		initEClass(tracedRuleEClass, TracedRule.class, "TracedRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTracedRule_OriginalObject(), theMinitlPackage_1.getRule(), null, "originalObject", null, 0, 1, TracedRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = addEOperation(tracedRuleEClass, null, "getDimensionsInternal", 0, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theStatesPackage.getSpecificDimension());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
 		initEClass(tracedTransformationEClass, TracedTransformation.class, "TracedTransformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTracedTransformation_InputModelSequence(), theStatesPackage.getTransformation_inputModel_Value(), theStatesPackage.getTransformation_inputModel_Value_Parent(), "inputModelSequence", null, 0, -1, TracedTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTracedTransformation_InputModelURISequence(), theStatesPackage.getTransformation_inputModelURI_Value(), theStatesPackage.getTransformation_inputModelURI_Value_Parent(), "inputModelURISequence", null, 0, -1, TracedTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTracedTransformation_OriginalObject(), theMinitlPackage_1.getTransformation(), null, "originalObject", null, 0, 1, TracedTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTracedTransformation_OutputFilePathSequence(), theStatesPackage.getTransformation_outputFilePath_Value(), theStatesPackage.getTransformation_outputFilePath_Value_Parent(), "outputFilePathSequence", null, 0, -1, TracedTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTracedTransformation_OutputModelSequence(), theStatesPackage.getTransformation_outputModel_Value(), theStatesPackage.getTransformation_outputModel_Value_Parent(), "outputModelSequence", null, 0, -1, TracedTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTracedTransformation_Transformation_inputModelURI_Dimension(), theStatesPackage.getTransformation_inputModelURI_Dimension(), null, "transformation_inputModelURI_Dimension", null, 0, 1, TracedTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTracedTransformation_Transformation_inputModel_Dimension(), theStatesPackage.getTransformation_inputModel_Dimension(), null, "transformation_inputModel_Dimension", null, 0, 1, TracedTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTracedTransformation_Transformation_outputFilePath_Dimension(), theStatesPackage.getTransformation_outputFilePath_Dimension(), null, "transformation_outputFilePath_Dimension", null, 0, 1, TracedTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTracedTransformation_Transformation_outputModel_Dimension(), theStatesPackage.getTransformation_outputModel_Dimension(), null, "transformation_outputModel_Dimension", null, 0, 1, TracedTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = addEOperation(tracedTransformationEClass, null, "getDimensionsInternal", 0, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theStatesPackage.getSpecificDimension());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 	}
 
 } //MinitlPackageImpl

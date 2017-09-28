@@ -2,11 +2,11 @@
  */
 package minitlTrace;
 
-import fr.inria.diverse.trace.commons.model.trace.TracePackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,6 +74,24 @@ public interface MinitlTracePackage extends EPackage {
 	 * @ordered
 	 */
 	int SPECIFIC_TRACE__ROOT_STEP = TracePackage.TRACE__ROOT_STEP;
+
+	/**
+	 * The feature id for the '<em><b>Traced Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_TRACE__TRACED_OBJECTS = TracePackage.TRACE__TRACED_OBJECTS;
+
+	/**
+	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_TRACE__STATES = TracePackage.TRACE__STATES;
 
 	/**
 	 * The feature id for the '<em><b>Launchconfiguration</b></em>' containment reference.
@@ -148,49 +166,13 @@ public interface MinitlTracePackage extends EPackage {
 	int SPECIFIC_TRACE__MINITL_TRANSFORMATION_INITIALIZE_SEQUENCE = TracePackage.TRACE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Minitl traced Object Templates</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECIFIC_TRACE__MINITL_TRACED_OBJECT_TEMPLATES = TracePackage.TRACE_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Minitl traced Rules</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECIFIC_TRACE__MINITL_TRACED_RULES = TracePackage.TRACE_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Minitl traced Transformations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECIFIC_TRACE__MINITL_TRACED_TRANSFORMATIONS = TracePackage.TRACE_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>States Trace</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECIFIC_TRACE__STATES_TRACE = TracePackage.TRACE_FEATURE_COUNT + 10;
-
-	/**
 	 * The number of structural features of the '<em>Specific Trace</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_TRACE_FEATURE_COUNT = TracePackage.TRACE_FEATURE_COUNT + 11;
+	int SPECIFIC_TRACE_FEATURE_COUNT = TracePackage.TRACE_FEATURE_COUNT + 7;
 
 
 	/**
@@ -281,50 +263,6 @@ public interface MinitlTracePackage extends EPackage {
 	EReference getSpecificTrace_Minitl_Transformation_Initialize_Sequence();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link minitlTrace.SpecificTrace#getMinitl_tracedObjectTemplates <em>Minitl traced Object Templates</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Minitl traced Object Templates</em>'.
-	 * @see minitlTrace.SpecificTrace#getMinitl_tracedObjectTemplates()
-	 * @see #getSpecificTrace()
-	 * @generated
-	 */
-	EReference getSpecificTrace_Minitl_tracedObjectTemplates();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link minitlTrace.SpecificTrace#getMinitl_tracedRules <em>Minitl traced Rules</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Minitl traced Rules</em>'.
-	 * @see minitlTrace.SpecificTrace#getMinitl_tracedRules()
-	 * @see #getSpecificTrace()
-	 * @generated
-	 */
-	EReference getSpecificTrace_Minitl_tracedRules();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link minitlTrace.SpecificTrace#getMinitl_tracedTransformations <em>Minitl traced Transformations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Minitl traced Transformations</em>'.
-	 * @see minitlTrace.SpecificTrace#getMinitl_tracedTransformations()
-	 * @see #getSpecificTrace()
-	 * @generated
-	 */
-	EReference getSpecificTrace_Minitl_tracedTransformations();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link minitlTrace.SpecificTrace#getStatesTrace <em>States Trace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>States Trace</em>'.
-	 * @see minitlTrace.SpecificTrace#getStatesTrace()
-	 * @see #getSpecificTrace()
-	 * @generated
-	 */
-	EReference getSpecificTrace_StatesTrace();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -411,38 +349,6 @@ public interface MinitlTracePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SPECIFIC_TRACE__MINITL_TRANSFORMATION_INITIALIZE_SEQUENCE = eINSTANCE.getSpecificTrace_Minitl_Transformation_Initialize_Sequence();
-
-		/**
-		 * The meta object literal for the '<em><b>Minitl traced Object Templates</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SPECIFIC_TRACE__MINITL_TRACED_OBJECT_TEMPLATES = eINSTANCE.getSpecificTrace_Minitl_tracedObjectTemplates();
-
-		/**
-		 * The meta object literal for the '<em><b>Minitl traced Rules</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SPECIFIC_TRACE__MINITL_TRACED_RULES = eINSTANCE.getSpecificTrace_Minitl_tracedRules();
-
-		/**
-		 * The meta object literal for the '<em><b>Minitl traced Transformations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SPECIFIC_TRACE__MINITL_TRACED_TRANSFORMATIONS = eINSTANCE.getSpecificTrace_Minitl_tracedTransformations();
-
-		/**
-		 * The meta object literal for the '<em><b>States Trace</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SPECIFIC_TRACE__STATES_TRACE = eINSTANCE.getSpecificTrace_StatesTrace();
 
 	}
 

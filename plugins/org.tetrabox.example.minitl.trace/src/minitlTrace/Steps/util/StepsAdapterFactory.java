@@ -2,11 +2,6 @@
  */
 package minitlTrace.Steps.util;
 
-import fr.inria.diverse.trace.commons.model.trace.BigStep;
-import fr.inria.diverse.trace.commons.model.trace.SequentialStep;
-import fr.inria.diverse.trace.commons.model.trace.SmallStep;
-import fr.inria.diverse.trace.commons.model.trace.Step;
-
 import minitlTrace.Steps.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -15,6 +10,12 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.gemoc.trace.commons.model.trace.BigStep;
+import org.eclipse.gemoc.trace.commons.model.trace.SequentialStep;
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
+import org.eclipse.gemoc.trace.commons.model.trace.State;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 /**
  * <!-- begin-user-doc -->
@@ -137,23 +138,27 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 				return createRootImplicitStepAdapter();
 			}
 			@Override
+			public Adapter caseSpecificRootStep(SpecificRootStep object) {
+				return createSpecificRootStepAdapter();
+			}
+			@Override
 			public Adapter caseSpecificStep(SpecificStep object) {
 				return createSpecificStepAdapter();
 			}
 			@Override
-			public Adapter caseStep(Step object) {
+			public <StateSubType extends State<?, ?>> Adapter caseStep(Step<StateSubType> object) {
 				return createStepAdapter();
 			}
 			@Override
-			public Adapter caseSmallStep(SmallStep object) {
+			public <StateSubType extends State<?, ?>> Adapter caseSmallStep(SmallStep<StateSubType> object) {
 				return createSmallStepAdapter();
 			}
 			@Override
-			public <StepSubtype extends Step> Adapter caseBigStep(BigStep<StepSubtype> object) {
+			public <StepSubtype extends Step<StateSubType>, StateSubType extends State<?, ?>> Adapter caseBigStep(BigStep<StepSubtype, StateSubType> object) {
 				return createBigStepAdapter();
 			}
 			@Override
-			public <StepSubtype extends Step> Adapter caseSequentialStep(SequentialStep<StepSubtype> object) {
+			public <StepSubtype extends Step<StateSubType>, StateSubType extends State<?, ?>> Adapter caseSequentialStep(SequentialStep<StepSubtype, StateSubType> object) {
 				return createSequentialStepAdapter();
 			}
 			@Override
@@ -401,6 +406,20 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link minitlTrace.Steps.SpecificRootStep <em>Specific Root Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see minitlTrace.Steps.SpecificRootStep
+	 * @generated
+	 */
+	public Adapter createSpecificRootStepAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link minitlTrace.Steps.SpecificStep <em>Specific Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -415,13 +434,13 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.inria.diverse.trace.commons.model.trace.Step <em>Step</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.trace.commons.model.trace.Step <em>Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.inria.diverse.trace.commons.model.trace.Step
+	 * @see org.eclipse.gemoc.trace.commons.model.trace.Step
 	 * @generated
 	 */
 	public Adapter createStepAdapter() {
@@ -429,13 +448,13 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.inria.diverse.trace.commons.model.trace.SmallStep <em>Small Step</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.trace.commons.model.trace.SmallStep <em>Small Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.inria.diverse.trace.commons.model.trace.SmallStep
+	 * @see org.eclipse.gemoc.trace.commons.model.trace.SmallStep
 	 * @generated
 	 */
 	public Adapter createSmallStepAdapter() {
@@ -443,13 +462,13 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.inria.diverse.trace.commons.model.trace.BigStep <em>Big Step</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.trace.commons.model.trace.BigStep <em>Big Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.inria.diverse.trace.commons.model.trace.BigStep
+	 * @see org.eclipse.gemoc.trace.commons.model.trace.BigStep
 	 * @generated
 	 */
 	public Adapter createBigStepAdapter() {
@@ -457,13 +476,13 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.inria.diverse.trace.commons.model.trace.SequentialStep <em>Sequential Step</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.trace.commons.model.trace.SequentialStep <em>Sequential Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.inria.diverse.trace.commons.model.trace.SequentialStep
+	 * @see org.eclipse.gemoc.trace.commons.model.trace.SequentialStep
 	 * @generated
 	 */
 	public Adapter createSequentialStepAdapter() {

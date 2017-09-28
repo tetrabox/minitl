@@ -2,10 +2,8 @@
  */
 package minitlTrace.States.minitl.impl;
 
-import java.util.Collection;
-
-import minitlTrace.States.ObjectTemplate_currentObject_Value;
-import minitlTrace.States.StatesPackage;
+import minitlTrace.States.ObjectTemplate_currentObject_Dimension;
+import minitlTrace.States.SpecificDimension;
 
 import minitlTrace.States.minitl.MinitlPackage;
 import minitlTrace.States.minitl.TracedObjectTemplate;
@@ -20,9 +18,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.tetrabox.example.minitl.minitl.ObjectTemplate;
 
 /**
@@ -33,7 +28,7 @@ import org.tetrabox.example.minitl.minitl.ObjectTemplate;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link minitlTrace.States.minitl.impl.TracedObjectTemplateImpl#getCurrentObjectSequence <em>Current Object Sequence</em>}</li>
+ *   <li>{@link minitlTrace.States.minitl.impl.TracedObjectTemplateImpl#getObjectTemplate_currentObject_Dimension <em>Object Template current Object Dimension</em>}</li>
  *   <li>{@link minitlTrace.States.minitl.impl.TracedObjectTemplateImpl#getOriginalObject <em>Original Object</em>}</li>
  * </ul>
  *
@@ -41,14 +36,14 @@ import org.tetrabox.example.minitl.minitl.ObjectTemplate;
  */
 public class TracedObjectTemplateImpl extends TracedNamedElementImpl implements TracedObjectTemplate {
 	/**
-	 * The cached value of the '{@link #getCurrentObjectSequence() <em>Current Object Sequence</em>}' containment reference list.
+	 * The cached value of the '{@link #getObjectTemplate_currentObject_Dimension() <em>Object Template current Object Dimension</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCurrentObjectSequence()
+	 * @see #getObjectTemplate_currentObject_Dimension()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ObjectTemplate_currentObject_Value> currentObjectSequence;
+	protected ObjectTemplate_currentObject_Dimension objectTemplate_currentObject_Dimension;
 
 	/**
 	 * The cached value of the '{@link #getOriginalObject() <em>Original Object</em>}' reference.
@@ -84,11 +79,42 @@ public class TracedObjectTemplateImpl extends TracedNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ObjectTemplate_currentObject_Value> getCurrentObjectSequence() {
-		if (currentObjectSequence == null) {
-			currentObjectSequence = new EObjectContainmentWithInverseEList<ObjectTemplate_currentObject_Value>(ObjectTemplate_currentObject_Value.class, this, MinitlPackage.TRACED_OBJECT_TEMPLATE__CURRENT_OBJECT_SEQUENCE, StatesPackage.OBJECT_TEMPLATE_CURRENT_OBJECT_VALUE__PARENT);
+	public ObjectTemplate_currentObject_Dimension getObjectTemplate_currentObject_Dimension() {
+		return objectTemplate_currentObject_Dimension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetObjectTemplate_currentObject_Dimension(ObjectTemplate_currentObject_Dimension newObjectTemplate_currentObject_Dimension, NotificationChain msgs) {
+		ObjectTemplate_currentObject_Dimension oldObjectTemplate_currentObject_Dimension = objectTemplate_currentObject_Dimension;
+		objectTemplate_currentObject_Dimension = newObjectTemplate_currentObject_Dimension;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MinitlPackage.TRACED_OBJECT_TEMPLATE__OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION, oldObjectTemplate_currentObject_Dimension, newObjectTemplate_currentObject_Dimension);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return currentObjectSequence;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setObjectTemplate_currentObject_Dimension(ObjectTemplate_currentObject_Dimension newObjectTemplate_currentObject_Dimension) {
+		if (newObjectTemplate_currentObject_Dimension != objectTemplate_currentObject_Dimension) {
+			NotificationChain msgs = null;
+			if (objectTemplate_currentObject_Dimension != null)
+				msgs = ((InternalEObject)objectTemplate_currentObject_Dimension).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MinitlPackage.TRACED_OBJECT_TEMPLATE__OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION, null, msgs);
+			if (newObjectTemplate_currentObject_Dimension != null)
+				msgs = ((InternalEObject)newObjectTemplate_currentObject_Dimension).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MinitlPackage.TRACED_OBJECT_TEMPLATE__OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION, null, msgs);
+			msgs = basicSetObjectTemplate_currentObject_Dimension(newObjectTemplate_currentObject_Dimension, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MinitlPackage.TRACED_OBJECT_TEMPLATE__OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION, newObjectTemplate_currentObject_Dimension, newObjectTemplate_currentObject_Dimension));
 	}
 
 	/**
@@ -134,14 +160,12 @@ public class TracedObjectTemplateImpl extends TracedNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case MinitlPackage.TRACED_OBJECT_TEMPLATE__CURRENT_OBJECT_SEQUENCE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCurrentObjectSequence()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+	public EList<SpecificDimension<?>> getDimensionsInternal() {
+		final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);
+		result.addAll(super.getDimensionsInternal());
+		result.add(getObjectTemplate_currentObject_Dimension());
+		return result;
+		
 	}
 
 	/**
@@ -152,8 +176,8 @@ public class TracedObjectTemplateImpl extends TracedNamedElementImpl implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MinitlPackage.TRACED_OBJECT_TEMPLATE__CURRENT_OBJECT_SEQUENCE:
-				return ((InternalEList<?>)getCurrentObjectSequence()).basicRemove(otherEnd, msgs);
+			case MinitlPackage.TRACED_OBJECT_TEMPLATE__OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION:
+				return basicSetObjectTemplate_currentObject_Dimension(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -166,8 +190,8 @@ public class TracedObjectTemplateImpl extends TracedNamedElementImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MinitlPackage.TRACED_OBJECT_TEMPLATE__CURRENT_OBJECT_SEQUENCE:
-				return getCurrentObjectSequence();
+			case MinitlPackage.TRACED_OBJECT_TEMPLATE__OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION:
+				return getObjectTemplate_currentObject_Dimension();
 			case MinitlPackage.TRACED_OBJECT_TEMPLATE__ORIGINAL_OBJECT:
 				if (resolve) return getOriginalObject();
 				return basicGetOriginalObject();
@@ -180,13 +204,11 @@ public class TracedObjectTemplateImpl extends TracedNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MinitlPackage.TRACED_OBJECT_TEMPLATE__CURRENT_OBJECT_SEQUENCE:
-				getCurrentObjectSequence().clear();
-				getCurrentObjectSequence().addAll((Collection<? extends ObjectTemplate_currentObject_Value>)newValue);
+			case MinitlPackage.TRACED_OBJECT_TEMPLATE__OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION:
+				setObjectTemplate_currentObject_Dimension((ObjectTemplate_currentObject_Dimension)newValue);
 				return;
 			case MinitlPackage.TRACED_OBJECT_TEMPLATE__ORIGINAL_OBJECT:
 				setOriginalObject((ObjectTemplate)newValue);
@@ -203,8 +225,8 @@ public class TracedObjectTemplateImpl extends TracedNamedElementImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MinitlPackage.TRACED_OBJECT_TEMPLATE__CURRENT_OBJECT_SEQUENCE:
-				getCurrentObjectSequence().clear();
+			case MinitlPackage.TRACED_OBJECT_TEMPLATE__OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION:
+				setObjectTemplate_currentObject_Dimension((ObjectTemplate_currentObject_Dimension)null);
 				return;
 			case MinitlPackage.TRACED_OBJECT_TEMPLATE__ORIGINAL_OBJECT:
 				setOriginalObject((ObjectTemplate)null);
@@ -221,8 +243,8 @@ public class TracedObjectTemplateImpl extends TracedNamedElementImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MinitlPackage.TRACED_OBJECT_TEMPLATE__CURRENT_OBJECT_SEQUENCE:
-				return currentObjectSequence != null && !currentObjectSequence.isEmpty();
+			case MinitlPackage.TRACED_OBJECT_TEMPLATE__OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION:
+				return objectTemplate_currentObject_Dimension != null;
 			case MinitlPackage.TRACED_OBJECT_TEMPLATE__ORIGINAL_OBJECT:
 				return originalObject != null;
 		}

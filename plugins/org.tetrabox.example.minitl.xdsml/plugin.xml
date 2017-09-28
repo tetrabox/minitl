@@ -1,15 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
-<plugin>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.4"?><plugin>
   <extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
-    <XDSML_Definition modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.tetrabox.example.Minitl" xdsmlFilePath="/org.tetrabox.example.minitl.xdsml/src/org/tetrabox/example/minitl.melange" />
+    <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.tetrabox.example.Minitl" xdsmlFilePath="/org.tetrabox.example.minitl.xdsml/src/org/tetrabox/example/minitl.melange"/>
+  </extension>
+  
+   <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated MinitlMT -->
+    <package class="org.tetrabox.example.minitlmt.minitl.MinitlPackage" genModel="model-gen/MinitlMT.genmodel" uri="http://org.tetrabox.example.minitlmt/minitl/"/>
   </extension>
   <extension point="fr.inria.diverse.melange.modeltype">
-    <modeltype id="org.tetrabox.example.MinitlMT" uri="http://org.tetrabox.example.minitlmt/" />
+    <modeltype id="org.tetrabox.example.MinitlMT" uri="http://org.tetrabox.example.minitlmt/"/>
   </extension>
   <extension point="fr.inria.diverse.melange.language">
     <language aspects="Binding:org.tetrabox.example.minitl.aspects.BindingAspect;Transformation:org.tetrabox.example.minitl.aspects.TransformationAspect;BinaryExpression:org.tetrabox.example.minitl.aspects.BinaryExpressionAspect;FieldAccessValue:org.tetrabox.example.minitl.aspects.FieldAccessValueAspect;Value:org.tetrabox.example.minitl.aspects.ValueAspect;ObjectTemplate:org.tetrabox.example.minitl.aspects.ObjectTemplateAspect;Rule:org.tetrabox.example.minitl.aspects.RuleAspect;StringValue:org.tetrabox.example.minitl.aspects.StringValueAspect;ObjectTemplateValue:org.tetrabox.example.minitl.aspects.ObjectTemplateValueAspect" entryPoints="org.tetrabox.example.minitl.aspects.TransformationAspect.execute(org.tetrabox.example.minitl.minitl.Transformation)" exactType="org.tetrabox.example.MinitlMT" id="org.tetrabox.example.Minitl" uri="http://org.tetrabox.example.minitl/minitl/">
-      <adapter class="org.tetrabox.example.minitl.adapters.minitlmt.MinitlAdapter" modeltypeId="org.tetrabox.example.MinitlMT" />
+      <adapter class="org.tetrabox.example.minitl.adapters.minitlmt.MinitlAdapter" modeltypeId="org.tetrabox.example.MinitlMT"/>
     </language>
   </extension>
 </plugin>

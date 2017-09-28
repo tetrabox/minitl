@@ -2,11 +2,10 @@
  */
 package minitlTrace.Steps;
 
-import fr.inria.diverse.trace.commons.model.trace.TracePackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,14 +56,14 @@ public interface StepsPackage extends EPackage {
 	StepsPackage eINSTANCE = minitlTrace.Steps.impl.StepsPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link minitlTrace.Steps.SpecificStep <em>Specific Step</em>}' class.
+	 * The meta object id for the '{@link minitlTrace.Steps.impl.SpecificStepImpl <em>Specific Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see minitlTrace.Steps.SpecificStep
+	 * @see minitlTrace.Steps.impl.SpecificStepImpl
 	 * @see minitlTrace.Steps.impl.StepsPackageImpl#getSpecificStep()
 	 * @generated
 	 */
-	int SPECIFIC_STEP = 16;
+	int SPECIFIC_STEP = 17;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -76,22 +75,22 @@ public interface StepsPackage extends EPackage {
 	int SPECIFIC_STEP__MSEOCCURRENCE = TracePackage.STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECIFIC_STEP__ENDING_STATE = TracePackage.STEP_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_STEP__STARTING_STATE = TracePackage.STEP_FEATURE_COUNT + 1;
+	int SPECIFIC_STEP__STARTING_STATE = TracePackage.STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_STEP__ENDING_STATE = TracePackage.STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Specific Step</em>' class.
@@ -100,7 +99,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_STEP_FEATURE_COUNT = TracePackage.STEP_FEATURE_COUNT + 2;
+	int SPECIFIC_STEP_FEATURE_COUNT = TracePackage.STEP_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.Steps.Minitl_ObjectTemplate_Construct_AbstractSubStep <em>Minitl Object Template Construct Abstract Sub Step</em>}' class.
@@ -122,15 +121,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +128,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Minitl Object Template Construct Abstract Sub Step</em>' class.
@@ -168,15 +167,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_BINDING_ASSIGN__MSEOCCURRENCE = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_BINDING_ASSIGN__ENDING_STATE = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -184,6 +174,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_BINDING_ASSIGN__STARTING_STATE = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_BINDING_ASSIGN__ENDING_STATE = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Minitl Binding Assign</em>' class.
@@ -214,15 +213,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_BINDING_CHECK__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_BINDING_CHECK__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,6 +220,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_BINDING_CHECK__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_BINDING_CHECK__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Minitl Binding Check</em>' class.
@@ -260,15 +259,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,6 +266,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Minitl Rule Apply Abstract Sub Step</em>' class.
@@ -306,15 +305,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_OBJECT_TEMPLATE_CONSTRUCT__MSEOCCURRENCE = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_CONSTRUCT__ENDING_STATE = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,6 +312,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_OBJECT_TEMPLATE_CONSTRUCT__STARTING_STATE = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_OBJECT_TEMPLATE_CONSTRUCT__ENDING_STATE = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
@@ -361,15 +360,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_IMPLICIT_STEP__MSEOCCURRENCE = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_IMPLICIT_STEP__ENDING_STATE = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,6 +367,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_IMPLICIT_STEP__STARTING_STATE = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_OBJECT_TEMPLATE_CONSTRUCT_IMPLICIT_STEP__ENDING_STATE = MINITL_OBJECT_TEMPLATE_CONSTRUCT_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Minitl Object Template Construct Implicit Step</em>' class.
@@ -407,15 +406,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_OBJECT_TEMPLATE_MATCH__MSEOCCURRENCE = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_MATCH__ENDING_STATE = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -423,6 +413,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_OBJECT_TEMPLATE_MATCH__STARTING_STATE = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_OBJECT_TEMPLATE_MATCH__ENDING_STATE = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
@@ -462,15 +461,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -478,6 +468,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Minitl Object Template Match Abstract Sub Step</em>' class.
@@ -508,15 +507,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_OBJECT_TEMPLATE_MATCH_IMPLICIT_STEP__MSEOCCURRENCE = MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_OBJECT_TEMPLATE_MATCH_IMPLICIT_STEP__ENDING_STATE = MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -524,6 +514,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_OBJECT_TEMPLATE_MATCH_IMPLICIT_STEP__STARTING_STATE = MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_OBJECT_TEMPLATE_MATCH_IMPLICIT_STEP__ENDING_STATE = MINITL_OBJECT_TEMPLATE_MATCH_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Minitl Object Template Match Implicit Step</em>' class.
@@ -554,15 +553,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -570,6 +560,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Minitl Transformation Execute Abstract Sub Step</em>' class.
@@ -600,15 +599,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_RULE_APPLY__MSEOCCURRENCE = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_RULE_APPLY__ENDING_STATE = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -616,6 +606,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_RULE_APPLY__STARTING_STATE = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_RULE_APPLY__ENDING_STATE = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
@@ -655,15 +654,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_RULE_APPLY_IMPLICIT_STEP__MSEOCCURRENCE = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_RULE_APPLY_IMPLICIT_STEP__ENDING_STATE = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -671,6 +661,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_RULE_APPLY_IMPLICIT_STEP__STARTING_STATE = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_RULE_APPLY_IMPLICIT_STEP__ENDING_STATE = MINITL_RULE_APPLY_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Minitl Rule Apply Implicit Step</em>' class.
@@ -701,15 +700,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_TRANSFORMATION_EXECUTE__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_TRANSFORMATION_EXECUTE__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -717,6 +707,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_TRANSFORMATION_EXECUTE__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_TRANSFORMATION_EXECUTE__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
@@ -756,15 +755,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_TRANSFORMATION_EXECUTE_IMPLICIT_STEP__MSEOCCURRENCE = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_TRANSFORMATION_EXECUTE_IMPLICIT_STEP__ENDING_STATE = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -772,6 +762,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_TRANSFORMATION_EXECUTE_IMPLICIT_STEP__STARTING_STATE = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_TRANSFORMATION_EXECUTE_IMPLICIT_STEP__ENDING_STATE = MINITL_TRANSFORMATION_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Minitl Transformation Execute Implicit Step</em>' class.
@@ -802,15 +801,6 @@ public interface StepsPackage extends EPackage {
 	int MINITL_TRANSFORMATION_INITIALIZE__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
 
 	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MINITL_TRANSFORMATION_INITIALIZE__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -818,6 +808,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MINITL_TRANSFORMATION_INITIALIZE__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MINITL_TRANSFORMATION_INITIALIZE__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Minitl Transformation Initialize</em>' class.
@@ -848,6 +847,24 @@ public interface StepsPackage extends EPackage {
 	int ROOT_IMPLICIT_STEP__MSEOCCURRENCE = TracePackage.SMALL_STEP__MSEOCCURRENCE;
 
 	/**
+	 * The feature id for the '<em><b>Starting State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_IMPLICIT_STEP__STARTING_STATE = TracePackage.SMALL_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_IMPLICIT_STEP__ENDING_STATE = TracePackage.SMALL_STEP__ENDING_STATE;
+
+	/**
 	 * The number of structural features of the '<em>Root Implicit Step</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -855,6 +872,61 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROOT_IMPLICIT_STEP_FEATURE_COUNT = TracePackage.SMALL_STEP_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link minitlTrace.Steps.impl.SpecificRootStepImpl <em>Specific Root Step</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see minitlTrace.Steps.impl.SpecificRootStepImpl
+	 * @see minitlTrace.Steps.impl.StepsPackageImpl#getSpecificRootStep()
+	 * @generated
+	 */
+	int SPECIFIC_ROOT_STEP = 16;
+
+	/**
+	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_ROOT_STEP__MSEOCCURRENCE = TracePackage.SEQUENTIAL_STEP__MSEOCCURRENCE;
+
+	/**
+	 * The feature id for the '<em><b>Starting State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_ROOT_STEP__STARTING_STATE = TracePackage.SEQUENTIAL_STEP__STARTING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_ROOT_STEP__ENDING_STATE = TracePackage.SEQUENTIAL_STEP__ENDING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_ROOT_STEP__SUB_STEPS = TracePackage.SEQUENTIAL_STEP__SUB_STEPS;
+
+	/**
+	 * The number of structural features of the '<em>Specific Root Step</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_ROOT_STEP_FEATURE_COUNT = TracePackage.SEQUENTIAL_STEP_FEATURE_COUNT + 0;
 
 
 	/**
@@ -1018,6 +1090,16 @@ public interface StepsPackage extends EPackage {
 	EClass getRootImplicitStep();
 
 	/**
+	 * Returns the meta object for class '{@link minitlTrace.Steps.SpecificRootStep <em>Specific Root Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Specific Root Step</em>'.
+	 * @see minitlTrace.Steps.SpecificRootStep
+	 * @generated
+	 */
+	EClass getSpecificRootStep();
+
+	/**
 	 * Returns the meta object for class '{@link minitlTrace.Steps.SpecificStep <em>Specific Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1026,28 +1108,6 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSpecificStep();
-
-	/**
-	 * Returns the meta object for the reference '{@link minitlTrace.Steps.SpecificStep#getEndingState <em>Ending State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Ending State</em>'.
-	 * @see minitlTrace.Steps.SpecificStep#getEndingState()
-	 * @see #getSpecificStep()
-	 * @generated
-	 */
-	EReference getSpecificStep_EndingState();
-
-	/**
-	 * Returns the meta object for the reference '{@link minitlTrace.Steps.SpecificStep#getStartingState <em>Starting State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Starting State</em>'.
-	 * @see minitlTrace.Steps.SpecificStep#getStartingState()
-	 * @see #getSpecificStep()
-	 * @generated
-	 */
-	EReference getSpecificStep_StartingState();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1232,30 +1292,24 @@ public interface StepsPackage extends EPackage {
 		EClass ROOT_IMPLICIT_STEP = eINSTANCE.getRootImplicitStep();
 
 		/**
-		 * The meta object literal for the '{@link minitlTrace.Steps.SpecificStep <em>Specific Step</em>}' class.
+		 * The meta object literal for the '{@link minitlTrace.Steps.impl.SpecificRootStepImpl <em>Specific Root Step</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see minitlTrace.Steps.SpecificStep
+		 * @see minitlTrace.Steps.impl.SpecificRootStepImpl
+		 * @see minitlTrace.Steps.impl.StepsPackageImpl#getSpecificRootStep()
+		 * @generated
+		 */
+		EClass SPECIFIC_ROOT_STEP = eINSTANCE.getSpecificRootStep();
+
+		/**
+		 * The meta object literal for the '{@link minitlTrace.Steps.impl.SpecificStepImpl <em>Specific Step</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see minitlTrace.Steps.impl.SpecificStepImpl
 		 * @see minitlTrace.Steps.impl.StepsPackageImpl#getSpecificStep()
 		 * @generated
 		 */
 		EClass SPECIFIC_STEP = eINSTANCE.getSpecificStep();
-
-		/**
-		 * The meta object literal for the '<em><b>Ending State</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SPECIFIC_STEP__ENDING_STATE = eINSTANCE.getSpecificStep_EndingState();
-
-		/**
-		 * The meta object literal for the '<em><b>Starting State</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SPECIFIC_STEP__STARTING_STATE = eINSTANCE.getSpecificStep_StartingState();
 
 	}
 

@@ -2,13 +2,11 @@
  */
 package minitlTrace.States.minitl.impl;
 
-import java.util.Collection;
-
-import minitlTrace.States.StatesPackage;
-import minitlTrace.States.Transformation_inputModelURI_Value;
-import minitlTrace.States.Transformation_inputModel_Value;
-import minitlTrace.States.Transformation_outputFilePath_Value;
-import minitlTrace.States.Transformation_outputModel_Value;
+import minitlTrace.States.SpecificDimension;
+import minitlTrace.States.Transformation_inputModelURI_Dimension;
+import minitlTrace.States.Transformation_inputModel_Dimension;
+import minitlTrace.States.Transformation_outputFilePath_Dimension;
+import minitlTrace.States.Transformation_outputModel_Dimension;
 
 import minitlTrace.States.minitl.MinitlPackage;
 import minitlTrace.States.minitl.TracedTransformation;
@@ -23,9 +21,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.tetrabox.example.minitl.minitl.Transformation;
 
 /**
@@ -36,36 +31,16 @@ import org.tetrabox.example.minitl.minitl.Transformation;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link minitlTrace.States.minitl.impl.TracedTransformationImpl#getInputModelSequence <em>Input Model Sequence</em>}</li>
- *   <li>{@link minitlTrace.States.minitl.impl.TracedTransformationImpl#getInputModelURISequence <em>Input Model URI Sequence</em>}</li>
  *   <li>{@link minitlTrace.States.minitl.impl.TracedTransformationImpl#getOriginalObject <em>Original Object</em>}</li>
- *   <li>{@link minitlTrace.States.minitl.impl.TracedTransformationImpl#getOutputFilePathSequence <em>Output File Path Sequence</em>}</li>
- *   <li>{@link minitlTrace.States.minitl.impl.TracedTransformationImpl#getOutputModelSequence <em>Output Model Sequence</em>}</li>
+ *   <li>{@link minitlTrace.States.minitl.impl.TracedTransformationImpl#getTransformation_inputModelURI_Dimension <em>Transformation input Model URI Dimension</em>}</li>
+ *   <li>{@link minitlTrace.States.minitl.impl.TracedTransformationImpl#getTransformation_inputModel_Dimension <em>Transformation input Model Dimension</em>}</li>
+ *   <li>{@link minitlTrace.States.minitl.impl.TracedTransformationImpl#getTransformation_outputFilePath_Dimension <em>Transformation output File Path Dimension</em>}</li>
+ *   <li>{@link minitlTrace.States.minitl.impl.TracedTransformationImpl#getTransformation_outputModel_Dimension <em>Transformation output Model Dimension</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TracedTransformationImpl extends TracedNamedElementImpl implements TracedTransformation {
-	/**
-	 * The cached value of the '{@link #getInputModelSequence() <em>Input Model Sequence</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInputModelSequence()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Transformation_inputModel_Value> inputModelSequence;
-
-	/**
-	 * The cached value of the '{@link #getInputModelURISequence() <em>Input Model URI Sequence</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInputModelURISequence()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Transformation_inputModelURI_Value> inputModelURISequence;
-
 	/**
 	 * The cached value of the '{@link #getOriginalObject() <em>Original Object</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -77,24 +52,44 @@ public class TracedTransformationImpl extends TracedNamedElementImpl implements 
 	protected Transformation originalObject;
 
 	/**
-	 * The cached value of the '{@link #getOutputFilePathSequence() <em>Output File Path Sequence</em>}' containment reference list.
+	 * The cached value of the '{@link #getTransformation_inputModelURI_Dimension() <em>Transformation input Model URI Dimension</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutputFilePathSequence()
+	 * @see #getTransformation_inputModelURI_Dimension()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Transformation_outputFilePath_Value> outputFilePathSequence;
+	protected Transformation_inputModelURI_Dimension transformation_inputModelURI_Dimension;
 
 	/**
-	 * The cached value of the '{@link #getOutputModelSequence() <em>Output Model Sequence</em>}' containment reference list.
+	 * The cached value of the '{@link #getTransformation_inputModel_Dimension() <em>Transformation input Model Dimension</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutputModelSequence()
+	 * @see #getTransformation_inputModel_Dimension()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Transformation_outputModel_Value> outputModelSequence;
+	protected Transformation_inputModel_Dimension transformation_inputModel_Dimension;
+
+	/**
+	 * The cached value of the '{@link #getTransformation_outputFilePath_Dimension() <em>Transformation output File Path Dimension</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransformation_outputFilePath_Dimension()
+	 * @generated
+	 * @ordered
+	 */
+	protected Transformation_outputFilePath_Dimension transformation_outputFilePath_Dimension;
+
+	/**
+	 * The cached value of the '{@link #getTransformation_outputModel_Dimension() <em>Transformation output Model Dimension</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransformation_outputModel_Dimension()
+	 * @generated
+	 * @ordered
+	 */
+	protected Transformation_outputModel_Dimension transformation_outputModel_Dimension;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,30 +108,6 @@ public class TracedTransformationImpl extends TracedNamedElementImpl implements 
 	@Override
 	protected EClass eStaticClass() {
 		return MinitlPackage.Literals.TRACED_TRANSFORMATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Transformation_inputModel_Value> getInputModelSequence() {
-		if (inputModelSequence == null) {
-			inputModelSequence = new EObjectContainmentWithInverseEList<Transformation_inputModel_Value>(Transformation_inputModel_Value.class, this, MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_SEQUENCE, StatesPackage.TRANSFORMATION_INPUT_MODEL_VALUE__PARENT);
-		}
-		return inputModelSequence;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Transformation_inputModelURI_Value> getInputModelURISequence() {
-		if (inputModelURISequence == null) {
-			inputModelURISequence = new EObjectContainmentWithInverseEList<Transformation_inputModelURI_Value>(Transformation_inputModelURI_Value.class, this, MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_URI_SEQUENCE, StatesPackage.TRANSFORMATION_INPUT_MODEL_URI_VALUE__PARENT);
-		}
-		return inputModelURISequence;
 	}
 
 	/**
@@ -182,11 +153,8 @@ public class TracedTransformationImpl extends TracedNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Transformation_outputFilePath_Value> getOutputFilePathSequence() {
-		if (outputFilePathSequence == null) {
-			outputFilePathSequence = new EObjectContainmentWithInverseEList<Transformation_outputFilePath_Value>(Transformation_outputFilePath_Value.class, this, MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_FILE_PATH_SEQUENCE, StatesPackage.TRANSFORMATION_OUTPUT_FILE_PATH_VALUE__PARENT);
-		}
-		return outputFilePathSequence;
+	public Transformation_inputModelURI_Dimension getTransformation_inputModelURI_Dimension() {
+		return transformation_inputModelURI_Dimension;
 	}
 
 	/**
@@ -194,11 +162,14 @@ public class TracedTransformationImpl extends TracedNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Transformation_outputModel_Value> getOutputModelSequence() {
-		if (outputModelSequence == null) {
-			outputModelSequence = new EObjectContainmentWithInverseEList<Transformation_outputModel_Value>(Transformation_outputModel_Value.class, this, MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_MODEL_SEQUENCE, StatesPackage.TRANSFORMATION_OUTPUT_MODEL_VALUE__PARENT);
+	public NotificationChain basicSetTransformation_inputModelURI_Dimension(Transformation_inputModelURI_Dimension newTransformation_inputModelURI_Dimension, NotificationChain msgs) {
+		Transformation_inputModelURI_Dimension oldTransformation_inputModelURI_Dimension = transformation_inputModelURI_Dimension;
+		transformation_inputModelURI_Dimension = newTransformation_inputModelURI_Dimension;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_URI_DIMENSION, oldTransformation_inputModelURI_Dimension, newTransformation_inputModelURI_Dimension);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return outputModelSequence;
+		return msgs;
 	}
 
 	/**
@@ -206,20 +177,163 @@ public class TracedTransformationImpl extends TracedNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_SEQUENCE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInputModelSequence()).basicAdd(otherEnd, msgs);
-			case MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_URI_SEQUENCE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInputModelURISequence()).basicAdd(otherEnd, msgs);
-			case MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_FILE_PATH_SEQUENCE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutputFilePathSequence()).basicAdd(otherEnd, msgs);
-			case MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_MODEL_SEQUENCE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutputModelSequence()).basicAdd(otherEnd, msgs);
+	public void setTransformation_inputModelURI_Dimension(Transformation_inputModelURI_Dimension newTransformation_inputModelURI_Dimension) {
+		if (newTransformation_inputModelURI_Dimension != transformation_inputModelURI_Dimension) {
+			NotificationChain msgs = null;
+			if (transformation_inputModelURI_Dimension != null)
+				msgs = ((InternalEObject)transformation_inputModelURI_Dimension).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_URI_DIMENSION, null, msgs);
+			if (newTransformation_inputModelURI_Dimension != null)
+				msgs = ((InternalEObject)newTransformation_inputModelURI_Dimension).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_URI_DIMENSION, null, msgs);
+			msgs = basicSetTransformation_inputModelURI_Dimension(newTransformation_inputModelURI_Dimension, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_URI_DIMENSION, newTransformation_inputModelURI_Dimension, newTransformation_inputModelURI_Dimension));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Transformation_inputModel_Dimension getTransformation_inputModel_Dimension() {
+		return transformation_inputModel_Dimension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTransformation_inputModel_Dimension(Transformation_inputModel_Dimension newTransformation_inputModel_Dimension, NotificationChain msgs) {
+		Transformation_inputModel_Dimension oldTransformation_inputModel_Dimension = transformation_inputModel_Dimension;
+		transformation_inputModel_Dimension = newTransformation_inputModel_Dimension;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_DIMENSION, oldTransformation_inputModel_Dimension, newTransformation_inputModel_Dimension);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransformation_inputModel_Dimension(Transformation_inputModel_Dimension newTransformation_inputModel_Dimension) {
+		if (newTransformation_inputModel_Dimension != transformation_inputModel_Dimension) {
+			NotificationChain msgs = null;
+			if (transformation_inputModel_Dimension != null)
+				msgs = ((InternalEObject)transformation_inputModel_Dimension).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_DIMENSION, null, msgs);
+			if (newTransformation_inputModel_Dimension != null)
+				msgs = ((InternalEObject)newTransformation_inputModel_Dimension).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_DIMENSION, null, msgs);
+			msgs = basicSetTransformation_inputModel_Dimension(newTransformation_inputModel_Dimension, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_DIMENSION, newTransformation_inputModel_Dimension, newTransformation_inputModel_Dimension));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Transformation_outputFilePath_Dimension getTransformation_outputFilePath_Dimension() {
+		return transformation_outputFilePath_Dimension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTransformation_outputFilePath_Dimension(Transformation_outputFilePath_Dimension newTransformation_outputFilePath_Dimension, NotificationChain msgs) {
+		Transformation_outputFilePath_Dimension oldTransformation_outputFilePath_Dimension = transformation_outputFilePath_Dimension;
+		transformation_outputFilePath_Dimension = newTransformation_outputFilePath_Dimension;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION, oldTransformation_outputFilePath_Dimension, newTransformation_outputFilePath_Dimension);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransformation_outputFilePath_Dimension(Transformation_outputFilePath_Dimension newTransformation_outputFilePath_Dimension) {
+		if (newTransformation_outputFilePath_Dimension != transformation_outputFilePath_Dimension) {
+			NotificationChain msgs = null;
+			if (transformation_outputFilePath_Dimension != null)
+				msgs = ((InternalEObject)transformation_outputFilePath_Dimension).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION, null, msgs);
+			if (newTransformation_outputFilePath_Dimension != null)
+				msgs = ((InternalEObject)newTransformation_outputFilePath_Dimension).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION, null, msgs);
+			msgs = basicSetTransformation_outputFilePath_Dimension(newTransformation_outputFilePath_Dimension, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION, newTransformation_outputFilePath_Dimension, newTransformation_outputFilePath_Dimension));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Transformation_outputModel_Dimension getTransformation_outputModel_Dimension() {
+		return transformation_outputModel_Dimension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTransformation_outputModel_Dimension(Transformation_outputModel_Dimension newTransformation_outputModel_Dimension, NotificationChain msgs) {
+		Transformation_outputModel_Dimension oldTransformation_outputModel_Dimension = transformation_outputModel_Dimension;
+		transformation_outputModel_Dimension = newTransformation_outputModel_Dimension;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_MODEL_DIMENSION, oldTransformation_outputModel_Dimension, newTransformation_outputModel_Dimension);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransformation_outputModel_Dimension(Transformation_outputModel_Dimension newTransformation_outputModel_Dimension) {
+		if (newTransformation_outputModel_Dimension != transformation_outputModel_Dimension) {
+			NotificationChain msgs = null;
+			if (transformation_outputModel_Dimension != null)
+				msgs = ((InternalEObject)transformation_outputModel_Dimension).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_MODEL_DIMENSION, null, msgs);
+			if (newTransformation_outputModel_Dimension != null)
+				msgs = ((InternalEObject)newTransformation_outputModel_Dimension).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_MODEL_DIMENSION, null, msgs);
+			msgs = basicSetTransformation_outputModel_Dimension(newTransformation_outputModel_Dimension, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_MODEL_DIMENSION, newTransformation_outputModel_Dimension, newTransformation_outputModel_Dimension));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SpecificDimension<?>> getDimensionsInternal() {
+		final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);
+		result.addAll(super.getDimensionsInternal());
+		result.add(getTransformation_inputModelURI_Dimension());
+		result.add(getTransformation_outputModel_Dimension());
+		result.add(getTransformation_inputModel_Dimension());
+		result.add(getTransformation_outputFilePath_Dimension());
+		return result;
+		
 	}
 
 	/**
@@ -230,14 +344,14 @@ public class TracedTransformationImpl extends TracedNamedElementImpl implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_SEQUENCE:
-				return ((InternalEList<?>)getInputModelSequence()).basicRemove(otherEnd, msgs);
-			case MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_URI_SEQUENCE:
-				return ((InternalEList<?>)getInputModelURISequence()).basicRemove(otherEnd, msgs);
-			case MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_FILE_PATH_SEQUENCE:
-				return ((InternalEList<?>)getOutputFilePathSequence()).basicRemove(otherEnd, msgs);
-			case MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_MODEL_SEQUENCE:
-				return ((InternalEList<?>)getOutputModelSequence()).basicRemove(otherEnd, msgs);
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_URI_DIMENSION:
+				return basicSetTransformation_inputModelURI_Dimension(null, msgs);
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_DIMENSION:
+				return basicSetTransformation_inputModel_Dimension(null, msgs);
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION:
+				return basicSetTransformation_outputFilePath_Dimension(null, msgs);
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_MODEL_DIMENSION:
+				return basicSetTransformation_outputModel_Dimension(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -250,17 +364,17 @@ public class TracedTransformationImpl extends TracedNamedElementImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_SEQUENCE:
-				return getInputModelSequence();
-			case MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_URI_SEQUENCE:
-				return getInputModelURISequence();
 			case MinitlPackage.TRACED_TRANSFORMATION__ORIGINAL_OBJECT:
 				if (resolve) return getOriginalObject();
 				return basicGetOriginalObject();
-			case MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_FILE_PATH_SEQUENCE:
-				return getOutputFilePathSequence();
-			case MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_MODEL_SEQUENCE:
-				return getOutputModelSequence();
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_URI_DIMENSION:
+				return getTransformation_inputModelURI_Dimension();
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_DIMENSION:
+				return getTransformation_inputModel_Dimension();
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION:
+				return getTransformation_outputFilePath_Dimension();
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_MODEL_DIMENSION:
+				return getTransformation_outputModel_Dimension();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -270,28 +384,23 @@ public class TracedTransformationImpl extends TracedNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_SEQUENCE:
-				getInputModelSequence().clear();
-				getInputModelSequence().addAll((Collection<? extends Transformation_inputModel_Value>)newValue);
-				return;
-			case MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_URI_SEQUENCE:
-				getInputModelURISequence().clear();
-				getInputModelURISequence().addAll((Collection<? extends Transformation_inputModelURI_Value>)newValue);
-				return;
 			case MinitlPackage.TRACED_TRANSFORMATION__ORIGINAL_OBJECT:
 				setOriginalObject((Transformation)newValue);
 				return;
-			case MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_FILE_PATH_SEQUENCE:
-				getOutputFilePathSequence().clear();
-				getOutputFilePathSequence().addAll((Collection<? extends Transformation_outputFilePath_Value>)newValue);
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_URI_DIMENSION:
+				setTransformation_inputModelURI_Dimension((Transformation_inputModelURI_Dimension)newValue);
 				return;
-			case MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_MODEL_SEQUENCE:
-				getOutputModelSequence().clear();
-				getOutputModelSequence().addAll((Collection<? extends Transformation_outputModel_Value>)newValue);
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_DIMENSION:
+				setTransformation_inputModel_Dimension((Transformation_inputModel_Dimension)newValue);
+				return;
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION:
+				setTransformation_outputFilePath_Dimension((Transformation_outputFilePath_Dimension)newValue);
+				return;
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_MODEL_DIMENSION:
+				setTransformation_outputModel_Dimension((Transformation_outputModel_Dimension)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -305,20 +414,20 @@ public class TracedTransformationImpl extends TracedNamedElementImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_SEQUENCE:
-				getInputModelSequence().clear();
-				return;
-			case MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_URI_SEQUENCE:
-				getInputModelURISequence().clear();
-				return;
 			case MinitlPackage.TRACED_TRANSFORMATION__ORIGINAL_OBJECT:
 				setOriginalObject((Transformation)null);
 				return;
-			case MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_FILE_PATH_SEQUENCE:
-				getOutputFilePathSequence().clear();
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_URI_DIMENSION:
+				setTransformation_inputModelURI_Dimension((Transformation_inputModelURI_Dimension)null);
 				return;
-			case MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_MODEL_SEQUENCE:
-				getOutputModelSequence().clear();
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_DIMENSION:
+				setTransformation_inputModel_Dimension((Transformation_inputModel_Dimension)null);
+				return;
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION:
+				setTransformation_outputFilePath_Dimension((Transformation_outputFilePath_Dimension)null);
+				return;
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_MODEL_DIMENSION:
+				setTransformation_outputModel_Dimension((Transformation_outputModel_Dimension)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -332,16 +441,16 @@ public class TracedTransformationImpl extends TracedNamedElementImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_SEQUENCE:
-				return inputModelSequence != null && !inputModelSequence.isEmpty();
-			case MinitlPackage.TRACED_TRANSFORMATION__INPUT_MODEL_URI_SEQUENCE:
-				return inputModelURISequence != null && !inputModelURISequence.isEmpty();
 			case MinitlPackage.TRACED_TRANSFORMATION__ORIGINAL_OBJECT:
 				return originalObject != null;
-			case MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_FILE_PATH_SEQUENCE:
-				return outputFilePathSequence != null && !outputFilePathSequence.isEmpty();
-			case MinitlPackage.TRACED_TRANSFORMATION__OUTPUT_MODEL_SEQUENCE:
-				return outputModelSequence != null && !outputModelSequence.isEmpty();
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_URI_DIMENSION:
+				return transformation_inputModelURI_Dimension != null;
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_DIMENSION:
+				return transformation_inputModel_Dimension != null;
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION:
+				return transformation_outputFilePath_Dimension != null;
+			case MinitlPackage.TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_MODEL_DIMENSION:
+				return transformation_outputModel_Dimension != null;
 		}
 		return super.eIsSet(featureID);
 	}

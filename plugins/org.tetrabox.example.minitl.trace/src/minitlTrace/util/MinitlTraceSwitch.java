@@ -2,14 +2,17 @@
  */
 package minitlTrace.util;
 
-import fr.inria.diverse.trace.commons.model.trace.Trace;
-
 import minitlTrace.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
+
+import org.eclipse.gemoc.trace.commons.model.trace.State;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.Trace;
+import org.eclipse.gemoc.trace.commons.model.trace.TracedObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -105,7 +108,7 @@ public class MinitlTraceSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <StepSubType> T caseTrace(Trace<StepSubType> object) {
+	public <StepSubType extends Step<?>, TracedObjectSubtype extends TracedObject<?>, StateSubType extends State<?, ?>> T caseTrace(Trace<StepSubType, TracedObjectSubtype, StateSubType> object) {
 		return null;
 	}
 

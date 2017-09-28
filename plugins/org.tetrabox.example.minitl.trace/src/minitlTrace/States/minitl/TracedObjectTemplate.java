@@ -2,7 +2,8 @@
  */
 package minitlTrace.States.minitl;
 
-import minitlTrace.States.ObjectTemplate_currentObject_Value;
+import minitlTrace.States.ObjectTemplate_currentObject_Dimension;
+import minitlTrace.States.SpecificDimension;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -17,7 +18,7 @@ import org.tetrabox.example.minitl.minitl.ObjectTemplate;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link minitlTrace.States.minitl.TracedObjectTemplate#getCurrentObjectSequence <em>Current Object Sequence</em>}</li>
+ *   <li>{@link minitlTrace.States.minitl.TracedObjectTemplate#getObjectTemplate_currentObject_Dimension <em>Object Template current Object Dimension</em>}</li>
  *   <li>{@link minitlTrace.States.minitl.TracedObjectTemplate#getOriginalObject <em>Original Object</em>}</li>
  * </ul>
  *
@@ -27,22 +28,30 @@ import org.tetrabox.example.minitl.minitl.ObjectTemplate;
  */
 public interface TracedObjectTemplate extends TracedNamedElement {
 	/**
-	 * Returns the value of the '<em><b>Current Object Sequence</b></em>' containment reference list.
-	 * The list contents are of type {@link minitlTrace.States.ObjectTemplate_currentObject_Value}.
-	 * It is bidirectional and its opposite is '{@link minitlTrace.States.ObjectTemplate_currentObject_Value#getParent <em>Parent</em>}'.
+	 * Returns the value of the '<em><b>Object Template current Object Dimension</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Current Object Sequence</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Object Template current Object Dimension</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Object Sequence</em>' containment reference list.
-	 * @see minitlTrace.States.minitl.MinitlPackage#getTracedObjectTemplate_CurrentObjectSequence()
-	 * @see minitlTrace.States.ObjectTemplate_currentObject_Value#getParent
-	 * @model opposite="parent" containment="true"
+	 * @return the value of the '<em>Object Template current Object Dimension</em>' containment reference.
+	 * @see #setObjectTemplate_currentObject_Dimension(ObjectTemplate_currentObject_Dimension)
+	 * @see minitlTrace.States.minitl.MinitlPackage#getTracedObjectTemplate_ObjectTemplate_currentObject_Dimension()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ObjectTemplate_currentObject_Value> getCurrentObjectSequence();
+	ObjectTemplate_currentObject_Dimension getObjectTemplate_currentObject_Dimension();
+
+	/**
+	 * Sets the value of the '{@link minitlTrace.States.minitl.TracedObjectTemplate#getObjectTemplate_currentObject_Dimension <em>Object Template current Object Dimension</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Object Template current Object Dimension</em>' containment reference.
+	 * @see #getObjectTemplate_currentObject_Dimension()
+	 * @generated
+	 */
+	void setObjectTemplate_currentObject_Dimension(ObjectTemplate_currentObject_Dimension value);
 
 	/**
 	 * Returns the value of the '<em><b>Original Object</b></em>' reference.
@@ -69,5 +78,14 @@ public interface TracedObjectTemplate extends TracedNamedElement {
 	 * @generated
 	 */
 	void setOriginalObject(ObjectTemplate value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);\nresult.addAll(super.getDimensionsInternal());\nresult.add(getObjectTemplate_currentObject_Dimension());\nreturn result;\n'"
+	 * @generated
+	 */
+	EList<SpecificDimension<?>> getDimensionsInternal();
 
 } // TracedObjectTemplate

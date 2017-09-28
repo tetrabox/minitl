@@ -26,18 +26,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
         <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//SpecificTrace/Minitl_Transformation_Initialize_Sequence"/>
       </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//SpecificTrace/minitl_tracedObjectTemplates"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//SpecificTrace/minitl_tracedRules"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//SpecificTrace/minitl_tracedTransformations"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//SpecificTrace/statesTrace"/>
-      </genFeatures>
     </genClasses>
     <nestedGenPackages prefix="Steps" disposableProviderFactory="true">
       <ecorePackage href="minitlTrace.ecore#//Steps"/>
@@ -110,164 +98,140 @@
       <genClasses>
         <ecoreClass href="minitlTrace.ecore#//Steps/RootImplicitStep"/>
       </genClasses>
+      <genClasses>
+        <ecoreClass href="minitlTrace.ecore#//Steps/SpecificRootStep"/>
+      </genClasses>
       <genClasses image="false">
         <ecoreClass href="minitlTrace.ecore#//Steps/SpecificStep"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//Steps/SpecificStep/endingState"/>
-        </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//Steps/SpecificStep/startingState"/>
-        </genFeatures>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="States" disposableProviderFactory="true">
       <ecorePackage href="minitlTrace.ecore#//States"/>
       <genClasses>
+        <ecoreClass href="minitlTrace.ecore#//States/ObjectTemplate_currentObject_Dimension"/>
+      </genClasses>
+      <genClasses>
         <ecoreClass href="minitlTrace.ecore#//States/ObjectTemplate_currentObject_Value"/>
         <genFeatures createChild="false">
           <ecoreFeature xsi:type="ecore:EAttribute" href="minitlTrace.ecore#//States/ObjectTemplate_currentObject_Value/currentObject"/>
         </genFeatures>
-        <genFeatures property="None" notify="false" createChild="false">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/ObjectTemplate_currentObject_Value/parent"/>
-        </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/ObjectTemplate_currentObject_Value/states"/>
-        </genFeatures>
-        <genOperations>
-          <ecoreOperation href="minitlTrace.ecore#//States/ObjectTemplate_currentObject_Value/getStatesNoOpposite"/>
-        </genOperations>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="minitlTrace.ecore#//States/SpecificAttributeValue"/>
+      </genClasses>
+      <genClasses image="false">
+        <genTypeParameters>
+          <ecoreTypeParameter href="minitlTrace.ecore#//States/SpecificDimension/ValueSubType"/>
+        </genTypeParameters>
+        <ecoreClass href="minitlTrace.ecore#//States/SpecificDimension"/>
+      </genClasses>
+      <genClasses image="false">
+        <genTypeParameters>
+          <ecoreTypeParameter href="minitlTrace.ecore#//States/SpecificReferenceValue/T"/>
+        </genTypeParameters>
+        <ecoreClass href="minitlTrace.ecore#//States/SpecificReferenceValue"/>
       </genClasses>
       <genClasses>
-        <ecoreClass href="minitlTrace.ecore#//States/State"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/State/endedSteps"/>
-        </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/State/objectTemplate_currentObject_Values"/>
-        </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/State/startedSteps"/>
-        </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/State/transformation_inputModelURI_Values"/>
-        </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/State/transformation_inputModel_Values"/>
-        </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/State/transformation_outputFilePath_Values"/>
-        </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/State/transformation_outputModel_Values"/>
-        </genFeatures>
+        <ecoreClass href="minitlTrace.ecore#//States/SpecificState"/>
+      </genClasses>
+      <genClasses image="false">
+        <genTypeParameters>
+          <ecoreTypeParameter href="minitlTrace.ecore#//States/SpecificTracedObject/DimensionSubType"/>
+        </genTypeParameters>
+        <ecoreClass href="minitlTrace.ecore#//States/SpecificTracedObject"/>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="minitlTrace.ecore#//States/SpecificValue"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="minitlTrace.ecore#//States/Transformation_inputModelURI_Dimension"/>
       </genClasses>
       <genClasses>
         <ecoreClass href="minitlTrace.ecore#//States/Transformation_inputModelURI_Value"/>
         <genFeatures createChild="false">
           <ecoreFeature xsi:type="ecore:EAttribute" href="minitlTrace.ecore#//States/Transformation_inputModelURI_Value/inputModelURI"/>
         </genFeatures>
-        <genFeatures property="None" notify="false" createChild="false">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/Transformation_inputModelURI_Value/parent"/>
-        </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/Transformation_inputModelURI_Value/states"/>
-        </genFeatures>
-        <genOperations>
-          <ecoreOperation href="minitlTrace.ecore#//States/Transformation_inputModelURI_Value/getStatesNoOpposite"/>
-        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="minitlTrace.ecore#//States/Transformation_inputModel_Dimension"/>
       </genClasses>
       <genClasses>
         <ecoreClass href="minitlTrace.ecore#//States/Transformation_inputModel_Value"/>
         <genFeatures createChild="false">
           <ecoreFeature xsi:type="ecore:EAttribute" href="minitlTrace.ecore#//States/Transformation_inputModel_Value/inputModel"/>
         </genFeatures>
-        <genFeatures property="None" notify="false" createChild="false">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/Transformation_inputModel_Value/parent"/>
-        </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/Transformation_inputModel_Value/states"/>
-        </genFeatures>
-        <genOperations>
-          <ecoreOperation href="minitlTrace.ecore#//States/Transformation_inputModel_Value/getStatesNoOpposite"/>
-        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="minitlTrace.ecore#//States/Transformation_outputFilePath_Dimension"/>
       </genClasses>
       <genClasses>
         <ecoreClass href="minitlTrace.ecore#//States/Transformation_outputFilePath_Value"/>
         <genFeatures createChild="false">
           <ecoreFeature xsi:type="ecore:EAttribute" href="minitlTrace.ecore#//States/Transformation_outputFilePath_Value/outputFilePath"/>
         </genFeatures>
-        <genFeatures property="None" notify="false" createChild="false">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/Transformation_outputFilePath_Value/parent"/>
-        </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/Transformation_outputFilePath_Value/states"/>
-        </genFeatures>
-        <genOperations>
-          <ecoreOperation href="minitlTrace.ecore#//States/Transformation_outputFilePath_Value/getStatesNoOpposite"/>
-        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="minitlTrace.ecore#//States/Transformation_outputModel_Dimension"/>
       </genClasses>
       <genClasses>
         <ecoreClass href="minitlTrace.ecore#//States/Transformation_outputModel_Value"/>
         <genFeatures createChild="false">
           <ecoreFeature xsi:type="ecore:EAttribute" href="minitlTrace.ecore#//States/Transformation_outputModel_Value/outputModel"/>
         </genFeatures>
-        <genFeatures property="None" notify="false" createChild="false">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/Transformation_outputModel_Value/parent"/>
-        </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/Transformation_outputModel_Value/states"/>
-        </genFeatures>
-        <genOperations>
-          <ecoreOperation href="minitlTrace.ecore#//States/Transformation_outputModel_Value/getStatesNoOpposite"/>
-        </genOperations>
-      </genClasses>
-      <genClasses image="false">
-        <ecoreClass href="minitlTrace.ecore#//States/Value"/>
-        <genFeatures property="Readonly" notify="false" createChild="false">
-          <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/Value/statesNoOpposite"/>
-        </genFeatures>
       </genClasses>
       <nestedGenPackages prefix="Minitl" disposableProviderFactory="true">
         <ecorePackage href="minitlTrace.ecore#//States/minitl"/>
         <genClasses image="false">
           <ecoreClass href="minitlTrace.ecore#//States/minitl/TracedNamedElement"/>
+          <genOperations>
+            <ecoreOperation href="minitlTrace.ecore#//States/minitl/TracedNamedElement/getDimensionsInternal"/>
+          </genOperations>
         </genClasses>
         <genClasses>
           <ecoreClass href="minitlTrace.ecore#//States/minitl/TracedObjectTemplate"/>
           <genFeatures property="None" children="true" createChild="true">
-            <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedObjectTemplate/currentObjectSequence"/>
+            <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedObjectTemplate/objectTemplate_currentObject_Dimension"/>
           </genFeatures>
           <genFeatures notify="false" createChild="false" propertySortChoices="true">
             <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedObjectTemplate/originalObject"/>
           </genFeatures>
+          <genOperations>
+            <ecoreOperation href="minitlTrace.ecore#//States/minitl/TracedObjectTemplate/getDimensionsInternal"/>
+          </genOperations>
         </genClasses>
         <genClasses>
           <ecoreClass href="minitlTrace.ecore#//States/minitl/TracedRule"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true">
             <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedRule/originalObject"/>
           </genFeatures>
+          <genOperations>
+            <ecoreOperation href="minitlTrace.ecore#//States/minitl/TracedRule/getDimensionsInternal"/>
+          </genOperations>
         </genClasses>
         <genClasses>
           <ecoreClass href="minitlTrace.ecore#//States/minitl/TracedTransformation"/>
-          <genFeatures property="None" children="true" createChild="true">
-            <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedTransformation/inputModelSequence"/>
-          </genFeatures>
-          <genFeatures property="None" children="true" createChild="true">
-            <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedTransformation/inputModelURISequence"/>
-          </genFeatures>
           <genFeatures notify="false" createChild="false" propertySortChoices="true">
             <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedTransformation/originalObject"/>
           </genFeatures>
           <genFeatures property="None" children="true" createChild="true">
-            <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedTransformation/outputFilePathSequence"/>
+            <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedTransformation/transformation_inputModelURI_Dimension"/>
           </genFeatures>
           <genFeatures property="None" children="true" createChild="true">
-            <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedTransformation/outputModelSequence"/>
+            <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedTransformation/transformation_inputModel_Dimension"/>
           </genFeatures>
+          <genFeatures property="None" children="true" createChild="true">
+            <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedTransformation/transformation_outputFilePath_Dimension"/>
+          </genFeatures>
+          <genFeatures property="None" children="true" createChild="true">
+            <ecoreFeature xsi:type="ecore:EReference" href="minitlTrace.ecore#//States/minitl/TracedTransformation/transformation_outputModel_Dimension"/>
+          </genFeatures>
+          <genOperations>
+            <ecoreOperation href="minitlTrace.ecore#//States/minitl/TracedTransformation/getDimensionsInternal"/>
+          </genOperations>
         </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
   </genPackages>
-  <usedGenPackages href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.genmodel#//trace"/>
+  <usedGenPackages href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.genmodel#//trace"/>
   <usedGenPackages href="../../org.tetrabox.example.minitl/model/Minitl.genmodel#//minitl"/>
 </genmodel:GenModel>

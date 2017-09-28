@@ -17,57 +17,69 @@ import org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAsp
 @SuppressWarnings("all")
 public class ObjectTemplateAspect {
   public static void reset(final ObjectTemplate _self) {
-    final org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectContext.getSelf(_self);
-    _privk3_reset(_self_, _self);;
-  }
+	final org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectContext
+			.getSelf(_self);
+	_privk3_reset(_self_, _self);
+	;
+}
   
   @Step
   public static void match(final ObjectTemplate _self, final EObject o) {
-    final org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectContext.getSelf(_self);
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    	@Override
-    	public void execute() {
-    		_privk3_match(_self_, _self,o);
-    	}
-    };
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    if (manager != null) {
-    	manager.executeStep(_self,command,"ObjectTemplate","match");
-    } else {
-    	command.execute();
-    }
-    ;;
-  }
+	final org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectContext
+			.getSelf(_self);
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+		@Override
+		public void execute() {
+			_privk3_match(_self_, _self, o);
+		}
+	};
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
+			.getInstance().findStepManager(_self);
+	if (manager != null) {
+		manager.executeStep(_self, command, "ObjectTemplate", "match");
+	} else {
+		command.execute();
+	}
+	;
+	;
+}
   
   @Step
   public static void construct(final ObjectTemplate _self) {
-    final org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectContext.getSelf(_self);
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    	@Override
-    	public void execute() {
-    		_privk3_construct(_self_, _self);
-    	}
-    };
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    if (manager != null) {
-    	manager.executeStep(_self,command,"ObjectTemplate","construct");
-    } else {
-    	command.execute();
-    }
-    ;;
-  }
+	final org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectContext
+			.getSelf(_self);
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+		@Override
+		public void execute() {
+			_privk3_construct(_self_, _self);
+		}
+	};
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
+			.getInstance().findStepManager(_self);
+	if (manager != null) {
+		manager.executeStep(_self, command, "ObjectTemplate", "construct");
+	} else {
+		command.execute();
+	}
+	;
+	;
+}
   
   public static EObject currentObject(final ObjectTemplate _self) {
-    final org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectContext.getSelf(_self);
-    Object result = null;
-    result = _privk3_currentObject(_self_, _self);;
-    return (org.eclipse.emf.ecore.EObject)result;
-  }
+	final org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectContext
+			.getSelf(_self);
+	Object result = null;
+	result = _privk3_currentObject(_self_, _self);
+	;
+	return (org.eclipse.emf.ecore.EObject) result;
+}
   
   public static void currentObject(final ObjectTemplate _self, final EObject currentObject) {
-    final org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectContext.getSelf(_self);
-    _privk3_currentObject(_self_, _self,currentObject);;
-  }
+	final org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectProperties _self_ = org.tetrabox.example.minitl.aspects.ObjectTemplateAspectObjectTemplateAspectContext
+			.getSelf(_self);
+	_privk3_currentObject(_self_, _self, currentObject);
+	;
+}
   
   protected static void _privk3_reset(final ObjectTemplateAspectObjectTemplateAspectProperties _self_, final ObjectTemplate _self) {
     ObjectTemplateAspect.currentObject(_self, null);
@@ -111,6 +123,8 @@ public class ObjectTemplateAspect {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
     					return (org.eclipse.emf.ecore.EObject) ret;
+    				} else {
+    					return null;
     				}
     		}
     	}
@@ -121,15 +135,20 @@ public class ObjectTemplateAspect {
   }
   
   protected static void _privk3_currentObject(final ObjectTemplateAspectObjectTemplateAspectProperties _self_, final ObjectTemplate _self, final EObject currentObject) {
-    _self_.currentObject = currentObject; try {
+    boolean setterCalled = false;
+    try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
     		if (m.getName().equals("setCurrentObject")
     				&& m.getParameterTypes().length == 1) {
     			m.invoke(_self, currentObject);
+    			setterCalled = true;
     		}
     	}
     } catch (Exception e) {
     	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.currentObject = currentObject;
     }
   }
 }

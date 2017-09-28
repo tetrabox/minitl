@@ -2,7 +2,9 @@
  */
 package minitlTrace.Steps;
 
-import fr.inria.diverse.trace.commons.model.trace.SmallStep;
+import minitlTrace.States.SpecificState;
+
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
 
 import org.tetrabox.example.minitl.minitl.Binding;
 
@@ -16,7 +18,7 @@ import org.tetrabox.example.minitl.minitl.Binding;
  * @model
  * @generated
  */
-public interface Minitl_Binding_Assign extends Minitl_ObjectTemplate_Construct_AbstractSubStep, SpecificStep, SmallStep {
+public interface Minitl_Binding_Assign extends Minitl_ObjectTemplate_Construct_AbstractSubStep, SpecificStep, SmallStep<SpecificState> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

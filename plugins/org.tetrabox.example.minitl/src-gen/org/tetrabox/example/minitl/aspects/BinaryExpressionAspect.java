@@ -14,15 +14,13 @@ import org.tetrabox.example.minitl.aspects.ValueAspect;
 public class BinaryExpressionAspect extends ValueAspect {
   @OverrideAspectMethod
   public static Object evaluate(final BinaryExpression _self) {
-    final org.tetrabox.example.minitl.aspects.BinaryExpressionAspectBinaryExpressionAspectProperties _self_ = org.tetrabox.example.minitl.aspects.BinaryExpressionAspectBinaryExpressionAspectContext.getSelf(_self);
-    Object result = null;
-     if (_self instanceof org.tetrabox.example.minitl.minitl.BinaryExpression){
-    					result = org.tetrabox.example.minitl.aspects.BinaryExpressionAspect._privk3_evaluate(_self_, (org.tetrabox.example.minitl.minitl.BinaryExpression)_self);
-    } else  if (_self instanceof org.tetrabox.example.minitl.minitl.Value){
-    					result = org.tetrabox.example.minitl.aspects.ValueAspect.evaluate((org.tetrabox.example.minitl.minitl.Value)_self);
-    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
-    return (java.lang.Object)result;
-  }
+	final org.tetrabox.example.minitl.aspects.BinaryExpressionAspectBinaryExpressionAspectProperties _self_ = org.tetrabox.example.minitl.aspects.BinaryExpressionAspectBinaryExpressionAspectContext
+			.getSelf(_self);
+	Object result = null;
+	result = _privk3_evaluate(_self_, _self);
+	;
+	return (java.lang.Object) result;
+}
   
   protected static Object _privk3_evaluate(final BinaryExpressionAspectBinaryExpressionAspectProperties _self_, final BinaryExpression _self) {
     EList<Value> _expressions = _self.getExpressions();
@@ -35,35 +33,17 @@ public class BinaryExpressionAspect extends ValueAspect {
     if (_operator != null) {
       switch (_operator) {
         case ADD:
-          boolean _or = false;
-          if ((leftComputedValue instanceof String)) {
-            _or = true;
-          } else {
-            _or = (rightComputedValue instanceof String);
-          }
-          if (_or) {
+          if (((leftComputedValue instanceof String) || (rightComputedValue instanceof String))) {
             String _string = leftComputedValue.toString();
             String _string_1 = rightComputedValue.toString();
             return (_string + _string_1);
           }
-          boolean _and = false;
-          if (!(leftComputedValue instanceof Integer)) {
-            _and = false;
-          } else {
-            _and = (rightComputedValue instanceof Integer);
-          }
-          if (_and) {
+          if (((leftComputedValue instanceof Integer) && (rightComputedValue instanceof Integer))) {
             return new Integer(((((Integer) leftComputedValue)).intValue() + (((Integer) rightComputedValue)).intValue()));
           }
           throw new RuntimeException("Incompatible types for addition operator.");
         case SUB:
-          boolean _and_1 = false;
-          if (!(leftComputedValue instanceof Integer)) {
-            _and_1 = false;
-          } else {
-            _and_1 = (rightComputedValue instanceof Integer);
-          }
-          if (_and_1) {
+          if (((leftComputedValue instanceof Integer) && (rightComputedValue instanceof Integer))) {
             return new Integer(((((Integer) leftComputedValue)).intValue() - (((Integer) rightComputedValue)).intValue()));
           }
           throw new RuntimeException("Incompatible types for addition operator.");

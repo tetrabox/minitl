@@ -2,6 +2,8 @@
  */
 package minitlTrace.States.minitl;
 
+import minitlTrace.States.StatesPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -65,13 +67,22 @@ public interface MinitlPackage extends EPackage {
 	int TRACED_NAMED_ELEMENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Dimensions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACED_NAMED_ELEMENT__DIMENSIONS = StatesPackage.SPECIFIC_TRACED_OBJECT__DIMENSIONS;
+
+	/**
 	 * The number of structural features of the '<em>Traced Named Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACED_NAMED_ELEMENT_FEATURE_COUNT = 0;
+	int TRACED_NAMED_ELEMENT_FEATURE_COUNT = StatesPackage.SPECIFIC_TRACED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link minitlTrace.States.minitl.impl.TracedObjectTemplateImpl <em>Traced Object Template</em>}' class.
@@ -84,13 +95,22 @@ public interface MinitlPackage extends EPackage {
 	int TRACED_OBJECT_TEMPLATE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Current Object Sequence</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Dimensions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACED_OBJECT_TEMPLATE__CURRENT_OBJECT_SEQUENCE = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int TRACED_OBJECT_TEMPLATE__DIMENSIONS = TRACED_NAMED_ELEMENT__DIMENSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Object Template current Object Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACED_OBJECT_TEMPLATE__OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Original Object</b></em>' reference.
@@ -121,6 +141,15 @@ public interface MinitlPackage extends EPackage {
 	int TRACED_RULE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Dimensions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACED_RULE__DIMENSIONS = TRACED_NAMED_ELEMENT__DIMENSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Original Object</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,22 +178,13 @@ public interface MinitlPackage extends EPackage {
 	int TRACED_TRANSFORMATION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Input Model Sequence</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Dimensions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACED_TRANSFORMATION__INPUT_MODEL_SEQUENCE = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Input Model URI Sequence</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACED_TRANSFORMATION__INPUT_MODEL_URI_SEQUENCE = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int TRACED_TRANSFORMATION__DIMENSIONS = TRACED_NAMED_ELEMENT__DIMENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Original Object</b></em>' reference.
@@ -173,25 +193,43 @@ public interface MinitlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRACED_TRANSFORMATION__ORIGINAL_OBJECT = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int TRACED_TRANSFORMATION__ORIGINAL_OBJECT = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Output File Path Sequence</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Transformation input Model URI Dimension</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACED_TRANSFORMATION__OUTPUT_FILE_PATH_SEQUENCE = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_URI_DIMENSION = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Output Model Sequence</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Transformation input Model Dimension</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACED_TRANSFORMATION__OUTPUT_MODEL_SEQUENCE = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_DIMENSION = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Transformation output File Path Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Transformation output Model Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_MODEL_DIMENSION = TRACED_NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Traced Transformation</em>' class.
@@ -224,15 +262,15 @@ public interface MinitlPackage extends EPackage {
 	EClass getTracedObjectTemplate();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link minitlTrace.States.minitl.TracedObjectTemplate#getCurrentObjectSequence <em>Current Object Sequence</em>}'.
+	 * Returns the meta object for the containment reference '{@link minitlTrace.States.minitl.TracedObjectTemplate#getObjectTemplate_currentObject_Dimension <em>Object Template current Object Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Current Object Sequence</em>'.
-	 * @see minitlTrace.States.minitl.TracedObjectTemplate#getCurrentObjectSequence()
+	 * @return the meta object for the containment reference '<em>Object Template current Object Dimension</em>'.
+	 * @see minitlTrace.States.minitl.TracedObjectTemplate#getObjectTemplate_currentObject_Dimension()
 	 * @see #getTracedObjectTemplate()
 	 * @generated
 	 */
-	EReference getTracedObjectTemplate_CurrentObjectSequence();
+	EReference getTracedObjectTemplate_ObjectTemplate_currentObject_Dimension();
 
 	/**
 	 * Returns the meta object for the reference '{@link minitlTrace.States.minitl.TracedObjectTemplate#getOriginalObject <em>Original Object</em>}'.
@@ -277,28 +315,6 @@ public interface MinitlPackage extends EPackage {
 	EClass getTracedTransformation();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link minitlTrace.States.minitl.TracedTransformation#getInputModelSequence <em>Input Model Sequence</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Input Model Sequence</em>'.
-	 * @see minitlTrace.States.minitl.TracedTransformation#getInputModelSequence()
-	 * @see #getTracedTransformation()
-	 * @generated
-	 */
-	EReference getTracedTransformation_InputModelSequence();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link minitlTrace.States.minitl.TracedTransformation#getInputModelURISequence <em>Input Model URI Sequence</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Input Model URI Sequence</em>'.
-	 * @see minitlTrace.States.minitl.TracedTransformation#getInputModelURISequence()
-	 * @see #getTracedTransformation()
-	 * @generated
-	 */
-	EReference getTracedTransformation_InputModelURISequence();
-
-	/**
 	 * Returns the meta object for the reference '{@link minitlTrace.States.minitl.TracedTransformation#getOriginalObject <em>Original Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -310,26 +326,48 @@ public interface MinitlPackage extends EPackage {
 	EReference getTracedTransformation_OriginalObject();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link minitlTrace.States.minitl.TracedTransformation#getOutputFilePathSequence <em>Output File Path Sequence</em>}'.
+	 * Returns the meta object for the containment reference '{@link minitlTrace.States.minitl.TracedTransformation#getTransformation_inputModelURI_Dimension <em>Transformation input Model URI Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Output File Path Sequence</em>'.
-	 * @see minitlTrace.States.minitl.TracedTransformation#getOutputFilePathSequence()
+	 * @return the meta object for the containment reference '<em>Transformation input Model URI Dimension</em>'.
+	 * @see minitlTrace.States.minitl.TracedTransformation#getTransformation_inputModelURI_Dimension()
 	 * @see #getTracedTransformation()
 	 * @generated
 	 */
-	EReference getTracedTransformation_OutputFilePathSequence();
+	EReference getTracedTransformation_Transformation_inputModelURI_Dimension();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link minitlTrace.States.minitl.TracedTransformation#getOutputModelSequence <em>Output Model Sequence</em>}'.
+	 * Returns the meta object for the containment reference '{@link minitlTrace.States.minitl.TracedTransformation#getTransformation_inputModel_Dimension <em>Transformation input Model Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Output Model Sequence</em>'.
-	 * @see minitlTrace.States.minitl.TracedTransformation#getOutputModelSequence()
+	 * @return the meta object for the containment reference '<em>Transformation input Model Dimension</em>'.
+	 * @see minitlTrace.States.minitl.TracedTransformation#getTransformation_inputModel_Dimension()
 	 * @see #getTracedTransformation()
 	 * @generated
 	 */
-	EReference getTracedTransformation_OutputModelSequence();
+	EReference getTracedTransformation_Transformation_inputModel_Dimension();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link minitlTrace.States.minitl.TracedTransformation#getTransformation_outputFilePath_Dimension <em>Transformation output File Path Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Transformation output File Path Dimension</em>'.
+	 * @see minitlTrace.States.minitl.TracedTransformation#getTransformation_outputFilePath_Dimension()
+	 * @see #getTracedTransformation()
+	 * @generated
+	 */
+	EReference getTracedTransformation_Transformation_outputFilePath_Dimension();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link minitlTrace.States.minitl.TracedTransformation#getTransformation_outputModel_Dimension <em>Transformation output Model Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Transformation output Model Dimension</em>'.
+	 * @see minitlTrace.States.minitl.TracedTransformation#getTransformation_outputModel_Dimension()
+	 * @see #getTracedTransformation()
+	 * @generated
+	 */
+	EReference getTracedTransformation_Transformation_outputModel_Dimension();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -374,12 +412,12 @@ public interface MinitlPackage extends EPackage {
 		EClass TRACED_OBJECT_TEMPLATE = eINSTANCE.getTracedObjectTemplate();
 
 		/**
-		 * The meta object literal for the '<em><b>Current Object Sequence</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Object Template current Object Dimension</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRACED_OBJECT_TEMPLATE__CURRENT_OBJECT_SEQUENCE = eINSTANCE.getTracedObjectTemplate_CurrentObjectSequence();
+		EReference TRACED_OBJECT_TEMPLATE__OBJECT_TEMPLATE_CURRENT_OBJECT_DIMENSION = eINSTANCE.getTracedObjectTemplate_ObjectTemplate_currentObject_Dimension();
 
 		/**
 		 * The meta object literal for the '<em><b>Original Object</b></em>' reference feature.
@@ -418,22 +456,6 @@ public interface MinitlPackage extends EPackage {
 		EClass TRACED_TRANSFORMATION = eINSTANCE.getTracedTransformation();
 
 		/**
-		 * The meta object literal for the '<em><b>Input Model Sequence</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRACED_TRANSFORMATION__INPUT_MODEL_SEQUENCE = eINSTANCE.getTracedTransformation_InputModelSequence();
-
-		/**
-		 * The meta object literal for the '<em><b>Input Model URI Sequence</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRACED_TRANSFORMATION__INPUT_MODEL_URI_SEQUENCE = eINSTANCE.getTracedTransformation_InputModelURISequence();
-
-		/**
 		 * The meta object literal for the '<em><b>Original Object</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -442,20 +464,36 @@ public interface MinitlPackage extends EPackage {
 		EReference TRACED_TRANSFORMATION__ORIGINAL_OBJECT = eINSTANCE.getTracedTransformation_OriginalObject();
 
 		/**
-		 * The meta object literal for the '<em><b>Output File Path Sequence</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Transformation input Model URI Dimension</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRACED_TRANSFORMATION__OUTPUT_FILE_PATH_SEQUENCE = eINSTANCE.getTracedTransformation_OutputFilePathSequence();
+		EReference TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_URI_DIMENSION = eINSTANCE.getTracedTransformation_Transformation_inputModelURI_Dimension();
 
 		/**
-		 * The meta object literal for the '<em><b>Output Model Sequence</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Transformation input Model Dimension</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRACED_TRANSFORMATION__OUTPUT_MODEL_SEQUENCE = eINSTANCE.getTracedTransformation_OutputModelSequence();
+		EReference TRACED_TRANSFORMATION__TRANSFORMATION_INPUT_MODEL_DIMENSION = eINSTANCE.getTracedTransformation_Transformation_inputModel_Dimension();
+
+		/**
+		 * The meta object literal for the '<em><b>Transformation output File Path Dimension</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_FILE_PATH_DIMENSION = eINSTANCE.getTracedTransformation_Transformation_outputFilePath_Dimension();
+
+		/**
+		 * The meta object literal for the '<em><b>Transformation output Model Dimension</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRACED_TRANSFORMATION__TRANSFORMATION_OUTPUT_MODEL_DIMENSION = eINSTANCE.getTracedTransformation_Transformation_outputModel_Dimension();
 
 	}
 
