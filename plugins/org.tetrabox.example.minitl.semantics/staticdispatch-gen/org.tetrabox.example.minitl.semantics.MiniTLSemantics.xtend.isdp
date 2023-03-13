@@ -1,0 +1,20 @@
+	// BeginInjectInto org.tetrabox.example.minitl.semantics.ValueAspect#Object evaluate() from org.tetrabox.example.minitl.semantics.FieldAccessValueAspect
+		if (_self instanceof org.tetrabox.example.minitl.FieldAccessValue){
+			result = org.tetrabox.example.minitl.semantics.FieldAccessValueAspect.evaluate((org.tetrabox.example.minitl.FieldAccessValue)_self);
+		} else
+		// EndInjectInto org.tetrabox.example.minitl.semantics.ValueAspect#Object evaluate() from org.tetrabox.example.minitl.semantics.FieldAccessValueAspect
+	// BeginInjectInto org.tetrabox.example.minitl.semantics.ValueAspect#Object evaluate() from org.tetrabox.example.minitl.semantics.ObjectTemplateValueAspect
+		if (_self instanceof org.tetrabox.example.minitl.ObjectTemplateValue){
+			result = org.tetrabox.example.minitl.semantics.ObjectTemplateValueAspect.evaluate((org.tetrabox.example.minitl.ObjectTemplateValue)_self);
+		} else
+		// EndInjectInto org.tetrabox.example.minitl.semantics.ValueAspect#Object evaluate() from org.tetrabox.example.minitl.semantics.ObjectTemplateValueAspect
+	// BeginInjectInto org.tetrabox.example.minitl.semantics.ValueAspect#Object evaluate() from org.tetrabox.example.minitl.semantics.BinaryExpressionAspect
+		if (_self instanceof org.tetrabox.example.minitl.BinaryExpression){
+			result = org.tetrabox.example.minitl.semantics.BinaryExpressionAspect.evaluate((org.tetrabox.example.minitl.BinaryExpression)_self);
+		} else
+		// EndInjectInto org.tetrabox.example.minitl.semantics.ValueAspect#Object evaluate() from org.tetrabox.example.minitl.semantics.BinaryExpressionAspect
+	// BeginInjectInto org.tetrabox.example.minitl.semantics.ValueAspect#Object evaluate() from org.tetrabox.example.minitl.semantics.StringValueAspect
+		if (_self instanceof org.tetrabox.example.minitl.StringValue){
+			result = org.tetrabox.example.minitl.semantics.StringValueAspect.evaluate((org.tetrabox.example.minitl.StringValue)_self);
+		} else
+		// EndInjectInto org.tetrabox.example.minitl.semantics.ValueAspect#Object evaluate() from org.tetrabox.example.minitl.semantics.StringValueAspect

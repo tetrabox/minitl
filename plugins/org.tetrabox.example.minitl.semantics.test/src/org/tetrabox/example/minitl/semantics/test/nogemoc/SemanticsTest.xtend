@@ -1,12 +1,16 @@
 package org.tetrabox.example.minitl.semantics.test.nogemoc
 
-import minitl.Transformation
+import com.google.inject.Injector
+import java.nio.file.Path
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.ResourceSet
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.xtext.resource.XtextResourceSet
 import org.junit.Test
+import org.tetrabox.example.MinitlStandaloneSetup
+import org.tetrabox.example.minitl.Transformation
 
 import static org.junit.Assert.assertEquals
+import static org.junit.Assert.assertNotNull
 
 import static extension org.tetrabox.example.minitl.semantics.TransformationAspect.*
 
@@ -14,22 +18,41 @@ class SemanticsTest {
 
 	@Test
 	def void test() {
+//		
+//		// Preparing paths
+//		val inputTransformationAbsolutePath = Path.of("./examples/simpleAtoB/simpleAtoB.minitl").toAbsolutePath().toString()
+//		val inputMetamodelAbsolutePath = Path.of("./examples/simpleAtoB/metamodelA.ecore").toAbsolutePath().toString()
+//		val outputMetamodelAbsolutePath = Path.of("./examples/simpleAtoB/metamodelB.ecore").toAbsolutePath().toString()
+//
+//		// Loading metamodels and transformation model
+//		val Injector injector = new MinitlStandaloneSetup().createInjectorAndDoEMFRegistration();	
+//		val XtextResourceSet rs = injector.getInstance(XtextResourceSet);
+//		rs.getResource(URI.createFileURI(inputMetamodelAbsolutePath), true)
+//		rs.getResource(URI.createFileURI(outputMetamodelAbsolutePath), true)
+//		val transfoResource = rs.getResource(URI.createFileURI(inputTransformationAbsolutePath), true)
 
-		// Loading transformation model
-		val URI inputTransformationURI = URI.createPlatformPluginURI(
-			"/org.tetrabox.example.minitl.model/examples/smalltransfo.xmi", true)
-		val ResourceSet rs = new ResourceSetImpl
-		val transfoResource = rs.getResource(inputTransformationURI, true)
+
+		// Loading metamodels and transformation model
+		val Injector injector = new MinitlStandaloneSetup().createInjectorAndDoEMFRegistration();	
+		val XtextResourceSet rs = injector.getInstance(XtextResourceSet);
+		rs.getResource(URI.createPlatformPluginURI("/org.tetrabox.example.minitl.examples/simpleAtoB/metamodelA.ecore", true), true);
+		rs.getResource(URI.createPlatformPluginURI("/org.tetrabox.example.minitl.examples/simpleAtoB/metamodelB.ecore", true), true);
+		val transfoResource = rs.getResource(URI.createPlatformPluginURI("/org.tetrabox.example.minitl.examples/simpleAtoB/simpleAtoB.minitl", true), true);
+
+
+		// Extract element from loaded model		
 		val Transformation transformation = transfoResource.contents.head as Transformation
+		assertNotNull(transformation.inputMetamodel.packages.get(0).name)
 
 		// Executing transformation on test input model
-		val String inputModelURIString = "platform:/plugin/org.tetrabox.example.minitl.model/examples/input_model.xmi"
+		val String inputModelURIString = URI.createPlatformPluginURI("/org.tetrabox.example.minitl.examples/simpleAtoB/input/modelA.xmi", true).toString
 		val String outputModelFilePath = "out/output_model.xmi"
 		transformation.initialize(#[inputModelURIString, outputModelFilePath])
 		transformation.execute
 
 		// Oracle on nb elements
-		val int nbOutput = transformation.outputModel.size
-		assertEquals(nbOutput, 4)
+		val outputModel = transformation.outputModel
+		val int nbOutput = outputModel.size
+		assertEquals(nbOutput, 2)
 	}
 }

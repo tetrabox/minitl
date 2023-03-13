@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.gemoc.execution.sequential.javaengine.ui.launcher">
+    <booleanAttribute key="Event Manager" value="false"/>
+    <intAttribute key="GEMOC_ANIMATE_DELAY" value="0"/>
+    <stringAttribute key="GEMOC_DEBUG_MODEL_ID" value="org.eclipse.gemoc.execution.sequential.javaengine.ui.debugModel"/>
+    <booleanAttribute key="GEMOC_LAUNCH_BREAK_START" value="true"/>
+    <stringAttribute key="GEMOC_LAUNCH_INITIALIZATION_ARGUMENTS" value="platform:/resource/org.tetrabox.example.minitl.examples/simpleAtoB/input/modelA.xmi&#10;/tmp/modelB.xmi"/>
+    <stringAttribute key="GEMOC_LAUNCH_INITIALIZATION_METHOD" value="org.tetrabox.example.minitl.semantics.TransformationAspect.initialize"/>
+    <stringAttribute key="GEMOC_LAUNCH_MELANGE_QUERY" value=""/>
+    <stringAttribute key="GEMOC_LAUNCH_SELECTED_LANGUAGE" value="org.tetrabox.example.Minitl"/>
+    <booleanAttribute key="Generic MultiDimensional Data Trace" value="false"/>
+    <booleanAttribute key="Generic MultiDimensional Trace" value="false"/>
+    <stringAttribute key="LAUNCH_METHOD_ENTRY_POINT" value="public static void org.tetrabox.example.minitl.semantics.TransformationAspect.execute(org.tetrabox.example.minitl.Transformation)"/>
+    <stringAttribute key="LAUNCH_MODEL_ENTRY_POINT" value="/"/>
+    <booleanAttribute key="Property Monitor" value="false"/>
+    <stringAttribute key="Resource" value="/org.tetrabox.example.minitl.examples/simpleAtoB/simpleAtoB.minitl"/>
+    <booleanAttribute key="XPacman Event Manager" value="false"/>
+    <booleanAttribute key="activitydiagram MultiDimensional Trace" value="false"/>
+    <stringAttribute key="airdResource" value=""/>
+    <booleanAttribute key="minitl MultiDimensional Trace" value="false"/>
+    <booleanAttribute key="org.eclipse.gemoc.executionframework.addon.eaop.server.addon" value="false"/>
+    <booleanAttribute key="org.eclipse.gemoc.trace.gemoc.addon_equivClassComputing_booleanOption" value="false"/>
+    <booleanAttribute key="org.eclipse.gemoc.trace.gemoc.addon_saveTraceOnEngineStop_booleanOption" value="true"/>
+    <booleanAttribute key="org.eclipse.gemoc.trace.gemoc.addon_saveTraceOnStep_booleanOption" value="false"/>
+</launchConfiguration>
