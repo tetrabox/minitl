@@ -18,19 +18,6 @@ class SemanticsTest {
 
 	@Test
 	def void test() {
-//		
-//		// Preparing paths
-//		val inputTransformationAbsolutePath = Path.of("./examples/simpleAtoB/simpleAtoB.minitl").toAbsolutePath().toString()
-//		val inputMetamodelAbsolutePath = Path.of("./examples/simpleAtoB/metamodelA.ecore").toAbsolutePath().toString()
-//		val outputMetamodelAbsolutePath = Path.of("./examples/simpleAtoB/metamodelB.ecore").toAbsolutePath().toString()
-//
-//		// Loading metamodels and transformation model
-//		val Injector injector = new MinitlStandaloneSetup().createInjectorAndDoEMFRegistration();	
-//		val XtextResourceSet rs = injector.getInstance(XtextResourceSet);
-//		rs.getResource(URI.createFileURI(inputMetamodelAbsolutePath), true)
-//		rs.getResource(URI.createFileURI(outputMetamodelAbsolutePath), true)
-//		val transfoResource = rs.getResource(URI.createFileURI(inputTransformationAbsolutePath), true)
-
 
 		// Loading metamodels and transformation model
 		val Injector injector = new MinitlStandaloneSetup().createInjectorAndDoEMFRegistration();	
